@@ -8,8 +8,11 @@ private String address;
 private int SIN;
 
 //create constructor
-public HospitalMember() {
-	
+public HospitalMember(String fName, String lName, String address, int SIN) {
+	this.fName = fName;
+	this.lName = lName;
+	this.address = address;
+	this.SIN = SIN;
 }
 
 //create gets

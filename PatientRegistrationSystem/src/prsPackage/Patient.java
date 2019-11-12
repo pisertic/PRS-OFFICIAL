@@ -6,7 +6,8 @@ public class Patient extends HospitalMember {
 	private Records records;
 	
 	//create constructor
-	public Patient(HealthCard h, Records r) {
+	public Patient(HealthCard h, Records r, String fName, String lName, String address, int SIN) {
+		super(fName, lName, address, SIN);
 		healthCard = h;
 		records =r;
 	}

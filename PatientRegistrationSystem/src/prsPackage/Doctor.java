@@ -1,6 +1,6 @@
 package prsPackage;
 
-public class Doctor {
+public class Doctor extends Staff{
 //create attributes
 	private String specialty;
 	private String rank;
@@ -9,8 +9,14 @@ public class Doctor {
 	private Refferal refferal;
 	
 	//create constructor 
-	public Doctor() {
-		// TODO Auto-generated constructor stub
+	public Doctor(String specialty, String rank, float workingHours, DoctorSchedule doctorSchedule, Refferal refferal,  //Doctor attributes
+			      String d, int num, int pass, String fName, String lName, String address, int SIN) {					//Staff attributes
+		super(d, num, pass, fName, lName, address, SIN);
+		this.specialty = specialty;
+		this.rank = rank;
+		this.workingHours = workingHours;
+		this.doctorSchedule = doctorSchedule;
+		this.refferal = refferal;
 	}
 
 	

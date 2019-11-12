@@ -1,13 +1,14 @@
 package prsPackage;
 
-public class Staff {
+public class Staff extends HospitalMember{
 //create attributes
 	private String department;
 	private int empNum;
 	private int passLvl;
 	
 	//create constructor
-	public Staff(String d, int num, int pass) {
+	public Staff(String d, int num, int pass, String fName, String lName, String address, int SIN) {
+		super(fName, lName, address, SIN);
 		department = d;
 		empNum = num;
 		passLvl = pass;
