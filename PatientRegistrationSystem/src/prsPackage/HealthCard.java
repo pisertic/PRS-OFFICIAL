@@ -9,8 +9,10 @@ public class HealthCard {
 	private String province;
 	
 	//create constructor
-	public HealthCard() {
-		// TODO Auto-generated constructor stub
+	public HealthCard(int cardNumber, Date expDate, String province) {
+		this.cardNumber = cardNumber;
+		this.expDate= expDate;
+		this.province = province;
 	}
 
 	//gets/sets

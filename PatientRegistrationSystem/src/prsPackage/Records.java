@@ -8,8 +8,9 @@ public class Records {
 	private String notes;
 	
 	//create constructor
-	public Records() {
-		// TODO Auto-generated constructor stub
+	public Records(Date date, String notes) {
+		this.date = date;
+		this.notes = notes;
 	}
 
 	//gets/sets

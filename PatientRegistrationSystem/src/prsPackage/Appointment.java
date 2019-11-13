@@ -11,8 +11,12 @@ public class Appointment {
 	private Doctor doctor;
 	
 	//create constructor
-	public Appointment(){
-		
+	public Appointment(Date date, Date time, String reason, Patient patient, Doctor doctor){
+		this.date = date;
+		this.time = time;
+		this.reason = reason;
+		this.patient = patient;
+		this.doctor = doctor;
 	}
 	
 	//create gets/sets

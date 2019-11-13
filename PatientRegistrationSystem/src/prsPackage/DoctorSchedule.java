@@ -5,12 +5,14 @@ import java.util.Date;
 public class DoctorSchedule {
 //create attributes
 	private Date date;
-	private Date time;
-	private Date duration;
+	private Date time; 
+	private Date duration; 
 	
 	//create constructor
-	public DoctorSchedule() {
-		// TODO Auto-generated constructor stub
+	public DoctorSchedule(Date date, Date time, Date duration) {
+		this.date = date;
+		this.time = time;
+		this.duration = duration;
 	}
 
 	//gets/sets
