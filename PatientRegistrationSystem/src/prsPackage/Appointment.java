@@ -50,10 +50,5 @@ public class Appointment {
 	public void setDoctor(Doctor doctor) {
 		this.doctor = doctor;
 	}
-<<<<<<< HEAD
-	//testing commit changes for chac
-	
-=======
-	hi dAD
->>>>>>> branch 'master' of https://github.com/pisertic/PRS-OFFICIAL.git
+
 }
