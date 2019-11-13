@@ -50,6 +50,6 @@ public class Appointment {
 	public void setDoctor(Doctor doctor) {
 		this.doctor = doctor;
 	}
-	//testing commit changes for chack
+	//testing commit changes for chac
 	
 }
