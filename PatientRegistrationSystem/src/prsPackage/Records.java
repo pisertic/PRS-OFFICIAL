@@ -5,7 +5,7 @@ import java.util.Date;
 public class Records {
 //create attributes
 	private Date date;
-	private String notes;
+	private String notes;    
 	
 	//create constructor
 	public Records(Date date, String notes) {
