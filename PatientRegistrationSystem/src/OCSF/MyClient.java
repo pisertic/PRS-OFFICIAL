@@ -1,4 +1,4 @@
-package ocsf_example;
+package OCSF;
 
 import java.io.IOException;
 
