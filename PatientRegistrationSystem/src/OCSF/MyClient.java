@@ -2,23 +2,27 @@ package OCSF;
 
 import java.io.IOException;
 
-
 import prsPackage.HospitalMember;
 
 public class MyClient extends AbstractClient{
 
 	public MyClient(String host, int port)
 	  { 
-	    super(host, port); 
-	}
-
+		super(host, port);
+	  }
+	
 	@Override
 	protected void handleMessageFromServer(Object msg) {
 		System.out.println("MyClient's handleMessageFromServer() triggered");
 		System.out.println(String.format("MyClient's handleMessageFromServer() : %s", msg));
 	}
+	
+	protected static Object clientRequest(String keyword, int methodIdentifier)	{
+		Objectinator object1 = new Objectinator(keyword,methodIdentifier);
+		return object1;
+	}
 
-	public static void main(String[] args) throws IOException   {
+	public static void main(String[] args) throws IOException , InterruptedException	{
 		MyClient Client1 = new MyClient("localhost", 8989);
 		try {
 			Client1.openConnection();
@@ -29,15 +33,14 @@ public class MyClient extends AbstractClient{
 		}
  
 	    try { 
-	    	HospitalMember h = new HospitalMember("john", "doe", "Lakehead", 69);
+	  
 	    	System.out.println(String.format("Attempting to send message to server from %s %s %s", Client1.getHost(), Client1.getInetAddress(), Client1.getPort() ) );
-			Client1.sendToServer(h); 
+	    	Client1.sendToServer(clientRequest("Real Test",1));
+
 			System.out.println("Client sent message to server");
 		} catch (IOException e) { 
 			System.out.println("MyClient ERROR: sending to server did not work...");
 			e.printStackTrace();
-		}
-	    
-	    
-	} 
+		}	    
+	}
 }
