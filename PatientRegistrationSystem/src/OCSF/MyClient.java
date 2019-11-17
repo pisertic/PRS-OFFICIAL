@@ -2,6 +2,9 @@ package OCSF;
 
 import java.io.IOException;
 
+
+import prsPackage.HospitalMember;
+
 public class MyClient extends AbstractClient{
 
 	public MyClient(String host, int port)
@@ -26,8 +29,9 @@ public class MyClient extends AbstractClient{
 		}
  
 	    try { 
+	    	HospitalMember h = new HospitalMember("john", "doe", "Lakehead", 69);
 	    	System.out.println(String.format("Attempting to send message to server from %s %s %s", Client1.getHost(), Client1.getInetAddress(), Client1.getPort() ) );
-			Client1.sendToServer("HELLO WORLD!"); 
+			Client1.sendToServer(h); 
 			System.out.println("Client sent message to server");
 		} catch (IOException e) { 
 			System.out.println("MyClient ERROR: sending to server did not work...");

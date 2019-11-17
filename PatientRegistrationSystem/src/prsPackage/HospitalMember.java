@@ -1,7 +1,13 @@
 package prsPackage;
 
-public class HospitalMember {
-	//create attributes
+//to write objects into file
+import java.io.Serializable;
+
+public class HospitalMember implements Serializable {
+	//create serializable id
+	private static final long serialVersionUID = 1L;
+	
+//create attributes
 private String fName;
 private String lName;
 private String address;
