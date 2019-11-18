@@ -11,12 +11,49 @@ public class useCases{
 	//get up to date list of all doctors
 	ArrayList <Doctor> docList = new ArrayList<Doctor>();
 	docList = (ArrayList<Doctor>)Converter.readData(Converter.docData);
-	while(int counter = 0; counter < docList.size(); counter++) {
+	
+	
+	}
+	
+	public void reqDocApp() {
 		
 	}
 	
-	
-	
-	
+	public void scheduleDocTime() {
+		
 	}
+	
+	//patient diagnoses and Prescriptions
+	public void enterRecords() {
+		
+	}
+	
+	public void browseRecords() {
+		
+	}
+	
+	public void addMember() {
+		
+	}
+	
+	public void removeMember() {
+		
+	}
+	
+	public void modifyApp() {
+		
+	}
+	
+	public void cancleApp() {
+		
+	}
+	
+	public void viewRef() {
+		
+	}
+	
+	public void createRef() {
+		
+	}
+	
 }
