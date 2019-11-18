@@ -34,7 +34,7 @@ public class MyClient extends AbstractClient{
  
 	    try { 
 	  //on close
-	    	on { 
+	    
 	    	System.out.println(String.format("Attempting to send message to server from %s %s %s", Client1.getHost(), Client1.getInetAddress(), Client1.getPort() ) );
 	    	Client1.sendToServer(clientRequest("Real Test",1));
 
