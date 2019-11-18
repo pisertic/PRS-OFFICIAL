@@ -64,7 +64,7 @@ public class Converter {
 	}
 	   return data;
 	}
-	
+	/*
 	public static void main(String[] args) {
 		ArrayList<Patient> hpData = new ArrayList<Patient>();
 		Date date = new Date();
@@ -80,7 +80,7 @@ public class Converter {
 		hpData.add(h);
 		hpData.add(i);
 		hpData.add(j);
-		hpData.add(k);*/
+		hpData.add(k);
 		try {
 			writeData(hpData, hmData);
 			System.out.print("WORKING");
@@ -96,6 +96,7 @@ public class Converter {
 		System.out.print(data.get(0).getHealthCard().getProvince() + "\n");
 		
 	
-	}
+	}*/
+
 
 }
