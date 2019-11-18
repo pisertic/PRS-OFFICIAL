@@ -7,7 +7,9 @@ public class StartUp {
 		
 		//startup server
 		// call client 
-		//call GUI
+		//call login GUI
+		//make new instance of 
+		
 
 	}
 
