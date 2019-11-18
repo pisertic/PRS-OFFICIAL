@@ -10,29 +10,30 @@ import java.util.ArrayList;
 import java.util.Date;
 
 
-public class Tester {
+public class Converter {
 
 	//create database file titles
 	public static String hmData = "hmData.txt";
 	public static String staffData = "staffData.txt";
 	public static String patientData = "patientData.txt";
+	public static String docData = "docData.txt";
 	public static String refData = "refData.txt";
 	public static String aptData = "aptData.txt";
-	public static String docData = "docData.txt";
 	
-	public static void serializeDataOut(Object ish)throws IOException{
-	    String fileName= "Test.txt";
-	    FileOutputStream fos = new FileOutputStream(fileName);
+	//write object data to file 
+	public static void writeData(Object data, String file)throws IOException{
+	    FileOutputStream fos = new FileOutputStream(file);
 	    ObjectOutputStream oos = new ObjectOutputStream(fos);
-	    oos.writeObject(ish);
+	    oos.writeObject(data);
 	    oos.close();
 	    fos.close();
 	}
 
-	public static Object serializeDataIn(String fileName){
+	//read object data from file
+	public static Object readData(String file){
 	   FileInputStream fin = null;
 	try {
-		fin = new FileInputStream(fileName);
+		fin = new FileInputStream(file);
 	} catch (FileNotFoundException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -44,9 +45,9 @@ public class Tester {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	   Object iHandler = null;
+	   Object data = null;
 	try {
-		iHandler = (ArrayList) ois.readObject();
+		data = (ArrayList) ois.readObject();
 	} catch (ClassNotFoundException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -61,7 +62,7 @@ public class Tester {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	   return iHandler;
+	   return data;
 	}
 	
 	public static void main(String[] args) {
@@ -81,7 +82,7 @@ public class Tester {
 		hpData.add(j);
 		hpData.add(k);*/
 		try {
-			serializeDataOut(hpData);
+			writeData(hpData, hmData);
 			System.out.print("WORKING");
 
 		} catch (IOException e) {
@@ -90,7 +91,7 @@ public class Tester {
 		}
 		System.out.print("DONE");
 		
-		ArrayList<Patient> data = (ArrayList) serializeDataIn("Test.txt");
+		ArrayList<Patient> data = (ArrayList) readData("Test.txt");
 		
 		System.out.print(data.get(0).getHealthCard().getProvince() + "\n");
 		
