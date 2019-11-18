@@ -12,6 +12,7 @@ private String fName;
 private String lName;
 private String address;
 private int SIN;
+private int methodID;
 
 //create constructor
 public HospitalMember(String fName, String lName, String address, int SIN) {
@@ -19,6 +20,7 @@ public HospitalMember(String fName, String lName, String address, int SIN) {
 	this.lName = lName;
 	this.address = address;
 	this.SIN = SIN;
+	methodID = 6;
 }
 
 //create gets
@@ -53,6 +55,10 @@ public void setAddress(String address) {
 
 public void setSIN(int SIN) {
 	this.SIN = SIN;
+}
+
+public int getMethodID() {
+	return methodID;
 }
 
 }

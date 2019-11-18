@@ -1,10 +1,9 @@
 package prsPackage;
 
+
 import java.util.ArrayList;
 
-public class useCases {
-
-
+public class useCases{
 	
 
 	@SuppressWarnings("unchecked")

@@ -7,10 +7,12 @@ public class Refferal implements Serializable{
 	private String refDoc;
 	private String refStaff;
 	private String refPatient;
-	
+	private int methodID;
+		
 	//create constructor
 	public Refferal() {
 		// TODO Auto-generated constructor stub
+		methodID = 9;
 	}
 
 	//gets/sets
@@ -36,6 +38,10 @@ public class Refferal implements Serializable{
 
 	public void setRefPatient(String refPatient) {
 		this.refPatient = refPatient;
+	}
+	
+	public int getMethodID() {
+		return methodID;
 	}
 
 	

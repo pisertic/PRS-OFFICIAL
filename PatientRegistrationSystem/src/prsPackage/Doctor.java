@@ -7,6 +7,7 @@ public class Doctor extends Staff{
 	private float workingHours;
 	private DoctorSchedule doctorSchedule;
 	private Refferal refferal;
+	private int methodID;
 	
 	//create constructor 
 	public Doctor(String specialty, String rank, float workingHours, DoctorSchedule doctorSchedule, Refferal refferal,  //Doctor attributes
@@ -17,6 +18,7 @@ public class Doctor extends Staff{
 		this.workingHours = workingHours;
 		this.doctorSchedule = doctorSchedule;
 		this.refferal = refferal;
+		methodID = 3;
 	}
 
 	
@@ -59,6 +61,10 @@ public class Doctor extends Staff{
 
 	public void setRefferal(Refferal refferal) {
 		this.refferal = refferal;
+	}
+	
+	public int getMethodID() {
+		return methodID;
 	}
 
 	

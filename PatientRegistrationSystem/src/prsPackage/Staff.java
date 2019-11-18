@@ -5,6 +5,7 @@ public class Staff extends HospitalMember{
 	private String department;
 	private int empNum;
 	private int passLvl;
+	private int methodID;
 	
 	//create constructor
 	public Staff(String d, int num, int pass, String fName, String lName, String address, int SIN) {
@@ -12,6 +13,7 @@ public class Staff extends HospitalMember{
 		department = d;
 		empNum = num;
 		passLvl = pass;
+		methodID = 10;
 	}
 
 	//create gets/sets
@@ -37,6 +39,10 @@ public class Staff extends HospitalMember{
 
 	public void setPassLvl(int passLvl) {
 		this.passLvl = passLvl;
+	}
+	
+	public int getMethodID() {
+		return methodID;
 	}
 	
 	
