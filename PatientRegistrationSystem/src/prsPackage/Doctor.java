@@ -18,11 +18,10 @@ public class Doctor extends Staff{
 		this.specialty = specialty;
 		this.rank = rank;
 		this.workingHours = workingHours;
-		this.doctorSchedule.add(doctorSchedule);
+		this.doctorSchedule = null;
 		this.refferal = refferal;
 		methodID = 3;
 	}
-
 	
 	//gets/sets
 	public String getSpecialty() {
@@ -49,12 +48,12 @@ public class Doctor extends Staff{
 		this.workingHours = workingHours;
 	}
 
-	public DoctorSchedule getDoctorSchedule() {
+	public ArrayList<DoctorSchedule> getDoctorSchedule() {
 		return doctorSchedule;
 	}
 
 	public void setDoctorSchedule(DoctorSchedule doctorSchedule) {
-		this.doctorSchedule = doctorSchedule;
+		this.doctorSchedule.add(doctorSchedule);
 	}
 
 	public Refferal getRefferal() {
