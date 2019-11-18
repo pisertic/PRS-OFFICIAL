@@ -8,12 +8,14 @@ public class HealthCard implements Serializable {
 	private int cardNumber;
 	private Date expDate;
 	private String province;
+	private int methodID;
 	
 	//create constructor
 	public HealthCard(int cardNumber, Date expDate, String province) {
 		this.cardNumber = cardNumber;
 		this.expDate= expDate;
 		this.province = province;
+		methodID = 5;
 	}
 
 	//gets/sets
@@ -39,6 +41,10 @@ public class HealthCard implements Serializable {
 
 	public void setProvince(String province) {
 		this.province = province;
+	}
+	
+	public int getMethodID() {
+		return methodID;
 	}
 
 	

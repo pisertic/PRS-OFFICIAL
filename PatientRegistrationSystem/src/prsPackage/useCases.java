@@ -1,5 +1,10 @@
 package prsPackage;
 
-public class useCases {
+import java.io.Serializable;
+
+public class useCases implements Serializable	{
+	
+	
+	
 
 }

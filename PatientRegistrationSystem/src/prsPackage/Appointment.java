@@ -10,6 +10,7 @@ public class Appointment implements Serializable {
 	private String reason;
 	private Patient patient;
 	private Doctor doctor;
+	private int methodID;
 	
 	//create constructor
 	public Appointment(Date date, Date time, String reason, Patient patient, Doctor doctor){
@@ -18,6 +19,7 @@ public class Appointment implements Serializable {
 		this.reason = reason;
 		this.patient = patient;
 		this.doctor = doctor;
+		methodID = 1;
 	}
 	
 	//create gets/sets
@@ -50,6 +52,9 @@ public class Appointment implements Serializable {
 	}
 	public void setDoctor(Doctor doctor) {
 		this.doctor = doctor;
+	}
+	public int getMethodID() {
+		return methodID;
 	}
 
 }
