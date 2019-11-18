@@ -1,8 +1,9 @@
 package prsPackage;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Records {
+public class Records implements Serializable {
 //create attributes
 	private Date date;
 	private String notes;    

@@ -1,8 +1,9 @@
 package prsPackage;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class HealthCard {
+public class HealthCard implements Serializable {
 //create attributes
 	private int cardNumber;
 	private Date expDate;

@@ -18,9 +18,7 @@ public class MyServer extends AbstractServer {
 			System.out.println("MyServer: Trying to send it back as an echo");  
 			client.sendToClient(String.format("You are client %s, I am thread %s. Your original message was: %s", 
 					client.getInetAddress(), client.getId(), msg ));
-			//FileHandling fh = new FileHandling();
-			//fh.CreateFile("Test");
-			//fh.WriteToFile("Testing", msg);
+		
 			
 			System.out.println("MyServer: Done.");
 		} catch (IOException e) {
@@ -47,3 +45,6 @@ public class MyServer extends AbstractServer {
 		
 	} 
 }
+//FileHandling fh = new FileHandling();
+//fh.CreateFile("Test");
+//fh.WriteToFile("Testing", msg);

@@ -1,6 +1,8 @@
 package prsPackage;
 
-public class Refferal {
+import java.io.Serializable;
+
+public class Refferal implements Serializable{
 //create attributes
 	private String refDoc;
 	private String refStaff;

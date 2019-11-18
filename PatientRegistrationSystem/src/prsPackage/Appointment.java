@@ -1,8 +1,9 @@
 package prsPackage;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Appointment {
+public class Appointment implements Serializable {
 //create attributes
 	private Date date;
 	private Date time;
