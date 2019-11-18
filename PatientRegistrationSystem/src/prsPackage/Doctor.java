@@ -1,11 +1,13 @@
 package prsPackage;
 
+import java.util.ArrayList;
+
 public class Doctor extends Staff{
 //create attributes
 	private String specialty;
 	private String rank;
 	private float workingHours;
-	private DoctorSchedule doctorSchedule;
+	private ArrayList<DoctorSchedule> doctorSchedule;
 	private Refferal refferal;
 	private int methodID;
 	
@@ -16,7 +18,7 @@ public class Doctor extends Staff{
 		this.specialty = specialty;
 		this.rank = rank;
 		this.workingHours = workingHours;
-		this.doctorSchedule = doctorSchedule;
+		this.doctorSchedule.add(doctorSchedule);
 		this.refferal = refferal;
 		methodID = 3;
 	}
