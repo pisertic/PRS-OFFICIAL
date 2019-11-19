@@ -65,6 +65,20 @@ public class Converter {
 	}
 	   return data;
 	}
+	
+	public static void main(String[] args) {
+		SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+		Date date = new Date(System.currentTimeMillis());
+		System.out.println(formatter.format(date));
+		DoctorSchedule docsched = new DoctorSchedule(date,date,date);
+		Refferal referral = new Refferal("Dr.Bond", "John", "Snow", "Chacko", "Panicker");
+		Doctor doc = new Doctor("Heart Surgeon", "Rank#1", 24.5, docsched, referral, "Heart Department",
+				1,101,"Bond","James","Lakehead University",123456);
+		System.out.println("Attempting to save...");
+		writeData(doc, "docData.txt");
+		System.out.println("Success!");
+	}
+	
 	/*
 	public static void main(String[] args) {
 		ArrayList<Patient> hpData = new ArrayList<Patient>();
