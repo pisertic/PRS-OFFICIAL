@@ -19,6 +19,7 @@ public class Converter {
 	public static String docData = "docData.txt";
 	public static String refData = "refData.txt";
 	public static String aptData = "aptData.txt";
+	public static String userBase = "userBase.txt";
 	
 	//write object data to file 
 	public static void writeData(Object data, String file)throws IOException{
