@@ -17,7 +17,7 @@ public class MyClient extends AbstractClient{
 		System.out.println(String.format("MyClient's handleMessageFromServer() : %s", msg));
 	}
 	
-	protected static Object clientRequest(String keyword, int methodIdentifier)	{
+	public static Object clientRequest(String keyword, int methodIdentifier)	{
 		Objectinator object1 = new Objectinator(keyword,methodIdentifier);
 		return object1;
 	}

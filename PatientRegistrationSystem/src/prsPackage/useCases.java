@@ -4,7 +4,9 @@ package prsPackage;
 import java.util.ArrayList;
 
 import javax.swing.JTextArea;
-import OCSF;
+
+import OCSF.MyClient;
+
 public class useCases{
 	
 	//PETER
@@ -92,7 +94,7 @@ public class useCases{
 	public void createRef(Staff s, String refDoc, Patient p) {
 		Referral r = new Referral(refDoc, s.getFName(), s.getLName(), p.getFName(), p.getLName());
 		//send referral to server
-		MyClient.
+	MyClient.clientRequest(keyword, methodIdentifier)
 	}
 	
 }
