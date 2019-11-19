@@ -3,6 +3,8 @@ package prsPackage;
 
 import java.util.ArrayList;
 
+import javax.swing.JTextArea;
+
 public class useCases{
 	
 	//PETER
@@ -54,8 +56,34 @@ public class useCases{
 	}
 	
 	//PETER
-	public void viewRef() {
+	public void viewRef(Patient p) {
+		//pull referral data from server
+		ArrayList<Referral> tempList = new ArrayList<Referral>();
+		tempList = (ArrayList) Converter.readData(Converter.refData);
 		
+		//find referrals matching patient name
+		for(int i = 0; i < tempList.size() ; i++) {
+			if(tempList.get(i).getPatientNameF() != p.getFName() && tempList.get(i).getPatientNameL() != p.getLName())
+				tempList.remove(i);
+		}
+		
+		//print data
+		for(int i = 0; i < tempList.size(); i++) {
+		JTextArea j = new JTextArea(); //TEMP UNTIL GUI FINISHED
+		j.setText(tempList.get(i).toString());
+		}
+	}
+	
+	public void viewRef(Staff s String keyWord) {
+		//pull referral data from server
+		ArrayList<Referral> tempList = new ArrayList<Referral>();
+		tempList = (ArrayList) Converter.readData(Converter.refData);
+			
+		//print all of the referrals
+		for(int i = 0; i < tempList.size(); i++) {
+		JTextArea j = new JTextArea(); //TEMP UNTIL GUI FINISHED
+		j.setText(tempList.get(i).toString());
+		}
 	}
 	
 	//PETER

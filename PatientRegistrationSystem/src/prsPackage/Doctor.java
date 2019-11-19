@@ -8,18 +8,18 @@ public class Doctor extends Staff{
 	private String rank;
 	private float workingHours;
 	private ArrayList<DoctorSchedule> doctorSchedule;
-	private Refferal refferal;
+	private Referral referral;
 	private int methodID;
 	
 	//create constructor 
-	public Doctor(String specialty, String rank, float workingHours, DoctorSchedule doctorSchedule, Refferal refferal,  //Doctor attributes
+	public Doctor(String specialty, String rank, float workingHours, DoctorSchedule doctorSchedule, Referral referral,  //Doctor attributes
 			      String d, int num, int pass, String fName, String lName, String address, int SIN) {					//Staff attributes
 		super(d, num, pass, fName, lName, address, SIN);
 		this.specialty = specialty;
 		this.rank = rank;
 		this.workingHours = workingHours;
 		this.doctorSchedule = null;
-		this.refferal = refferal;
+		this.referral = referral;
 		methodID = 3;
 	}
 	
@@ -56,12 +56,12 @@ public class Doctor extends Staff{
 		this.doctorSchedule.add(doctorSchedule);
 	}
 
-	public Refferal getRefferal() {
-		return refferal;
+	public Referral getRefferal() {
+		return referral;
 	}
 
-	public void setRefferal(Refferal refferal) {
-		this.refferal = refferal;
+	public void setRefferal(Referral referral) {
+		this.referral = referral;
 	}
 	
 	public int getMethodID() {
