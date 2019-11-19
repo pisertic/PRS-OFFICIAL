@@ -77,7 +77,7 @@ public class useCases{
 	}
 	
 	//overload method base on user type
-	public void viewRef(Staff s String keyWord) {
+	public void viewRef(Staff s, String keyWord) {
 		//pull referral data from server
 		ArrayList<Referral> tempList = new ArrayList<Referral>();
 		tempList = (ArrayList) Converter.readData(Converter.refData);
