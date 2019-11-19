@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -71,11 +72,16 @@ public class Converter {
 		Date date = new Date(System.currentTimeMillis());
 		System.out.println(formatter.format(date));
 		DoctorSchedule docsched = new DoctorSchedule(date,date,date);
-		Refferal referral = new Refferal("Dr.Bond", "John", "Snow", "Chacko", "Panicker");
-		Doctor doc = new Doctor("Heart Surgeon", "Rank#1", 24.5, docsched, referral, "Heart Department",
+		Referral referral = new Referral("Dr.Bond", "John", "Snow", "Chacko", "Panicker");
+		Doctor doc = new Doctor("Heart Surgeon", "Rank#1", 24.5f, docsched, referral, "Heart Department",
 				1,101,"Bond","James","Lakehead University",123456);
 		System.out.println("Attempting to save...");
-		writeData(doc, "docData.txt");
+		try {
+			writeData(doc, "docData.txt");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		System.out.println("Success!");
 	}
 	
