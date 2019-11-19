@@ -4,7 +4,7 @@ package prsPackage;
 import java.util.ArrayList;
 
 import javax.swing.JTextArea;
-
+import OCSF;
 public class useCases{
 	
 	//PETER
@@ -74,6 +74,7 @@ public class useCases{
 		}
 	}
 	
+	//overload method base on user type
 	public void viewRef(Staff s String keyWord) {
 		//pull referral data from server
 		ArrayList<Referral> tempList = new ArrayList<Referral>();
@@ -87,8 +88,11 @@ public class useCases{
 	}
 	
 	//PETER
-	public void createRef() {
-		
+	//must check that patient exists in iHandler before sending to method
+	public void createRef(Staff s, String refDoc, Patient p) {
+		Referral r = new Referral(refDoc, s.getFName(), s.getLName(), p.getFName(), p.getLName());
+		//send referral to server
+		MyClient.
 	}
 	
 }

@@ -9,12 +9,15 @@ public class Referral implements Serializable{
 	private String refNameL;
 	private String patientNameF;
 	private String patientNameL;
-	private int methodID;
+
 		
 	//create constructor
-	public Referral() {
-		// TODO Auto-generated constructor stub
-		methodID = 9;
+	public Referral(String rD, String rNameF, String rNameL, String pNameF, String pNameL) {
+		refDoc = rD;
+		refNameF = rNameF;
+		refNameL = rNameL;
+		patientNameF = pNameF;
+		patientNameL = pNameL;
 	}
 
 	//gets/sets
@@ -64,9 +67,5 @@ public class Referral implements Serializable{
 					+ " " + refNameL + "\nPatient: " + patientNameF + " " + patientNameL;
 		return msg;
 	}
-	public int getMethodID() {
-		return methodID;
-	}
 
-	
 }
