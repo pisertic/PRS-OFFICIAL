@@ -13,15 +13,17 @@ private String lName;
 private String address;
 private int SIN;
 private Login login;
-private int methodID;
+private int classID;
 
 //create constructor
-public HospitalMember(String fName, String lName, String address, int SIN, String userName, String password) {
+public HospitalMember(String fName, String lName, String address, int SIN, String userName, 
+		String password) {
 	this.fName = fName;
 	this.lName = lName;
 	this.address = address;
 	this.SIN = SIN;
-	methodID = 2;
+	classID = 2;
+	login = new Login(userName, password, classID);
 }
 
 //create gets
@@ -58,8 +60,8 @@ public void setSIN(int SIN) {
 	this.SIN = SIN;
 }
 
-public int getMethodID() {
-	return methodID;
+public int getClassID() {
+	return classID;
 }
 
 }
