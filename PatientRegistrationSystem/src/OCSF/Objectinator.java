@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Objectinator implements Serializable{
 	private ArrayList<Object> dataList;
 	private Object dataInstance;
-	private int methodIdentifier;
+	private boolean write;
 	private int typeIdentifier;
 	
 	public Objectinator(ArrayList dataList , int methodIdentifier) {
@@ -30,8 +30,8 @@ public class Objectinator implements Serializable{
 		return dataList;
 	}
 	
-	protected int getMethodIdentifier() {
-		return methodIdentifier;
+	protected int getWrite() {
+		return write;
 	}
 	
 	protected int getTypeIdentifier() {

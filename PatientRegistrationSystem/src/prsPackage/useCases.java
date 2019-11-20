@@ -22,13 +22,13 @@ public class useCases{
 	
 	}
 	
-	//CHACKO
+	//CHACKO //send instance
 	public void reqDocApp() {
 		
 	}
 	
 	//CHACKO
-	public void scheduleDocTime() {
+	public void scheduleDocTimetable() {
 		
 	}
 	
