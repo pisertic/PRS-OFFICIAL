@@ -12,10 +12,11 @@ private String fName;
 private String lName;
 private String address;
 private int SIN;
+private Login login;
 private int methodID;
 
 //create constructor
-public HospitalMember(String fName, String lName, String address, int SIN) {
+public HospitalMember(String fName, String lName, String address, int SIN, String userName, String password) {
 	this.fName = fName;
 	this.lName = lName;
 	this.address = address;

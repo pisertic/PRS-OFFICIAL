@@ -3,6 +3,7 @@ package prsPackage;
 import java.io.Serializable;
 import java.util.Date;
 
+@SuppressWarnings("serial")
 public class Appointment implements Serializable {
 //create attributes
 	private Date date;
