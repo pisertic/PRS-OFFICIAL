@@ -14,8 +14,10 @@ public class useCases{
 	public void browseDoctorSchedule() {
 	//get up to date list of all doctors
 	ArrayList <Doctor> docList = new ArrayList<Doctor>();
-	docList = (ArrayList<Doctor>)Converter.readData(Converter.docData);
-	
+	docList = (ArrayList)Converter.readData(Converter.docData);
+	for(int counter = 0; counter <docList.size(); counter++) {
+		docList.get(counter).getSpecialty();
+	}
 	
 	}
 	
@@ -94,7 +96,7 @@ public class useCases{
 	public void createRef(Staff s, String refDoc, Patient p) {
 		Referral r = new Referral(refDoc, s.getFName(), s.getLName(), p.getFName(), p.getLName());
 		//send referral to server
-	MyClient.clientRequest(keyword, methodIdentifier)
+	//MyClient.clientRequest(keyword, methodIdentifier);
 	}
 	
 }

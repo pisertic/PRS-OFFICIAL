@@ -32,6 +32,8 @@ public class Converter {
 	}
 
 	//read object data from file
+	
+	@SuppressWarnings("rawtypes")
 	public static Object readData(String file){
 	   FileInputStream fin = null;
 	try {
@@ -77,12 +79,17 @@ public class Converter {
 				1,101,"Bond","James","Lakehead University",123456);
 		System.out.println("Attempting to save...");
 		try {
-			writeData(doc, "docData.txt");
+			writeData(doc, docData);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println("Success!");
+		useCases useless = new useCases();
+		useless.browseDoctorSchedule();
+		System.out.println("Success!Part2");
+
+		
 	}
 	
 	/*
