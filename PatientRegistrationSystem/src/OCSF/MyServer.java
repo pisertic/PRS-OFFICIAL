@@ -2,6 +2,7 @@ package OCSF;
 
 //import theOCSF.FileHandling;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MyServer extends AbstractServer {
  
@@ -33,12 +34,11 @@ public class MyServer extends AbstractServer {
 		System.out.println("MyServer: handleMessageFromClient() RECEIVED SOMETHING FROM CLIENT");
 		try {
 			Objectinator obj = (Objectinator) msg;
-			obj.get  
-			client.sendToClient(String.format("You are client %s, I am thread %s. Your original message was: %s", 
-					client.getInetAddress(), client.getId(), msg ));
+			//determine if arraylist of just single instance
+			
 		
 			
-			System.out.println("MyServer: Done.");
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			System.out.println("MyServer: Error while sending echo back to client");
@@ -46,7 +46,47 @@ public class MyServer extends AbstractServer {
 		}
 	} 
 	
+	//if data is arraylist
+	protected void chooseAction(ArrayList<Object> data, int methodId ) {
+		String type = findType();
+	}
+	
+	//if data is single instance
+	protected void chooseAction(Object data, int methodId ) {
+		String type = findType(8);
+	}
 	//////////////////////////////////////////////////////////////////////////////////////////
+	protected Object findType(Objectinator obj, int typeNum) {
+		if(obj.getDataInstance() == null) {
+			
+		
+		switch (typeNum) {
+		  case 0://appointment
+		    
+		    break;
+		  case 1://doctor
+		    
+		    break;
+		  case 2://hospitalMember
+		    
+		    break;
+		  case 3://patient
+			    
+			    break;
+		  case 4://referral
+			    
+			    break;
+		  case 5://staff
+			    
+			    break;
+		  case 6://login
+			    
+			    break;
+		}
+		}else { //single instance of object
+			
+		}
+	}
 	
 	public static void main(String[] args)   {
 		// TODO Auto-generated method stub 

@@ -88,7 +88,7 @@ public class Converter {
 		}
 		System.out.println("Success!");
 
-		System.out.println(formatter.getClass());
+		System.out.println(formatter.getClass().getTypeName());
 
 		useCases useless = new useCases();
 		useless.browseDoctorSchedule();

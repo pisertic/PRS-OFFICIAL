@@ -5,9 +5,10 @@ import java.util.ArrayList;
 
 @SuppressWarnings("serial")
 public class Objectinator implements Serializable{
-	ArrayList<Object> dataList;
-	int methodIdentifier;
-	Object dataInstance;
+	private ArrayList<Object> dataList;
+	private Object dataInstance;
+	private int methodIdentifier;
+	private int typeIdentifier;
 	
 	public Objectinator(ArrayList dataList , int methodIdentifier) {
 		this.dataList = dataList;
@@ -31,5 +32,9 @@ public class Objectinator implements Serializable{
 	
 	protected int getMethodIdentifier() {
 		return methodIdentifier;
+	}
+	
+	protected int getTypeIdentifier() {
+		return typeIdentifier;
 	}
 }

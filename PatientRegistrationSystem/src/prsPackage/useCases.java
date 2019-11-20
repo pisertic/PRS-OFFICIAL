@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.swing.JTextArea;
 
 import OCSF.MyClient;
+import OCSF.Objectinator;
 
 public class useCases{
 	
@@ -95,7 +96,8 @@ public class useCases{
 	//must check that patient exists in iHandler before sending to method
 	public void createRef(Staff s, String refDoc, Patient p) {
 		Referral r = new Referral(refDoc, s.getFName(), s.getLName(), p.getFName(), p.getLName());
-		//send referral to server
+		Objectinator obj = new Objectinator(r, 0 ); 
+		
 		
 	//MyClient.clientRequest(keyword, methodIdentifier);
 	}
