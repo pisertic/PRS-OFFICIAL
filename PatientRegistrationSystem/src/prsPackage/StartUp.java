@@ -26,9 +26,9 @@ public class StartUp {
 		} 
 		
 		// call client
-		MyClient Client1 = new MyClient("localhost", 8989);
+		MyClient client1 = new MyClient("localhost", 8989);
 		try {
-			Client1.openConnection();
+			client1.openConnection();
 		} catch (IOException e1) { 
 			e1.printStackTrace();
 			System.out.println("ERROR while attempting to open connection, exiting...");
@@ -40,7 +40,18 @@ public class StartUp {
 		signupFrame.setSize(600, 400);
 		signupFrame.setVisible(true);
 		
-		//make new instance of user
+		//get data from login gui
+		//send that to server to check login
+		//set int classTypeID = ^^^ return
+		//if statements to check int
+		//in inch if, make appropriate instance of class (make new instance of user)
+		//scan dataBase file of type class^ for matching login details
+		try {
+			client1.sendToServer(client1.clientRequest("sdsd", ));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 
 	}

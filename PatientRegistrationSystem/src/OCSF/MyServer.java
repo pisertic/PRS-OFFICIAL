@@ -40,7 +40,7 @@ public class MyServer extends AbstractServer {
 			if(obj.getWrite()) {
 				findTypeAndWrite(obj, obj.getTypeIdentifier());
 			}else {
-				findTypeAndRead(obj, obj.getTypeIdentifier());
+				findTypeAndRead(client, obj.getTypeIdentifier());
 			}			
 		
 	} 
@@ -49,10 +49,11 @@ public class MyServer extends AbstractServer {
 	@SuppressWarnings("unchecked")
 	
 	//WRITE DATA TO SERVER
-	protected void findTypeAndWrite(Objectinator obj, int typeNum) {
+	protected void findTypeAndWrite(Objectinator obj, int classType) {
+		//FIND IF WERE DEALING WITH ARRAYLIST OR SINGLE OBJECT INSTANCE
 		if(obj.getDataInstance() == null) {
 		
-		switch (typeNum) {
+		switch (classType) {
 		  case 0://appointment
 		    ArrayList<Appointment> data = new ArrayList<Appointment>();
 		    data = (ArrayList)obj.getDataList();
@@ -118,7 +119,7 @@ public class MyServer extends AbstractServer {
 			    break;
 		}
 		}else { //single instance of object
-			switch (typeNum) {
+			switch (classType) {
 			case 0://appointment
 				//take list data from server, add new element, write updated list in dataBase
 			    ArrayList<Appointment> data = new ArrayList<Appointment>();
@@ -199,15 +200,14 @@ public class MyServer extends AbstractServer {
 	}
 	
 	//READ DATA FROM SERVER
-	protected void findTypeAndRead(Objectinator obj, int typeNum) {
-		if(obj.getDataInstance() == null) {
-		
-		switch (typeNum) {
+	protected void findTypeAndRead(ConnectionToClient client, int classType) {
+		//WE ONLY EVER READ FULL DATABASE FILES(ArrayLists)
+		switch (classType) {
 		  case 0://appointment
 		    ArrayList<Appointment> data = new ArrayList<Appointment>();
-		    data = (ArrayList)obj.getDataList();
+		    data = (ArrayList<Appointment>)Converter.readData(Converter.aptData);
 		    try {
-				Converter.writeData(data, Converter.aptData);
+				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -266,85 +266,8 @@ public class MyServer extends AbstractServer {
 		  case 6://login
 			    
 			    break;
-		}
-		}else { //single instance of object
-			switch (typeNum) {
-			case 0://appointment
-				//take list data from server, add new element, write updated list in dataBase
-			    ArrayList<Appointment> data = new ArrayList<Appointment>();
-			    data = (ArrayList)obj.getDataList();
-			    data.add((Appointment)obj.getDataInstance());
-			    try {
-					Converter.writeData(data, Converter.aptData);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			    break;
-			  case 1://doctor
-				//take list data from server, add new element, write updated list in dataBase
-				  ArrayList<Doctor> data1 = new ArrayList<Doctor>();
-				    data1 = (ArrayList)obj.getDataList();
-				    data1.add((Doctor)obj.getDataInstance());
-				    try {
-						Converter.writeData(data1, Converter.docData);
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-			    break;
-			  case 2://hospitalMember
-				//take list data from server, add new element, write updated list in dataBase
-				  ArrayList<HospitalMember> data2 = new ArrayList<HospitalMember>();
-				    data2 = (ArrayList)obj.getDataList();
-				    data2.add((HospitalMember)obj.getDataInstance());
-				    try {
-						Converter.writeData(data2, Converter.hmData);
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-			    break;
-			  case 3://patient
-				//take list data from server, add new element, write updated list in dataBase
-				  ArrayList<Patient> data3 = new ArrayList<Patient>();
-				    data3 = (ArrayList)obj.getDataList();
-				    data3.add((Patient)obj.getDataInstance());
-				    try {
-						Converter.writeData(data3, Converter.patientData);
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				    break;
-			  case 4://referral
-				//take list data from server, add new element, write updated list in dataBase
-				  ArrayList<Referral> data4 = new ArrayList<Referral>();
-				    data4 = (ArrayList)obj.getDataList();
-				    data4.add((Referral)obj.getDataInstance());
-				    try {
-						Converter.writeData(data4, Converter.refData);
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				    break;
-			  case 5://staff
-				//take list data from server, add new element, write updated list in dataBase
-				  ArrayList<Staff> data5 = new ArrayList<Staff>();
-				    data5 = (ArrayList)obj.getDataList();
-				    data5.add((Staff)obj.getDataInstance());
-				    try {
-						Converter.writeData(data5, Converter.staffData);
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				    break;
-			  case 6://login
-				    
-				    break;
-			}	
+		
+		
 		}
 	}
 	
