@@ -47,7 +47,7 @@ public class StartUp {
 		//in inch if, make appropriate instance of class (make new instance of user)
 		//scan dataBase file of type class^ for matching login details
 		try {
-			client1.sendToServer(client1.clientRequest("sdsd", ));
+			client1.sendToServer(client1.clientRequest("sd", ));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
