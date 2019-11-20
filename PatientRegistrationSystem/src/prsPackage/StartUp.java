@@ -1,14 +1,46 @@
 package prsPackage;
 
+import java.io.IOException;
+
+import javax.swing.JFrame;
+
+import GUI.Signup;
+import OCSF.MyClient;
+import OCSF.MyServer;
+
 public class StartUp {
 
 	public static void main(String[] args) {
 		
 		
 		//startup server
-		// call client 
+		MyServer MyServer1 = new MyServer(8989); // will use port 8989
+		System.out.println("MyServer: MyServer1 has been created.");
+		try {
+			MyServer1.listen();
+			System.out.println("MyServer: Server should now be running");
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		// call client
+		MyClient Client1 = new MyClient("localhost", 8989);
+		try {
+			Client1.openConnection();
+		} catch (IOException e1) { 
+			e1.printStackTrace();
+			System.out.println("ERROR while attempting to open connection, exiting...");
+			System.exit(1); // on error exit
+		}
 		//call login GUI
-		//make new instance of 
+		Signup signupFrame = new Signup();
+		signupFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		signupFrame.setSize(600, 400);
+		signupFrame.setVisible(true);
+		
+		//make new instance of user
 		
 
 	}

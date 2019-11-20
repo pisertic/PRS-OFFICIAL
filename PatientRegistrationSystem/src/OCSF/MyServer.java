@@ -4,6 +4,8 @@ package OCSF;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import prsPackage.*;
+
 public class MyServer extends AbstractServer {
  
 	public MyServer(int port)   { // Constructor
@@ -56,34 +58,107 @@ public class MyServer extends AbstractServer {
 		String type = findType(8);
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////
-	protected Object findType(Objectinator obj, int typeNum) {
+	@SuppressWarnings("unchecked")
+	protected void findType(Objectinator obj, int typeNum) {
 		if(obj.getDataInstance() == null) {
 		
 		switch (typeNum) {
 		  case 0://appointment
-		    
+		    ArrayList<Appointment> data = new ArrayList<Appointment>();
+		    data = (ArrayList)obj.getDataList();
+		    try {
+				Converter.writeData(data, Converter.aptData);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		    break;
 		  case 1://doctor
-		    
+			  ArrayList<Doctor> data1 = new ArrayList<Doctor>();
+			    data1 = (ArrayList)obj.getDataList();
+			    try {
+					Converter.writeData(data1, Converter.docData);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		    break;
 		  case 2://hospitalMember
-		    
+			  ArrayList<HospitalMember> data2 = new ArrayList<HospitalMember>();
+			    data2 = (ArrayList)obj.getDataList();
+			    try {
+					Converter.writeData(data2, Converter.hmData);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		    break;
 		  case 3://patient
-			    
+			  ArrayList<Patient> data3 = new ArrayList<Patient>();
+			    data3 = (ArrayList)obj.getDataList();
+			    try {
+					Converter.writeData(data3, Converter.aptData);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			    break;
 		  case 4://referral
-			    
+			  ArrayList<Appointment> data = new ArrayList<Appointment>();
+			    data = (ArrayList)obj.getDataList();
+			    try {
+					Converter.writeData(data, Converter.aptData);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			    break;
 		  case 5://staff
-			    
+			  ArrayList<Appointment> data = new ArrayList<Appointment>();
+			    data = (ArrayList)obj.getDataList();
+			    try {
+					Converter.writeData(data, Converter.aptData);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			    break;
 		  case 6://login
 			    
 			    break;
 		}
 		}else { //single instance of object
-			
+			switch (typeNum) {
+			  case 0://appointment
+				  ArrayList<Appointment> data = new ArrayList<Appointment>();
+				    data = (ArrayList<Appointment>)Converter.readData(Converter.aptData)
+				    		data.add((Appointment)obj.getDataInstance())
+				    try {
+						Converter.writeData(data, Converter.aptData);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			    break;
+			  case 1://doctor
+			    
+			    break;
+			  case 2://hospitalMember
+			    
+			    break;
+			  case 3://patient
+				    
+				    break;
+			  case 4://referral
+				    
+				    break;
+			  case 5://staff
+				    
+				    break;
+			  case 6://login
+				    
+				    break;
+			}	
 		}
 	}
 	
