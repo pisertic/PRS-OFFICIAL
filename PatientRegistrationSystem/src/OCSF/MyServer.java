@@ -58,7 +58,6 @@ public class MyServer extends AbstractServer {
 	//////////////////////////////////////////////////////////////////////////////////////////
 	protected Object findType(Objectinator obj, int typeNum) {
 		if(obj.getDataInstance() == null) {
-			
 		
 		switch (typeNum) {
 		  case 0://appointment
