@@ -10,15 +10,17 @@ public class Objectinator implements Serializable{
 	private boolean write;
 	private int typeIdentifier;
 	
-	public Objectinator(ArrayList dataList , int methodIdentifier) {
+	public Objectinator(boolean write, ArrayList dataList , int typeIdentifier) {
+		this.write = write;
 		this.dataList = dataList;
-		this.methodIdentifier = methodIdentifier;
+		this.typeIdentifier = typeIdentifier;
 		dataInstance = null;
 	}
 	
-	public Objectinator(Object obj, int methodIdentifier) {
+	public Objectinator(boolean write, Object obj, int typeIdentifier) {
+		this.write = write;
 		this.dataList = null;
-		this.methodIdentifier = methodIdentifier;
+		this.typeIdentifier = typeIdentifier;
 		dataInstance = obj;
 	}
 	
@@ -30,7 +32,7 @@ public class Objectinator implements Serializable{
 		return dataList;
 	}
 	
-	protected int getWrite() {
+	protected boolean getWrite() {
 		return write;
 	}
 	

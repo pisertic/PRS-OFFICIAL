@@ -34,34 +34,172 @@ public class MyServer extends AbstractServer {
 	@Override
 	protected void handleMessageFromClient(Object msg, ConnectionToClient client) {
 		System.out.println("MyServer: handleMessageFromClient() RECEIVED SOMETHING FROM CLIENT");
-		try {
+		
 			Objectinator obj = (Objectinator) msg;
 			//determine if reading from server or writing from server
-			if()
-			//find data type and write to database
-			
+			if(obj.getWrite()) {
+				findTypeAndWrite(obj, obj.getTypeIdentifier());
+			}else {
+				findTypeAndRead(obj, obj.getTypeIdentifier());
+			}			
 		
-			
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			System.out.println("MyServer: Error while sending echo back to client");
-			e.printStackTrace();
-		}
 	} 
 	
-	//if data is arraylist
-	protected void chooseAction(ArrayList<Object> data, int methodId ) {
-		String type = findType();
-	}
-	
-	//if data is single instance
-	protected void chooseAction(Object data, int methodId ) {
-		String type = findType(8);
-	}
 	//////////////////////////////////////////////////////////////////////////////////////////
 	@SuppressWarnings("unchecked")
-	protected void findType(Objectinator obj, int typeNum) {
+	
+	//WRITE DATA TO SERVER
+	protected void findTypeAndWrite(Objectinator obj, int typeNum) {
+		if(obj.getDataInstance() == null) {
+		
+		switch (typeNum) {
+		  case 0://appointment
+		    ArrayList<Appointment> data = new ArrayList<Appointment>();
+		    data = (ArrayList)obj.getDataList();
+		    try {
+				Converter.writeData(data, Converter.aptData);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		    break;
+		  case 1://doctor
+			  ArrayList<Doctor> data1 = new ArrayList<Doctor>();
+			    data1 = (ArrayList)obj.getDataList();
+			    try {
+					Converter.writeData(data1, Converter.docData);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		    break;
+		  case 2://hospitalMember
+			  ArrayList<HospitalMember> data2 = new ArrayList<HospitalMember>();
+			    data2 = (ArrayList)obj.getDataList();
+			    try {
+					Converter.writeData(data2, Converter.hmData);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		    break;
+		  case 3://patient
+			  ArrayList<Patient> data3 = new ArrayList<Patient>();
+			    data3 = (ArrayList)obj.getDataList();
+			    try {
+					Converter.writeData(data3, Converter.patientData);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			    break;
+		  case 4://referral
+			  ArrayList<Referral> data4 = new ArrayList<Referral>();
+			    data4 = (ArrayList)obj.getDataList();
+			    try {
+					Converter.writeData(data4, Converter.refData);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			    break;
+		  case 5://staff
+			  ArrayList<Staff> data5 = new ArrayList<Staff>();
+			    data5 = (ArrayList)obj.getDataList();
+			    try {
+					Converter.writeData(data5, Converter.staffData);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			    break;
+		  case 6://login
+			    
+			    break;
+		}
+		}else { //single instance of object
+			switch (typeNum) {
+			case 0://appointment
+				//take list data from server, add new element, write updated list in dataBase
+			    ArrayList<Appointment> data = new ArrayList<Appointment>();
+			    data = (ArrayList)obj.getDataList();
+			    data.add((Appointment)obj.getDataInstance());
+			    try {
+					Converter.writeData(data, Converter.aptData);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			    break;
+			  case 1://doctor
+				//take list data from server, add new element, write updated list in dataBase
+				  ArrayList<Doctor> data1 = new ArrayList<Doctor>();
+				    data1 = (ArrayList)obj.getDataList();
+				    data1.add((Doctor)obj.getDataInstance());
+				    try {
+						Converter.writeData(data1, Converter.docData);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			    break;
+			  case 2://hospitalMember
+				//take list data from server, add new element, write updated list in dataBase
+				  ArrayList<HospitalMember> data2 = new ArrayList<HospitalMember>();
+				    data2 = (ArrayList)obj.getDataList();
+				    data2.add((HospitalMember)obj.getDataInstance());
+				    try {
+						Converter.writeData(data2, Converter.hmData);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			    break;
+			  case 3://patient
+				//take list data from server, add new element, write updated list in dataBase
+				  ArrayList<Patient> data3 = new ArrayList<Patient>();
+				    data3 = (ArrayList)obj.getDataList();
+				    data3.add((Patient)obj.getDataInstance());
+				    try {
+						Converter.writeData(data3, Converter.patientData);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				    break;
+			  case 4://referral
+				//take list data from server, add new element, write updated list in dataBase
+				  ArrayList<Referral> data4 = new ArrayList<Referral>();
+				    data4 = (ArrayList)obj.getDataList();
+				    data4.add((Referral)obj.getDataInstance());
+				    try {
+						Converter.writeData(data4, Converter.refData);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				    break;
+			  case 5://staff
+				//take list data from server, add new element, write updated list in dataBase
+				  ArrayList<Staff> data5 = new ArrayList<Staff>();
+				    data5 = (ArrayList)obj.getDataList();
+				    data5.add((Staff)obj.getDataInstance());
+				    try {
+						Converter.writeData(data5, Converter.staffData);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				    break;
+			  case 6://login
+				    
+				    break;
+			}	
+		}
+	}
+	
+	//READ DATA FROM SERVER
+	protected void findTypeAndRead(Objectinator obj, int typeNum) {
 		if(obj.getDataInstance() == null) {
 		
 		switch (typeNum) {
