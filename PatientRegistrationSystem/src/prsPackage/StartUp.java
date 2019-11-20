@@ -56,6 +56,7 @@ public class StartUp {
 			Arraylist<Appointment> data = new Arraylist<Appointment>();
 			
 			
+			
 		
 		}
 		//in inch if, make appropriate instance of class (make new instance of user)
