@@ -75,11 +75,13 @@ public class Converter {
 		System.out.println(formatter.format(date));
 		DoctorSchedule docsched = new DoctorSchedule(date,date,date);
 		Referral referral = new Referral("Dr.Bond", "John", "Snow", "Chacko", "Panicker");
+		ArrayList<Doctor> d = new ArrayList<Doctor>();
 		Doctor doc = new Doctor("Heart Surgeon", "Rank#1", 24.5f, docsched, referral, "Heart Department",
 				1,101,"Bond","James","Lakehead University",123456);
+		d.add(doc);
 		System.out.println("Attempting to save...");
 		try {
-			writeData(doc, docData);
+			writeData(d, docData);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
