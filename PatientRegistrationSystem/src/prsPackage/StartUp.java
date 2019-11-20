@@ -1,5 +1,7 @@
 package prsPackage;
 
+import OCSF.Objectinator;
+import OCSF.GFG;
 import java.io.IOException;
 
 import javax.swing.JFrame;
@@ -41,6 +43,8 @@ public class StartUp {
 		signupFrame.setVisible(true);
 		
 		//get data from login gui
+		Login person;
+		person.setPassword(toHexString(getSHA("String")));
 		/*
 		 * In the GUI Class, declare login person, 
 		 * person.setUserName = from gui
@@ -48,12 +52,14 @@ public class StartUp {
 		 */
 		//send that to server to check login
 		//set int classTypeID = ^^^ return
-		int classID = client1.sendToServer(login person);
+		Objectinator obj = new Objectinator (false, person, 0);
+		
+		client1.sendToServer(obj);
 
 		//if statements to check int
 		switch (classID)	{
 		case 0: // appointment
-			Arraylist<Appointment> data = new Arraylist<Appointment>();
+			ArrayList<Appointment> data = new ArrayList<Appointment>();
 			
 			
 			

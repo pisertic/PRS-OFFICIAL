@@ -2,9 +2,9 @@ package prsPackage;
 
 public class Login {
 	
-	String userName;
-	String password;
-	int classID;
+	private String userName;
+	private String password;
+	private int classID;
 	
 	public Login (String userName,String password, int classID) {
 		this.userName = userName;
