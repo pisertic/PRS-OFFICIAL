@@ -41,9 +41,23 @@ public class StartUp {
 		signupFrame.setVisible(true);
 		
 		//get data from login gui
+		/*
+		 * In the GUI Class, declare login person, 
+		 * person.setUserName = from gui
+		 * person.setPassword = from gui
+		 */
 		//send that to server to check login
 		//set int classTypeID = ^^^ return
+		int classID = client1.sendToServer(login person);
+
 		//if statements to check int
+		switch (classID)	{
+		case 0: // appointment
+			Arraylist<Appointment> data = new Arraylist<Appointment>();
+			
+			
+		
+		}
 		//in inch if, make appropriate instance of class (make new instance of user)
 		//scan dataBase file of type class^ for matching login details
 		try {
