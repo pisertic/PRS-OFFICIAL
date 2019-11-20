@@ -13,7 +13,7 @@ public class Staff extends HospitalMember{
 		department = d;
 		empNum = num;
 		passLvl = pass;
-		methodID = 10;
+		methodID = 5;
 	}
 
 	//create gets/sets

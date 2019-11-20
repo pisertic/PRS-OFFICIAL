@@ -11,7 +11,7 @@ public class Patient extends HospitalMember {
 		super(fName, lName, address, SIN);
 		healthCard = h;
 		records =r;
-		methodID = 7;
+		methodID = 3;
 	}
 
 	

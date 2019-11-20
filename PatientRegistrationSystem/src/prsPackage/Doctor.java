@@ -9,7 +9,7 @@ public class Doctor extends Staff{
 	private float workingHours;
 	private ArrayList<DoctorSchedule> doctorSchedule;
 	private Referral referral;
-	private int methodID;
+	private int classID;
 	
 	//create constructor 
 	public Doctor(String specialty, String rank, float workingHours, DoctorSchedule doctorSchedule, Referral referral,  //Doctor attributes
@@ -20,7 +20,7 @@ public class Doctor extends Staff{
 		this.workingHours = workingHours;
 		this.doctorSchedule = null;
 		this.referral = referral;
-		methodID = 3;
+		classID = 1;
 	}
 	
 	//gets/sets
@@ -64,8 +64,8 @@ public class Doctor extends Staff{
 		this.referral = referral;
 	}
 	
-	public int getMethodID() {
-		return methodID;
+	public int getClassID() {
+		return classID;
 	}
 
 	

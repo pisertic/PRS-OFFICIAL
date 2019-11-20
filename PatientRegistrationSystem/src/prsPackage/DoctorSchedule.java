@@ -9,14 +9,12 @@ public class DoctorSchedule implements Serializable {
 	private Date date;
 	private Date time; 
 	private Date duration; //You sure?
-	private int methodID;
 	
 	//create constructor
 	public DoctorSchedule(Date date, Date time, Date duration) {
 		this.date = date;
 		this.time = time;
 		this.duration = duration;
-		methodID = 4;
 	}
 
 	//gets/sets
@@ -42,12 +40,6 @@ public class DoctorSchedule implements Serializable {
 
 	public void setDuration(Date duration) {
 		this.duration = duration;
-	}
-	
-	public int getMethodID() {
-		return methodID;
-	}
-	
-	
+	}	
 
 }

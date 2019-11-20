@@ -51,7 +51,7 @@ public class Converter {
 	}
 	   Object data = null;
 	try {
-		data = (ArrayList) ois.readObject();
+		data = (ArrayList<?>) ois.readObject();
 	} catch (ClassNotFoundException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();

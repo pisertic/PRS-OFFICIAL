@@ -9,6 +9,7 @@ public class Referral implements Serializable{
 	private String refNameL;
 	private String patientNameF;
 	private String patientNameL;
+	private int classID;
 
 		
 	//create constructor
@@ -18,6 +19,7 @@ public class Referral implements Serializable{
 		refNameL = rNameL;
 		patientNameF = pNameF;
 		patientNameL = pNameL;
+		classID = 4;
 	}
 
 	//gets/sets
