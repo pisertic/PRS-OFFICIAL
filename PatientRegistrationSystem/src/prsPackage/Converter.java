@@ -77,12 +77,13 @@ public class Converter {
 				1,101,"Bond","James","Lakehead University",123456);
 		System.out.println("Attempting to save...");
 		try {
-			writeData(doc, "docData.txt");
+			writeData(doc, docData);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println("Success!");
+		System.out.println(formatter.getClass());
 	}
 	
 	/*

@@ -1,10 +1,11 @@
 package OCSF;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 @SuppressWarnings("serial")
 public class Objectinator implements Serializable{
-	String keyword;
+	ArrayList<Object> dataList;
 	int methodIdentifier;
 	
 	public Objectinator(String keyword, int methodIdentifier) {
