@@ -206,12 +206,7 @@ public class MyServer extends AbstractServer {
 		  case 0://appointment
 		    ArrayList<Appointment> data = new ArrayList<Appointment>();
 		    data = (ArrayList<Appointment>)Converter.readData(Converter.aptData);
-		    try {
-				
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		    client.sendToClient(data);
 		    break;
 		  case 1://doctor
 			  ArrayList<Doctor> data1 = new ArrayList<Doctor>();
