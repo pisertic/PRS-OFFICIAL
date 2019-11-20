@@ -24,6 +24,15 @@ public class Objectinator implements Serializable{
 		dataInstance = obj;
 	}
 	
+	public Objectinator(boolean write, int typeIdentifier) {
+		this.write = write;
+		this.dataList = null;
+		this.typeIdentifier = typeIdentifier;
+		dataInstance = null;
+	}
+	
+
+	
 	protected Object getDataInstance() {
 		return dataInstance;
 	}
