@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Objectinator implements Serializable{
 	ArrayList<Object> dataList;
 	int methodIdentifier;
+	Object obj; 
 	
 	public Objectinator(String keyword, int methodIdentifier) {
 		this.keyword = keyword;
@@ -14,7 +15,7 @@ public class Objectinator implements Serializable{
 	}
 	
 	protected String getKeyword() {
-		return keyword;
+		return methodIdentifier;
 	}
 	
 	protected int getMethodIdentifier() {

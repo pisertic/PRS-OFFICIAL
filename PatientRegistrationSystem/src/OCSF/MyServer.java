@@ -8,7 +8,7 @@ public class MyServer extends AbstractServer {
 	public MyServer(int port)   { // Constructor
 		super(port); 
 	}
-	
+	/* ORIGINAL/ DO NOT EDIT
 	@Override
 	protected void handleMessageFromClient(Object msg, ConnectionToClient client) {
 		System.out.println("MyServer: handleMessageFromClient() RECEIVED SOMETHING FROM CLIENT");
@@ -16,6 +16,24 @@ public class MyServer extends AbstractServer {
 			Objectinator object1 = (Objectinator) msg;
 			System.out.println(String.format("MyServer: Client sent following message:\nKeyword: %s\nMethod Identifier: %d" , object1.getKeyword(), object1.getMethodIdentifier()));
 			System.out.println("MyServer: Trying to send it back as an echo");  
+			client.sendToClient(String.format("You are client %s, I am thread %s. Your original message was: %s", 
+					client.getInetAddress(), client.getId(), msg ));
+		
+			
+			System.out.println("MyServer: Done.");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("MyServer: Error while sending echo back to client");
+			e.printStackTrace();
+		}
+	} */
+	
+	@Override
+	protected void handleMessageFromClient(Object msg, ConnectionToClient client) {
+		System.out.println("MyServer: handleMessageFromClient() RECEIVED SOMETHING FROM CLIENT");
+		try {
+			Objectinator obj = (Objectinator) msg;
+			obj.get  
 			client.sendToClient(String.format("You are client %s, I am thread %s. Your original message was: %s", 
 					client.getInetAddress(), client.getId(), msg ));
 		
