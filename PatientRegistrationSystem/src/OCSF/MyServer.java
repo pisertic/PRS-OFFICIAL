@@ -40,13 +40,18 @@ public class MyServer extends AbstractServer {
 			if(obj.getWrite()) {
 				findTypeAndWrite(obj, obj.getTypeIdentifier());
 			}else {
-				findTypeAndRead(client, obj.getTypeIdentifier());
+				try {
+					findTypeAndRead(client, obj.getTypeIdentifier());
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}			
 		
 	} 
 	
 	//////////////////////////////////////////////////////////////////////////////////////////
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	
 	//WRITE DATA TO SERVER
 	protected void findTypeAndWrite(Objectinator obj, int classType) {
@@ -200,63 +205,45 @@ public class MyServer extends AbstractServer {
 	}
 	
 	//READ DATA FROM SERVER
-	protected void findTypeAndRead(ConnectionToClient client, int classType) {
+	@SuppressWarnings("unchecked")
+	protected void findTypeAndRead(ConnectionToClient client, int classType) throws IOException {
 		//WE ONLY EVER READ FULL DATABASE FILES(ArrayLists)
 		switch (classType) {
+		//Get arraylist of data appointment
 		  case 0://appointment
 		    ArrayList<Appointment> data = new ArrayList<Appointment>();
 		    data = (ArrayList<Appointment>)Converter.readData(Converter.aptData);
 		    client.sendToClient(data);
 		    break;
+		//Get arraylist of data doctor
 		  case 1://doctor
 			  ArrayList<Doctor> data1 = new ArrayList<Doctor>();
-			    data1 = (ArrayList)obj.getDataList();
-			    try {
-					Converter.writeData(data1, Converter.docData);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+			    data1 = (ArrayList<Doctor>)Converter.readData(Converter.docData);
+			    client.sendToClient(data1);
 		    break;
+			//Get arraylist of data hospitalMember
 		  case 2://hospitalMember
 			  ArrayList<HospitalMember> data2 = new ArrayList<HospitalMember>();
-			    data2 = (ArrayList)obj.getDataList();
-			    try {
-					Converter.writeData(data2, Converter.hmData);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+			    data2 = (ArrayList<HospitalMember>)Converter.readData(Converter.hmData);
+			    client.sendToClient(data2);
 		    break;
 		  case 3://patient
+				//Get arraylist of data patient
 			  ArrayList<Patient> data3 = new ArrayList<Patient>();
-			    data3 = (ArrayList)obj.getDataList();
-			    try {
-					Converter.writeData(data3, Converter.patientData);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+			    data3 = (ArrayList<Patient>)Converter.readData(Converter.patientData);
+			    client.sendToClient(data3);
 			    break;
 		  case 4://referral
+				//Get arraylist of data referral
 			  ArrayList<Referral> data4 = new ArrayList<Referral>();
-			    data4 = (ArrayList)obj.getDataList();
-			    try {
-					Converter.writeData(data4, Converter.refData);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+			    data4 = (ArrayList<Referral>)Converter.readData(Converter.refData);
+			    client.sendToClient(data4);
 			    break;
 		  case 5://staff
+				//Get arraylist of data staff
 			  ArrayList<Staff> data5 = new ArrayList<Staff>();
-			    data5 = (ArrayList)obj.getDataList();
-			    try {
-					Converter.writeData(data5, Converter.staffData);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+			    data5 = (ArrayList<Staff>)Converter.readData(Converter.staffData);
+			    client.sendToClient(data5);
 			    break;
 		  case 6://login
 			    

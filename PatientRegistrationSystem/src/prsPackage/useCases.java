@@ -61,6 +61,7 @@ public class useCases{
 	}
 	
 	//PETER
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void viewRef(Patient p) {
 		//pull referral data from server
 		ArrayList<Referral> tempList = new ArrayList<Referral>();
@@ -96,10 +97,9 @@ public class useCases{
 	//must check that patient exists in iHandler before sending to method
 	public void createRef(Staff s, String refDoc, Patient p) {
 		Referral r = new Referral(refDoc, s.getFName(), s.getLName(), p.getFName(), p.getLName());
-		Objectinator obj = new Objectinator(r, 0 ); 
-		
-		
-	//MyClient.clientRequest(keyword, methodIdentifier);
+		Objectinator obj = new Objectinator(true, r, r.getClassID()); 
+		//client1.sendToServer(obj);
+		//DONE
 	}
 	
 }
