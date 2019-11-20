@@ -11,27 +11,6 @@ public class MyServer extends AbstractServer {
 	public MyServer(int port) { // Constructor
 		super(port);
 	}
-	/*
-	 * ORIGINAL/ DO NOT EDIT
-	 * 
-	 * @Override protected void handleMessageFromClient(Object msg,
-	 * ConnectionToClient client) { System.out.
-	 * println("MyServer: handleMessageFromClient() RECEIVED SOMETHING FROM CLIENT"
-	 * ); try { Objectinator object1 = (Objectinator) msg;
-	 * System.out.println(String.
-	 * format("MyServer: Client sent following message:\nKeyword: %s\nMethod Identifier: %d"
-	 * , object1.getKeyword(), object1.getMethodIdentifier()));
-	 * System.out.println("MyServer: Trying to send it back as an echo");
-	 * client.sendToClient(String.
-	 * format("You are client %s, I am thread %s. Your original message was: %s",
-	 * client.getInetAddress(), client.getId(), msg ));
-	 * 
-	 * 
-	 * System.out.println("MyServer: Done."); } catch (IOException e) { // TODO
-	 * Auto-generated catch block
-	 * System.out.println("MyServer: Error while sending echo back to client");
-	 * e.printStackTrace(); } }
-	 */
 
 	@Override
 	protected void handleMessageFromClient(Object msg, ConnectionToClient client) {
@@ -244,43 +223,57 @@ public class MyServer extends AbstractServer {
 		case 0:// appointment
 			ArrayList<Appointment> data = new ArrayList<Appointment>();
 			data = (ArrayList<Appointment>) Converter.readData(Converter.aptData);
-			client.sendToClient(data);
+			//WRAP DATA AS OBJECTINATOR TYPE
+			Objectinator obj = new Objectinator(data, classType);
+			client.sendToClient(obj);
 			break;
 		// Get arraylist of doctor data
 		case 1:// doctor
 			ArrayList<Doctor> data1 = new ArrayList<Doctor>();
 			data1 = (ArrayList<Doctor>) Converter.readData(Converter.docData);
-			client.sendToClient(data1);
+			//WRAP DATA AS OBJECTINATOR TYPE
+			Objectinator obj1 = new Objectinator(data1, classType);
+			client.sendToClient(obj1);
 			break;
 		// Get arraylist of hospitalMember data
 		case 2:// hospitalMember
 			ArrayList<HospitalMember> data2 = new ArrayList<HospitalMember>();
 			data2 = (ArrayList<HospitalMember>) Converter.readData(Converter.hmData);
-			client.sendToClient(data2);
+			//WRAP DATA AS OBJECTINATOR TYPE
+			Objectinator obj2 = new Objectinator(data2, classType);
+			client.sendToClient(obj2);
 			break;
 		case 3:// patient
 				// Get arraylist of patient data
 			ArrayList<Patient> data3 = new ArrayList<Patient>();
 			data3 = (ArrayList<Patient>) Converter.readData(Converter.patientData);
-			client.sendToClient(data3);
+			//WRAP DATA AS OBJECTINATOR TYPE
+			Objectinator obj3 = new Objectinator(data3, classType);
+			client.sendToClient(obj3);
 			break;
 		case 4:// referral
 				// Get arraylist of referral data
 			ArrayList<Referral> data4 = new ArrayList<Referral>();
 			data4 = (ArrayList<Referral>) Converter.readData(Converter.refData);
-			client.sendToClient(data4);
+			//WRAP DATA AS OBJECTINATOR TYPE
+			Objectinator obj4 = new Objectinator(data4, classType);
+			client.sendToClient(obj4);
 			break;
 		case 5:// staff
 				// Get arraylist of staff data
 			ArrayList<Staff> data5 = new ArrayList<Staff>();
 			data5 = (ArrayList<Staff>) Converter.readData(Converter.staffData);
-			client.sendToClient(data5);
+			//WRAP DATA AS OBJECTINATOR TYPE
+			Objectinator obj5 = new Objectinator(data5, classType);
+			client.sendToClient(obj5);
 			break;
 		case 6:// login
 			// Get arraylist of login data
 			ArrayList<Login> data6 = new ArrayList<Login>();
 			data6 = (ArrayList<Login>) Converter.readData(Converter.userBase);
-			client.sendToClient(data6);
+			//WRAP DATA AS OBJECTINATOR TYPE
+			Objectinator obj6 = new Objectinator(data6, classType);
+			client.sendToClient(obj6);
 			break;
 		}
 	}
