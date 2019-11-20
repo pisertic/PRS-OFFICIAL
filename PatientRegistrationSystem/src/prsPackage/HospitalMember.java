@@ -20,7 +20,7 @@ public HospitalMember(String fName, String lName, String address, int SIN) {
 	this.lName = lName;
 	this.address = address;
 	this.SIN = SIN;
-	methodID = 6;
+	methodID = 2;
 }
 
 //create gets
