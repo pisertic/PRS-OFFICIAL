@@ -32,6 +32,8 @@ public class Converter {
 	}
 
 	//read object data from file
+	
+	@SuppressWarnings("rawtypes")
 	public static Object readData(String file){
 	   FileInputStream fin = null;
 	try {
@@ -83,7 +85,15 @@ public class Converter {
 			e.printStackTrace();
 		}
 		System.out.println("Success!");
+<<<<<<< HEAD
 		System.out.println(formatter.getClass());
+=======
+		useCases useless = new useCases();
+		useless.browseDoctorSchedule();
+		System.out.println("Success!Part2");
+
+		
+>>>>>>> branch 'master' of https://github.com/pisertic/PRS-OFFICIAL.git
 	}
 	
 	/*
