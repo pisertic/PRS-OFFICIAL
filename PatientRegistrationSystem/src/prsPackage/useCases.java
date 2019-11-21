@@ -24,7 +24,11 @@ public class useCases{
 	
 	//CHACKO //send instance
 	public void reqDocApp() {
+		//doctors arraylist is sent from converter class
 		
+		//gui calender is open, 
+		//patient sees doc's schedule
+		//patient selects date and time of appointment
 	}
 	
 	//CHACKO
