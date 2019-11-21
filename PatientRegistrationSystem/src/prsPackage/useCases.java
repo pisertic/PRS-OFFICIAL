@@ -65,12 +65,10 @@ public class useCases {
 		//if no match is found
 		return -2;
 	}
-<<<<<<< HEAD
 
 	// CHACKO //send instance
 	public void reqDocApp() {
 
-=======
 	
 	//CHACKO //send instance
 	public void reqDocApp(HospitalMember hm) { //hospital member 
@@ -94,17 +92,17 @@ public class useCases {
 		}
 		//patient sees doc's schedule
 		//patient selects date and time of appointment
->>>>>>> branch 'master' of https://github.com/pisertic/PRS-OFFICIAL.git
+
 	}
-<<<<<<< HEAD
+
 
 	// CHACKO
-=======
+
 	
 	
 	
 	//CHACKO
->>>>>>> branch 'master' of https://github.com/pisertic/PRS-OFFICIAL.git
+
 	public void scheduleDocTimetable() {
 
 	}
