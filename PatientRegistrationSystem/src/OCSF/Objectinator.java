@@ -59,4 +59,25 @@ public class Objectinator implements Serializable{
 	protected int getTypeIdentifier() {
 		return typeIdentifier;
 	}
+	
+	//quickly package objectinator for all constructor possibilities
+	public static Objectinator createDataMsg(boolean write, ArrayList dataList , int typeIdentifier) {
+		Objectinator msg = new Objectinator(write, dataList , typeIdentifier);
+		return msg;
+	}
+	
+	public static Objectinator createDataMsg(boolean write, Object obj, int typeIdentifier) {
+		Objectinator msg = new Objectinator(write, obj, typeIdentifier);
+		return msg;
+	}
+	
+	public static Objectinator createDataMsg(boolean write, int typeIdentifier) {
+		Objectinator msg = new Objectinator(write, typeIdentifier);
+		return msg;
+	}
+	
+	public static Objectinator createDataMsg(ArrayList dataList, int typeIdentifier) {
+		Objectinator msg = new Objectinator(dataList, typeIdentifier);
+		return msg;
+	}
 }

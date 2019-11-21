@@ -11,7 +11,9 @@ public class MyServer extends AbstractServer {
 	public MyServer(int port) { // Constructor
 		super(port);
 	}
-
+	
+	
+	
 	@Override
 	protected void handleMessageFromClient(Object msg, ConnectionToClient client) {
 		System.out.println("MyServer: handleMessageFromClient() RECEIVED SOMETHING FROM CLIENT");

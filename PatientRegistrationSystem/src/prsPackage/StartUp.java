@@ -42,42 +42,12 @@ public class StartUp {
 		signupFrame.setSize(600, 400);
 		signupFrame.setVisible(true);
 		
-		//get data from login gui
-		/*event handler: -create login instance and encrypt password
-						-grab list from server
-						-find matching
-						-if match, grab classID from list instance 
-						-create instance and set to list instance
-		
-		
-		/*
-		 * In the GUI Class, declare login person, 
-		 * person.setUserName = from gui
-		 * person.setPassword = from gui
-		 */
-		//send that to server to check login
-		//set int classTypeID = ^^^ return
-		Objectinator obj = new Objectinator (false, person, 0);
-		
-		client1.sendToServer(obj);
-		client1.data1
-		//if statements to check int
-		switch (classID)	{
-		case 0: // appointment
-			ArrayList<Appointment> data = new ArrayList<Appointment>();
-			
-			
+	
 			
 		
-		}
+		
 		//in inch if, make appropriate instance of class (make new instance of user)
 		//scan dataBase file of type class^ for matching login details
-		try {
-			client1.sendToServer(client1.clientRequest("sd", ));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 
 	}

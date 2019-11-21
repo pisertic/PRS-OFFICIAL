@@ -12,11 +12,18 @@ public class Login {
 		this.classID = classID;
 	}
 	
+	//when sending login token for check
+	public Login (String userName,String password) {
+		this.userName = userName;
+		this.password = password;
+		this.classID = 0;
+	}
+	
 	public String getUserName()	{
 		return userName;
 	}
 	
-	protected void setUserName(String userName)	{
+	public void setUserName(String userName)	{
 		this.userName = userName;
 	}
 	
@@ -24,11 +31,15 @@ public class Login {
 		return password;
 	}
 
-	protected void setPassword(String password)	{
+	public void setPassword(String password)	{
 		this.password = password;
 	}
 	
-	protected int getClassID()	{
+	public int getClassID()	{
 		return classID;
+	}
+	
+	public void setClassID()	{
+		;
 	}
 }
