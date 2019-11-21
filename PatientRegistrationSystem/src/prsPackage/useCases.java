@@ -160,7 +160,7 @@ public class useCases {
 
 		// find referrals matching patient name
 		for (int i = 0; i < tempList.size(); i++) {
-			if (tempList.get(i).getPatientNameF() != p.getFName() && tempList.get(i).getPatientNameL() != p.getLName())
+			if (tempList.get(i).getPatientNameF() != p.getFName() || tempList.get(i).getPatientNameL() != p.getLName())
 				tempList.remove(i);
 		}
 		////////////////////////////////////////////
@@ -175,7 +175,8 @@ public class useCases {
 	// overload method base on user type
 	public void viewRef(Staff s, String keyWord, MyClient client) {
 		// pull referral data from server
-		ArrayList<Referral> tempList = new ArrayList<Referral>();
+		client.sendToServer(Objectinator.createDataMsg(false, refMem));
+		ArrayList<Referral> tempList = client.refData;
 		tempList = (ArrayList) Converter.readData(Converter.refData);
 
 		// print all of the referrals
