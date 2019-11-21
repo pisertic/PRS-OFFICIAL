@@ -10,6 +10,14 @@ import OCSF.Objectinator;
 
 public class useCases {
 
+	private int hospMem = 2;
+	private int staffMem = 5;
+	prinate int patMem = 3;
+	private int docMem = 1;
+	private int refMem = 4;
+	private int appMem = 0;
+	private int userMem = 6;
+	
 	// PETER
 	@SuppressWarnings("unchecked")
 	public void browseDoctorSchedule() {
@@ -144,9 +152,10 @@ public class useCases {
 
 	// PETER
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public void viewRef(Patient p) {
+	public void viewRef(Patient p, MyClient client) {
 		// pull referral data from server
-		ArrayList<Referral> tempList = new ArrayList<Referral>();
+		client.sendToServer(Objectinator.createDataMsg(false, refMem));
+		ArrayList<Referral> tempList = client.refData;
 		tempList = (ArrayList) Converter.readData(Converter.refData);
 
 		// find referrals matching patient name
@@ -164,7 +173,7 @@ public class useCases {
 	}
 
 	// overload method base on user type
-	public void viewRef(Staff s, String keyWord) {
+	public void viewRef(Staff s, String keyWord, MyClient client) {
 		// pull referral data from server
 		ArrayList<Referral> tempList = new ArrayList<Referral>();
 		tempList = (ArrayList) Converter.readData(Converter.refData);
