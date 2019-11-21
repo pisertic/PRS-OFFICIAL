@@ -44,6 +44,7 @@ public class StartUp {
 		
 		//get data from login gui
 		Login person;
+		
 		person.setPassword(toHexString(getSHA("String")));
 		/*
 		 * In the GUI Class, declare login person, 

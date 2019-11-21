@@ -25,10 +25,17 @@ public class useCases{
 	//CHACKO //send instance
 	public void reqDocApp() {
 		//doctors arraylist is sent from converter class
+		ArrayList<Doctor> doctor = new ArrayList<Doctor>();
+		for	(int counter = 0; counter < doctor.size(); counter++)	{
+			System.out.println("Last name: " + doctor.get(counter).getLName() 
+					+ "First name: " + doctor.get(counter).getFName());			
+		}
+		//From a scroll down list, user select's one doctor
+		//gui calender is open
 		
-		//gui calender is open, 
 		//patient sees doc's schedule
 		//patient selects date and time of appointment
+		
 	}
 	
 	//CHACKO
