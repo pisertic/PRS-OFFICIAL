@@ -22,6 +22,9 @@ public class useCases{
 	
 	}
 	
+	public void login(String userName, String passWord) {
+		
+	}
 	//CHACKO //send instance
 	public void reqDocApp() {
 		

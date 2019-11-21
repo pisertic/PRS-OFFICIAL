@@ -43,8 +43,13 @@ public class StartUp {
 		signupFrame.setVisible(true);
 		
 		//get data from login gui
-		Login person;
-		person.setPassword(toHexString(getSHA("String")));
+		/*event handler: -create login instance and encrypt password
+						-grab list from server
+						-find matching
+						-if match, grab classID from list instance 
+						-create instance and set to list instance
+		
+		
 		/*
 		 * In the GUI Class, declare login person, 
 		 * person.setUserName = from gui
