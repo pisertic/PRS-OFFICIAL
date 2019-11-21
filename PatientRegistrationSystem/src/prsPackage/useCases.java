@@ -76,12 +76,13 @@ public class useCases{
 			if(tempList.get(i).getPatientNameF() != p.getFName() && tempList.get(i).getPatientNameL() != p.getLName())
 				tempList.remove(i);
 		}
-		
+		////////////////////////////////////////////
 		//print data
 		for(int i = 0; i < tempList.size(); i++) {
 		JTextArea j = new JTextArea(); //TEMP UNTIL GUI FINISHED
 		j.setText(tempList.get(i).toString());
 		}
+		////////////////////////////////////////////
 	}
 	
 	//overload method base on user type
