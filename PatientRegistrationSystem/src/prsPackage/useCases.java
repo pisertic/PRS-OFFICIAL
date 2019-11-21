@@ -23,20 +23,30 @@ public class useCases{
 	}
 	
 	//CHACKO //send instance
-	public void reqDocApp() {
+	public void reqDocApp(HospitalMember hm) { //hospital member 
 		//doctors arraylist is sent from converter class
 		ArrayList<Doctor> doctor = new ArrayList<Doctor>();
+		int chosen;
 		for	(int counter = 0; counter < doctor.size(); counter++)	{
 			System.out.println("Last name: " + doctor.get(counter).getLName() 
 					+ "First name: " + doctor.get(counter).getFName());			
 		}
+		
 		//From a scroll down list, user select's one doctor
+		chosen = 1; //from gui
 		//gui calender is open
 		
+		for(int counter = 0; counter < doctor.get(1).getDoctorSchedule().size(); counter ++)	{
+			
+			/*gui.highlight calender*/ 
+			doctor.get(chosen).getDoctorSchedule().get(counter).getDate(); // contains time too.
+			// duration is 2 hours per appointment, so highlight that on the calendar
+		}
 		//patient sees doc's schedule
 		//patient selects date and time of appointment
-		
 	}
+	
+	
 	
 	//CHACKO
 	public void scheduleDocTimetable() {

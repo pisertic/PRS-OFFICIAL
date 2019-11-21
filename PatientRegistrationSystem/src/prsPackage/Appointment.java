@@ -7,16 +7,16 @@ import java.util.Date;
 public class Appointment implements Serializable {
 //create attributes
 	private Date date;
-	private Date time;
+	//private Date time;
 	private String reason;
 	private Patient patient;
 	private Doctor doctor;
 	private int classID;
 	
 	//create constructor
-	public Appointment(Date date, Date time, String reason, Patient patient, Doctor doctor){
+	public Appointment(Date date, String reason, Patient patient, Doctor doctor){
 		this.date = date;
-		this.time = time;
+		//this.time = time;
 		this.reason = reason;
 		this.patient = patient;
 		this.doctor = doctor;
@@ -30,12 +30,12 @@ public class Appointment implements Serializable {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public Date getTime() {
-		return time;
-	}
-	public void setTime(Date time) {
-		this.time = time;
-	}
+//	public Date getTime() {
+//		return time;
+//	}
+//	public void setTime(Date time) {
+//		this.time = time;
+//	}
 	public String getReason() {
 		return reason;
 	}

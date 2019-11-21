@@ -7,13 +7,13 @@ import java.util.Date;
 public class DoctorSchedule implements Serializable {
 //create attributes
 	private Date date;
-	private Date time; 
-	private Date duration; //You sure?
+	//private Date time; 
+	private float duration;
 	
 	//create constructor
-	public DoctorSchedule(Date date, Date time, Date duration) {
+	public DoctorSchedule(Date date, float duration) {
 		this.date = date;
-		this.time = time;
+		//this.time = time;
 		this.duration = duration;
 	}
 
@@ -26,19 +26,19 @@ public class DoctorSchedule implements Serializable {
 		this.date = date;
 	}
 
-	public Date getTime() {
-		return time;
-	}
+//	public Date getTime() {
+//		return time;
+//	}
+//
+//	public void setTime(Date time) {
+//		this.time = time;
+//	}
 
-	public void setTime(Date time) {
-		this.time = time;
-	}
-
-	public Date getDuration() {
+	public float getDuration() {
 		return duration;
 	}
 
-	public void setDuration(Date duration) {
+	public void setDuration(float duration) {
 		this.duration = duration;
 	}	
 
