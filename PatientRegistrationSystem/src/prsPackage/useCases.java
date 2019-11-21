@@ -17,11 +17,15 @@ public class useCases {
 		ArrayList<Doctor> docList = new ArrayList<Doctor>();
 		docList = (ArrayList<Doctor>) Converter.readData(Converter.docData);
 		for (int counter = 0; counter < docList.size(); counter++) {
-			docList.get(counter).getSpecialty();//
+			docList.get(counter).getSpecialty();
 		}
 
 	}
 
+	public void signUp() {
+		
+	}
+	
 	public int login(String userName, String passWord, MyClient client) {
 		// create temp login instance to scan match userBase
 		Login log = new Login(userName, passWord);
@@ -62,7 +66,7 @@ public class useCases {
 
 	// CHACKO //send instance
 	public void reqDocApp() {
-
+	}
 	// CHACKO //send instance
 	public void reqDocApp(HospitalMember hm) { // hospital member
 		// doctors arraylist is sent from converter class
@@ -114,14 +118,18 @@ public class useCases {
 
 	}
 
-	// PETER
+	// PETER ONLY ADMIN HAS ACCESS
 	public void addMember() {
-
+		//call signup function
 	}
 
-	// PETER
-	public void removeMember() {
-
+	// PETER  ONLY ADMIN HAS ACCESS
+	//assume gui 
+	public void removeMember(String user, MyClient client) {
+		//pull list of hospital members from server
+		
+		client.sendToServer(Objectinator.createDataMsg(false, 2));
+		
 	}
 
 	// CHACKO
