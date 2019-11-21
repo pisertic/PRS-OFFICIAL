@@ -16,14 +16,13 @@ private Login login;
 private int classID;
 
 //create constructor
-public HospitalMember(String fName, String lName, String address, int SIN, String userName, 
-		String password) {
+public HospitalMember(String fName, String lName, String address, int SIN) {
 	this.fName = fName;
 	this.lName = lName;
 	this.address = address;
 	this.SIN = SIN;
 	classID = 2;
-	login = new Login(userName, password, classID);
+	login = null;
 }
 
 //create gets
