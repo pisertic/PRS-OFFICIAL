@@ -42,7 +42,31 @@ public class StartUp {
 		signupFrame.setSize(600, 400);
 		signupFrame.setVisible(true);
 		
+<<<<<<< HEAD
 	
+=======
+		//get data from login gui
+		Login person;
+		
+		person.setPassword(toHexString(getSHA("String")));
+		/*
+		 * In the GUI Class, declare login person, 
+		 * person.setUserName = from gui
+		 * person.setPassword = from gui
+		 */
+		//send that to server to check login
+		//set int classTypeID = ^^^ return
+		Objectinator obj = new Objectinator (false, person, 0);
+		
+		client1.sendToServer(obj);
+		client1.data1
+		//if statements to check int
+		switch (classID)	{
+		case 0: // appointment
+			ArrayList<Appointment> data = new ArrayList<Appointment>();
+			
+			
+>>>>>>> branch 'master' of https://github.com/pisertic/PRS-OFFICIAL.git
 			
 		
 		
