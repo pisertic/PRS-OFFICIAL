@@ -19,7 +19,7 @@ public class useCases {
 		ArrayList<Doctor> docList = new ArrayList<Doctor>();
 		docList = (ArrayList<Doctor>) Converter.readData(Converter.docData);
 		for (int counter = 0; counter < docList.size(); counter++) {
-			docList.get(counter).getSpecialty();
+			docList.get(counter).getSpecialty();//
 		}
 
 	}
