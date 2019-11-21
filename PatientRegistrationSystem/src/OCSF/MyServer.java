@@ -278,21 +278,4 @@ public class MyServer extends AbstractServer {
 		}
 	}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		MyServer MyServer1 = new MyServer(8989); // will use port 8989
-		System.out.println("MyServer: MyServer1 has been created.");
-		try {
-			MyServer1.listen();
-			System.out.println("MyServer: Server should now be running");
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
 }
-//FileHandling fh = new FileHandling();
-//fh.CreateFile("Test");
-//fh.WriteToFile("Testing", msg);
