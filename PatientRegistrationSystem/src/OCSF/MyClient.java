@@ -13,66 +13,56 @@ import prsPackage.Referral;
 import prsPackage.Staff;
 
 public class MyClient extends AbstractClient {
-
+	//data lists for startUp class to access
+	public ArrayList<Appointment> appData = new ArrayList<>();
+	public ArrayList<Doctor> docData =  new ArrayList<>();
+	public ArrayList<HospitalMember> hpData =  new ArrayList<>();
+	public ArrayList<Patient> patData =  new ArrayList<>();
+	public ArrayList<Referral> refData =  new ArrayList<>();
+	public ArrayList<Staff> staffData =  new ArrayList<>();
+	public ArrayList<Login> loginData =  new ArrayList<>();
+	
 	public MyClient(String host, int port) {
 		super(host, port);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	protected void handleMessageFromServer(Object msg) {
 		System.out.println("MyClient's handleMessageFromServer() triggered");
 		//FIND TYPE OF RECIEVED DATA AND CONVERT FROM OBJECTINATOR TYPE TO PROPER CLASS ARRAYLIST
 		Objectinator obj = (Objectinator)msg;
+		
 		switch (obj.getTypeIdentifier()) {
-		// Get arraylist of data appointment
+		// make arraylist of data appointment
 		case 0:// appointment
-			ArrayList<Appointment> data = new ArrayList<Appointment>();
-			data = (ArrayList<Appointment>) Converter.readData(Converter.aptData);
-			//WRAP DATA AS OBJECTINATOR TYPE
-			client.sendToClient(data);
+			this.appData = (ArrayList)obj.getDataList();	
 			break;
-		// Get arraylist of doctor data
+		// make arraylist of doctor data
 		case 1:// doctor
-			ArrayList<Doctor> data1 = new ArrayList<Doctor>();
-			data1 = (ArrayList<Doctor>) Converter.readData(Converter.docData);
-			client.sendToClient(data1);
+			this.docData = (ArrayList)obj.getDataList();	
 			break;
-		// Get arraylist of hospitalMember data
+		// make arraylist of hospitalMember data
 		case 2:// hospitalMember
-			ArrayList<HospitalMember> data2 = new ArrayList<HospitalMember>();
-			data2 = (ArrayList<HospitalMember>) Converter.readData(Converter.hmData);
-			client.sendToClient(data2);
+			this.hpData = (ArrayList)obj.getDataList();	
 			break;
 		case 3:// patient
-				// Get arraylist of patient data
-			ArrayList<Patient> data3 = new ArrayList<Patient>();
-			data3 = (ArrayList<Patient>) Converter.readData(Converter.patientData);
-			client.sendToClient(data3);
+				// make arraylist of patient data
+			this.patData = (ArrayList)obj.getDataList();	
 			break;
 		case 4:// referral
-				// Get arraylist of referral data
-			ArrayList<Referral> data4 = new ArrayList<Referral>();
-			data4 = (ArrayList<Referral>) Converter.readData(Converter.refData);
-			client.sendToClient(data4);
+				// make arraylist of referral data
+			this.refData = (ArrayList)obj.getDataList();	
 			break;
 		case 5:// staff
-				// Get arraylist of staff data
-			ArrayList<Staff> data5 = new ArrayList<Staff>();
-			data5 = (ArrayList<Staff>) Converter.readData(Converter.staffData);
-			client.sendToClient(data5);
+				// make arraylist of staff data
+			this.staffData = (ArrayList)obj.getDataList();	
 			break;
 		case 6:// login
-			// Get arraylist of login data
-			ArrayList<Login> data6 = new ArrayList<Login>();
-			data6 = (ArrayList<Login>) Converter.readData(Converter.userBase);
-			client.sendToClient(data6);
+			// make arraylist of login data
+			this.loginData = (ArrayList)obj.getDataList();	
 			break;
 		}
-	}
-
-	public Object clientRequest(String keyword, int methodIdentifier) {
-		Objectinator object1 = new Objectinator(keyword, methodIdentifier);
-		return object1;
 	}
 
 	public static void main(String[] args) throws IOException, InterruptedException {

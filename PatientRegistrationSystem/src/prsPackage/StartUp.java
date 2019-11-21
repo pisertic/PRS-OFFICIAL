@@ -55,7 +55,7 @@ public class StartUp {
 		Objectinator obj = new Objectinator (false, person, 0);
 		
 		client1.sendToServer(obj);
-
+		client1.data1
 		//if statements to check int
 		switch (classID)	{
 		case 0: // appointment
