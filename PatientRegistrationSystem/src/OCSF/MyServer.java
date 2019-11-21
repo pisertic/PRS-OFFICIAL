@@ -11,9 +11,7 @@ public class MyServer extends AbstractServer {
 	public MyServer(int port) { // Constructor
 		super(port);
 	}
-	
-	
-	
+
 	@Override
 	protected void handleMessageFromClient(Object msg, ConnectionToClient client) {
 		System.out.println("MyServer: handleMessageFromClient() RECEIVED SOMETHING FROM CLIENT");
@@ -136,7 +134,7 @@ public class MyServer extends AbstractServer {
 				}
 				break;
 			case 1:// doctor
-				// take list data from server, add new element, write updated list in dataBase
+					// take list data from server, add new element, write updated list in dataBase
 				ArrayList<Doctor> data1 = new ArrayList<Doctor>();
 				data1 = (ArrayList<Doctor>) Converter.readData(Converter.docData);
 				data1.add((Doctor) obj.getDataInstance());
@@ -149,7 +147,7 @@ public class MyServer extends AbstractServer {
 				}
 				break;
 			case 2:// hospitalMember
-				// take list data from server, add new element, write updated list in dataBase
+					// take list data from server, add new element, write updated list in dataBase
 				ArrayList<HospitalMember> data2 = new ArrayList<HospitalMember>();
 				data2 = (ArrayList<HospitalMember>) Converter.readData(Converter.hmData);
 				data2.add((HospitalMember) obj.getDataInstance());
@@ -162,7 +160,7 @@ public class MyServer extends AbstractServer {
 				}
 				break;
 			case 3:// patient
-				// take list data from server, add new element, write updated list in dataBase
+					// take list data from server, add new element, write updated list in dataBase
 				ArrayList<Patient> data3 = new ArrayList<Patient>();
 				data3 = (ArrayList<Patient>) Converter.readData(Converter.patientData);
 				data3.add((Patient) obj.getDataInstance());
@@ -175,7 +173,7 @@ public class MyServer extends AbstractServer {
 				}
 				break;
 			case 4:// referral
-				// take list data from server, add new element, write updated list in dataBase
+					// take list data from server, add new element, write updated list in dataBase
 				ArrayList<Referral> data4 = new ArrayList<Referral>();
 				data4 = (ArrayList<Referral>) Converter.readData(Converter.refData);
 				data4.add((Referral) obj.getDataInstance());
@@ -188,7 +186,7 @@ public class MyServer extends AbstractServer {
 				}
 				break;
 			case 5:// staff
-				// take list data from server, add new element, write updated list in dataBase
+					// take list data from server, add new element, write updated list in dataBase
 				ArrayList<Staff> data5 = new ArrayList<Staff>();
 				data5 = (ArrayList<Staff>) Converter.readData(Converter.staffData);
 				data5.add((Staff) obj.getDataInstance());
@@ -203,7 +201,7 @@ public class MyServer extends AbstractServer {
 			case 6:// login
 				ArrayList<Login> data6 = new ArrayList<Login>();
 				data6 = (ArrayList<Login>) Converter.readData(Converter.userBase);
-				data6.add((Login)obj.getDataInstance());
+				data6.add((Login) obj.getDataInstance());
 				// write data
 				try {
 					Converter.writeData(data6, Converter.userBase);
@@ -225,7 +223,7 @@ public class MyServer extends AbstractServer {
 		case 0:// appointment
 			ArrayList<Appointment> data = new ArrayList<Appointment>();
 			data = (ArrayList<Appointment>) Converter.readData(Converter.aptData);
-			//WRAP DATA AS OBJECTINATOR TYPE
+			// WRAP DATA AS OBJECTINATOR TYPE
 			Objectinator obj = new Objectinator(data, classType);
 			client.sendToClient(obj);
 			break;
@@ -233,7 +231,7 @@ public class MyServer extends AbstractServer {
 		case 1:// doctor
 			ArrayList<Doctor> data1 = new ArrayList<Doctor>();
 			data1 = (ArrayList<Doctor>) Converter.readData(Converter.docData);
-			//WRAP DATA AS OBJECTINATOR TYPE
+			// WRAP DATA AS OBJECTINATOR TYPE
 			Objectinator obj1 = new Objectinator(data1, classType);
 			client.sendToClient(obj1);
 			break;
@@ -241,7 +239,7 @@ public class MyServer extends AbstractServer {
 		case 2:// hospitalMember
 			ArrayList<HospitalMember> data2 = new ArrayList<HospitalMember>();
 			data2 = (ArrayList<HospitalMember>) Converter.readData(Converter.hmData);
-			//WRAP DATA AS OBJECTINATOR TYPE
+			// WRAP DATA AS OBJECTINATOR TYPE
 			Objectinator obj2 = new Objectinator(data2, classType);
 			client.sendToClient(obj2);
 			break;
@@ -249,7 +247,7 @@ public class MyServer extends AbstractServer {
 				// Get arraylist of patient data
 			ArrayList<Patient> data3 = new ArrayList<Patient>();
 			data3 = (ArrayList<Patient>) Converter.readData(Converter.patientData);
-			//WRAP DATA AS OBJECTINATOR TYPE
+			// WRAP DATA AS OBJECTINATOR TYPE
 			Objectinator obj3 = new Objectinator(data3, classType);
 			client.sendToClient(obj3);
 			break;
@@ -257,7 +255,7 @@ public class MyServer extends AbstractServer {
 				// Get arraylist of referral data
 			ArrayList<Referral> data4 = new ArrayList<Referral>();
 			data4 = (ArrayList<Referral>) Converter.readData(Converter.refData);
-			//WRAP DATA AS OBJECTINATOR TYPE
+			// WRAP DATA AS OBJECTINATOR TYPE
 			Objectinator obj4 = new Objectinator(data4, classType);
 			client.sendToClient(obj4);
 			break;
@@ -265,15 +263,15 @@ public class MyServer extends AbstractServer {
 				// Get arraylist of staff data
 			ArrayList<Staff> data5 = new ArrayList<Staff>();
 			data5 = (ArrayList<Staff>) Converter.readData(Converter.staffData);
-			//WRAP DATA AS OBJECTINATOR TYPE
+			// WRAP DATA AS OBJECTINATOR TYPE
 			Objectinator obj5 = new Objectinator(data5, classType);
 			client.sendToClient(obj5);
 			break;
 		case 6:// login
-			// Get arraylist of login data
+				// Get arraylist of login data
 			ArrayList<Login> data6 = new ArrayList<Login>();
 			data6 = (ArrayList<Login>) Converter.readData(Converter.userBase);
-			//WRAP DATA AS OBJECTINATOR TYPE
+			// WRAP DATA AS OBJECTINATOR TYPE
 			Objectinator obj6 = new Objectinator(data6, classType);
 			client.sendToClient(obj6);
 			break;

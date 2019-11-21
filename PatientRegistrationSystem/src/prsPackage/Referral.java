@@ -2,7 +2,7 @@ package prsPackage;
 
 import java.io.Serializable;
 
-public class Referral implements Serializable{
+public class Referral implements Serializable {
 //create attributes
 	private String refDoc;
 	private String refNameF;
@@ -11,8 +11,7 @@ public class Referral implements Serializable{
 	private String patientNameL;
 	private int classID;
 
-		
-	//create constructor
+	// create constructor
 	public Referral(String rD, String rNameF, String rNameL, String pNameF, String pNameL) {
 		refDoc = rD;
 		refNameF = rNameF;
@@ -22,7 +21,7 @@ public class Referral implements Serializable{
 		classID = 4;
 	}
 
-	//gets/sets
+	// gets/sets
 	public String getRefDoc() {
 		return refDoc;
 	}
@@ -46,7 +45,7 @@ public class Referral implements Serializable{
 	public void setRefNameL(String refNameL) {
 		this.refNameL = refNameL;
 	}
-	
+
 	public String getPatientNameL() {
 		return patientNameL;
 	}
@@ -54,7 +53,7 @@ public class Referral implements Serializable{
 	public void setPatientNameL(String patientNameL) {
 		this.patientNameL = patientNameL;
 	}
-	
+
 	public String getPatientNameF() {
 		return patientNameF;
 	}
@@ -62,16 +61,16 @@ public class Referral implements Serializable{
 	public void setPatientNameF(String patientNameF) {
 		this.patientNameF = patientNameF;
 	}
-	
-	//get class id
+
+	// get class id
 	public int getClassID() {
 		return classID;
 	}
-	
-	//toString
+
+	// toString
 	public String toString() {
-		String msg = "Refered Doctor: " + refDoc + "\nReferring Staff: " + refNameF 
-					+ " " + refNameL + "\nPatient: " + patientNameF + " " + patientNameL;
+		String msg = "Refered Doctor: " + refDoc + "\nReferring Staff: " + refNameF + " " + refNameL + "\nPatient: "
+				+ patientNameF + " " + patientNameL;
 		return msg;
 	}
 

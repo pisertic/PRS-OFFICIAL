@@ -1,15 +1,9 @@
 package prsPackage;
 
-<<<<<<< HEAD
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
-=======
-
->>>>>>> branch 'master' of https://github.com/pisertic/PRS-OFFICIAL.git
 import java.util.ArrayList;
-
 import javax.swing.JTextArea;
-
 import OCSF.GFG;
 import OCSF.MyClient;
 import OCSF.Objectinator;
@@ -51,60 +45,59 @@ public class useCases {
 		// set list to data retrieved from server and search for match
 		ArrayList<Login> list = (ArrayList) client.loginData;
 		for (int i = 0; i < list.size(); i++) {
-			//check username
-			if (userName == list.get(i).getUserName()) { 
-				//check password
+			// check username
+			if (userName == list.get(i).getUserName()) {
+				// check password
 				if (log.getPassword() == list.get(i).getPassword()) {
-					//return instance type
+					// return instance type
 					return list.get(i).getClassID();
-				}else {
-					return -1; //incorrect password
+				} else {
+					return -1; // incorrect password
 				}
 			}
 		}
-		//if no match is found
+		// if no match is found
 		return -2;
 	}
-<<<<<<< HEAD
 
 	// CHACKO //send instance
 	public void reqDocApp() {
 
-=======
-	
-	//CHACKO //send instance
-	public void reqDocApp(HospitalMember hm) { //hospital member 
-		//doctors arraylist is sent from converter class
+	// CHACKO //send instance
+	public void reqDocApp(HospitalMember hm) { // hospital member
+		// doctors arraylist is sent from converter class
+
+	}
+
+	// CHACKO //send instance
+	public void reqDocApp(HospitalMember hm) { // hospital member
+		// doctors arraylist is sent from converter class
+
 		ArrayList<Doctor> doctor = new ArrayList<Doctor>();
 		int chosen;
-		for	(int counter = 0; counter < doctor.size(); counter++)	{
-			System.out.println("Last name: " + doctor.get(counter).getLName() 
-					+ "First name: " + doctor.get(counter).getFName());			
+		for (int counter = 0; counter < doctor.size(); counter++) {
+			System.out.println(
+					"Last name: " + doctor.get(counter).getLName() + "First name: " + doctor.get(counter).getFName());
 		}
-		
-		//From a scroll down list, user select's one doctor
-		chosen = 1; //from gui
-		//gui calender is open
-		
-		for(int counter = 0; counter < doctor.get(1).getDoctorSchedule().size(); counter ++)	{
-			
-			/*gui.highlight calender*/ 
+
+		// From a scroll down list, user select's one doctor
+		chosen = 1; // from gui
+		// gui calender is open
+
+		for (int counter = 0; counter < doctor.get(1).getDoctorSchedule().size(); counter++) {
+
+			/* gui.highlight calender */
 			doctor.get(chosen).getDoctorSchedule().get(counter).getDate(); // contains time too.
 			// duration is 2 hours per appointment, so highlight that on the calendar
 		}
-		//patient sees doc's schedule
-		//patient selects date and time of appointment
->>>>>>> branch 'master' of https://github.com/pisertic/PRS-OFFICIAL.git
+		// patient sees doc's schedule
+		// patient selects date and time of appointment
+		// patient sees doc's schedule
+		// patient selects date and time of appointment
+
 	}
-<<<<<<< HEAD
 
 	// CHACKO
-=======
-	
-	
-	
-	//CHACKO
->>>>>>> branch 'master' of https://github.com/pisertic/PRS-OFFICIAL.git
 	public void scheduleDocTimetable() {
 
 	}
@@ -183,6 +176,5 @@ public class useCases {
 		// client1.sendToServer(obj);
 		// DONE
 	}
-	
 
 }

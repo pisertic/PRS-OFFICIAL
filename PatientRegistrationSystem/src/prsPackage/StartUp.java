@@ -40,7 +40,6 @@ public class StartUp {
 		signupFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		signupFrame.setSize(600, 400);
 		signupFrame.setVisible(true);
-		
 
 		// in inch if, make appropriate instance of class (make new instance of user)
 		// scan dataBase file of type class^ for matching login details
