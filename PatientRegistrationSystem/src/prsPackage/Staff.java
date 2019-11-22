@@ -1,22 +1,22 @@
 package prsPackage;
 
-public class Staff extends HospitalMember{
+public class Staff extends HospitalMember {
 //create attributes
 	private String department;
 	private int empNum;
-	private int passLvl;
-	private int methodID;
-	
-	//create constructor
-	public Staff(String d, int num, int pass, String fName, String lName, String address, int SIN) {
-		super(fName, lName, address, SIN);
-		department = d;
-		empNum = num;
-		passLvl = pass;
-		methodID = 5;
+	private String address;
+	private int SIN;
+
+	// create constructor
+	public Staff(String fName, String lName, String department, int empNum, String address, int SIN) {
+		super(fName, lName);
+		this.address = address;
+		this.SIN = SIN;
+		this.department = department;
+		this.empNum = empNum;
 	}
 
-	//create gets/sets
+	// create gets/sets
 	public String getDepartment() {
 		return department;
 	}
@@ -33,17 +33,20 @@ public class Staff extends HospitalMember{
 		this.empNum = empNum;
 	}
 
-	public int getPassLvl() {
-		return passLvl;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setPassLvl(int passLvl) {
-		this.passLvl = passLvl;
+	public int getSIN() {
+		return SIN;
 	}
-	
-	public int getMethodID() {
-		return methodID;
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
-	
-	
+
+	public void setSIN(int SIN) {
+		this.SIN = SIN;
+	}
+
 }

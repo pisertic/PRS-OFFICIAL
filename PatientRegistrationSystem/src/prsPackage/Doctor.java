@@ -8,19 +8,17 @@ public class Doctor extends Staff{
 	private String rank;
 	private float workingHours;
 	private ArrayList<DoctorSchedule> doctorSchedule;
-	private Referral referral;
-	private int classID;
+	private ArrayList<Referral> referral;
 	
 	//create constructor 
-	public Doctor(String specialty, String rank, float workingHours, DoctorSchedule doctorSchedule, Referral referral,  //Doctor attributes
-			      String d, int num, int pass, String fName, String lName, String address, int SIN) {					//Staff attributes
-		super(d, num, pass, fName, lName, address, SIN);
+	public Doctor(String specialty, String rank, float workingHours,    //Doctor attributes
+			String fName, String lName, String department, int empNum, String address, int SIN) {					//Staff attributes
+		super(fName, lName, department, empNum,  address, SIN);
 		this.specialty = specialty;
 		this.rank = rank;
 		this.workingHours = workingHours;
 		this.doctorSchedule = null;
-		this.referral = referral;
-		classID = 1;
+		this.referral = null;
 	}
 	
 	//gets/sets

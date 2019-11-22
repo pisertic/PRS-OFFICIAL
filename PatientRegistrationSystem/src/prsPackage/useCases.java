@@ -12,7 +12,7 @@ public class useCases {
 
 	private int hospMem = 2;
 	private int staffMem = 5;
-	prinate int patMem = 3;
+	private int patMem = 3;
 	private int docMem = 1;
 	private int refMem = 4;
 	private int appMem = 0;
@@ -30,55 +30,18 @@ public class useCases {
 
 	}
 
-	public void signUp() {
-		
-	}
-	
-	public int login(String userName, String passWord, MyClient client) {
-		// create temp login instance to scan match userBase
-		Login log = new Login(userName, passWord);
 
-		// encrypt the password
-		try {
-			log.setPassword(GFG.toHexString(GFG.getSHA(passWord)));
-		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		// send userBase pull request to server
-		try {
-			client.sendToServer(Objectinator.createDataMsg(false, 6));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		// set list to data retrieved from server and search for match
-		ArrayList<Login> list = (ArrayList) client.loginData;
-		for (int i = 0; i < list.size(); i++) {
-			// check username
-			if (userName == list.get(i).getUserName()) {
-				// check password
-				if (log.getPassword() == list.get(i).getPassword()) {
-					// return instance type
-					return list.get(i).getClassID();
-				} else {
-					return -1; // incorrect password
-				}
-			}
-		}
-		// if no match is found
-		return -2;
-	}
 
 	// CHACKO //send instance
 	public void reqDocApp() {
 	}
-	// CHACKO //send instance
-	public void reqDocApp(HospitalMember hm) { // hospital member
-		// doctors arraylist is sent from converter class
-
+	
+	public void editDocApp() {
+		
+	}
+	
+	public void cancleDocApp() {
+		
 	}
 
 	// CHACKO //send instance
@@ -154,7 +117,12 @@ public class useCases {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void viewRef(Patient p, MyClient client) {
 		// pull referral data from server
-		client.sendToServer(Objectinator.createDataMsg(false, refMem));
+		try {
+			client.sendToServer(Objectinator.createDataMsg(false, refMem));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		ArrayList<Referral> tempList = client.refData;
 		tempList = (ArrayList) Converter.readData(Converter.refData);
 
@@ -175,24 +143,72 @@ public class useCases {
 	// overload method base on user type
 	public void viewRef(Staff s, String keyWord, MyClient client) {
 		// pull referral data from server
-		client.sendToServer(Objectinator.createDataMsg(false, refMem));
+		try {
+			client.sendToServer(Objectinator.createDataMsg(false, refMem));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		ArrayList<Referral> tempList = client.refData;
 		tempList = (ArrayList) Converter.readData(Converter.refData);
 
+		//////////////////////////////////////////////////////////
 		// print all of the referrals
 		for (int i = 0; i < tempList.size(); i++) {
 			JTextArea j = new JTextArea(); // TEMP UNTIL GUI FINISHED
 			j.setText(tempList.get(i).toString());
 		}
+		////////////////////////////////////////////////////////////
 	}
 
 	// PETER
 	// must check that patient exists in iHandler before sending to method
-	public void createRef(Staff s, String refDoc, Patient p) {
+	public void createRef(Staff s, String refDoc, Patient p, MyClient client) {
 		Referral r = new Referral(refDoc, s.getFName(), s.getLName(), p.getFName(), p.getLName());
 		Objectinator obj = new Objectinator(true, r, r.getClassID());
-		// client1.sendToServer(obj);
+		client.sendToServer(Objectinator.createDataMsg(true, typeIdentifier));
 		// DONE
 	}
 
+	public void signUp() {
+		
+	}
+	
+	public int login(String userName, String passWord, MyClient client) {
+		// create temp login instance to scan match userBase
+		Login log = new Login(userName, passWord);
+
+		// encrypt the password
+		try {
+			log.setPassword(GFG.toHexString(GFG.getSHA(passWord)));
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// send userBase pull request to server
+		try {
+			client.sendToServer(Objectinator.createDataMsg(false, 6));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// set list to data retrieved from server and search for match
+		ArrayList<Login> list = (ArrayList) client.loginData;
+		for (int i = 0; i < list.size(); i++) {
+			// check username
+			if (userName == list.get(i).getUserName()) {
+				// check password
+				if (log.getPassword() == list.get(i).getPassword()) {
+					// return instance type
+					return list.get(i).getClassID();
+				} else {
+					return -1; // incorrect password
+				}
+			}
+		}
+		// if no match is found
+		return -2;
+	}
 }

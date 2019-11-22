@@ -4,63 +4,37 @@ package prsPackage;
 import java.io.Serializable;
 
 public class HospitalMember implements Serializable {
-	//create serializable id
+	// create serializable id
 	private static final long serialVersionUID = 1L;
-	
+
 //create attributes
-private String fName;
-private String lName;
-private String address;
-private int SIN;
-private Login login;
-private int classID;
+	private String fName;
+	private String lName;
+	private Login login;
 
 //create constructor
-public HospitalMember(String fName, String lName, String address, int SIN) {
-	this.fName = fName;
-	this.lName = lName;
-	this.address = address;
-	this.SIN = SIN;
-	classID = 2;
-	login = null;
-}
+	public HospitalMember(String fName, String lName) {
+		this.fName = fName;
+		this.lName = lName;
+		login = null;
+	}
 
 //create gets
-public String getFName() {
-	return fName;
-}
+	public String getFName() {
+		return fName;
+	}
 
-public String getLName() {
-	return lName;
-}
-
-public String getAddress() {
-	return address;
-}
-
-public int getSIN() {
-	return SIN;
-}
+	public String getLName() {
+		return lName;
+	}
 
 //create sets
-public void setFName(String fName) {
-	this.fName = fName;
-}
+	public void setFName(String fName) {
+		this.fName = fName;
+	}
 
-public void setLName(String lName) {
-	this.lName = lName;
-}
-
-public void setAddress(String address) {
-	this.address = address;
-}
-
-public void setSIN(int SIN) {
-	this.SIN = SIN;
-}
-
-public int getClassID() {
-	return classID;
-}
+	public void setLName(String lName) {
+		this.lName = lName;
+	}
 
 }

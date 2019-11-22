@@ -4,14 +4,14 @@ public class Patient extends HospitalMember {
 //create attributes
 	private HealthCard healthCard;
 	private Records records;
-	private int classID;
+	private String address;
+	private int SIN;
 
 	// create constructor
 	public Patient(HealthCard h, Records r, String fName, String lName, String address, int SIN) {
-		super(fName, lName, address, SIN);
+		super(fName, lName);
 		healthCard = h;
 		records = r;
-		classID = 3;
 	}
 
 	// create gets/sets
@@ -31,8 +31,20 @@ public class Patient extends HospitalMember {
 		this.records = records;
 	}
 
-	public int getMethodID() {
-		return classID;
+	public String getAddress() {
+		return address;
+	}
+
+	public int getSIN() {
+		return SIN;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void setSIN(int SIN) {
+		this.SIN = SIN;
 	}
 
 }
