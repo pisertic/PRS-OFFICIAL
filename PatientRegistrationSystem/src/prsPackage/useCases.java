@@ -33,16 +33,7 @@ public class useCases {
 
 
 	// CHACKO //send instance
-	public void reqDocApp() {
-	}
 	
-	public void editDocApp() {
-		
-	}
-	
-	public void cancleDocApp() {
-		
-	}
 
 	// CHACKO //send instance
 	public void reqDocApp(HospitalMember hm) { // hospital member
@@ -72,6 +63,15 @@ public class useCases {
 
 	}
 
+
+	public void editDocApp() {
+		
+	}
+	
+	public void cancleDocApp() {
+		
+	}
+
 	// CHACKO
 	public void scheduleDocTimetable() {
 
@@ -88,6 +88,10 @@ public class useCases {
 	public void browseRecords() {
 
 	}
+	
+	public void editRecords() {
+		
+	}
 
 	// PETER ONLY ADMIN HAS ACCESS
 	public void addMember() {
@@ -103,15 +107,6 @@ public class useCases {
 		
 	}
 
-	// CHACKO
-	public void modifyApp() {
-
-	}
-
-	// CHACKO
-	public void cancleApp() {
-
-	}
 
 	// PETER
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -163,13 +158,21 @@ public class useCases {
 
 	// PETER
 	// must check that patient exists in iHandler before sending to method
-	public void createRef(Staff s, String refDoc, Patient p, MyClient client) {
+	public void createRef(Staff s, String refDoc, Patient p, MyClient client) {  //DONE
 		Referral r = new Referral(refDoc, s.getFName(), s.getLName(), p.getFName(), p.getLName());
 		Objectinator obj = new Objectinator(true, r, r.getClassID());
-		client.sendToServer(Objectinator.createDataMsg(true, typeIdentifier));
+		try {
+			client.sendToServer(Objectinator.createDataMsg(true, refMem));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		// DONE
 	}
 
+	public void removeRef() {
+		
+	}
 	public void signUp() {
 		
 	}

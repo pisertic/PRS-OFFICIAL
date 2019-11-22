@@ -5,8 +5,8 @@ import java.io.Serializable;
 public class Referral implements Serializable {
 //create attributes
 	private String refDoc;
-	private String refNameF;
-	private String refNameL;
+	private String staffNameF;
+	private String staffNameL;
 	private String patientNameF;
 	private String patientNameL;
 
@@ -14,8 +14,8 @@ public class Referral implements Serializable {
 	// create constructor
 	public Referral(String rD, String rNameF, String rNameL, String pNameF, String pNameL) {
 		refDoc = rD;
-		refNameF = rNameF;
-		refNameL = rNameL;
+		staffNameF = rNameF;
+		staffNameL = rNameL;
 		patientNameF = pNameF;
 		patientNameL = pNameL;
 	}
@@ -30,19 +30,19 @@ public class Referral implements Serializable {
 	}
 
 	public String getRefNameF() {
-		return refNameF;
+		return staffNameF;
 	}
 
 	public void setRefNameF(String refNameF) {
-		this.refNameF = refNameF;
+		this.staffNameF = refNameF;
 	}
 
 	public String getRefNameL() {
-		return refNameL;
+		return staffNameL;
 	}
 
 	public void setRefNameL(String refNameL) {
-		this.refNameL = refNameL;
+		this.staffNameL = refNameL;
 	}
 
 	public String getPatientNameL() {
@@ -68,7 +68,7 @@ public class Referral implements Serializable {
 
 	// toString
 	public String toString() {
-		String msg = "Refered Doctor: " + refDoc + "\nReferring Staff: " + refNameF + " " + refNameL + "\nPatient: "
+		String msg = "Refered Doctor: " + refDoc + "\nReferring Staff: " + staffNameF + " " + staffNameL + "\nPatient: "
 				+ patientNameF + " " + patientNameL;
 		return msg;
 	}

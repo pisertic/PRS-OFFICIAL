@@ -1,17 +1,19 @@
 package prsPackage;
 
+import java.util.ArrayList;
+
 public class Patient extends HospitalMember {
 //create attributes
 	private HealthCard healthCard;
-	private Records records;
+	private ArrayList<Records> records;
 	private String address;
 	private int SIN;
 
 	// create constructor
-	public Patient(HealthCard h, Records r, String fName, String lName, String address, int SIN) {
+	public Patient(HealthCard h, String fName, String lName, String address, int SIN) {
 		super(fName, lName);
 		healthCard = h;
-		records = r;
+		records =  null;
 	}
 
 	// create gets/sets
@@ -23,11 +25,11 @@ public class Patient extends HospitalMember {
 		this.healthCard = healthCard;
 	}
 
-	public Records getRecords() {
+	public ArrayList<Records> getRecords() {
 		return records;
 	}
 
-	public void setRecords(Records records) {
+	public void setRecords(ArrayList<Records> records) {
 		this.records = records;
 	}
 
