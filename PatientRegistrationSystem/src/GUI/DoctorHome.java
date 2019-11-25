@@ -160,10 +160,10 @@ public class DoctorHome extends JFrame
 		{
 			if (event.getSource() == dMakeDiagnosis)
 			{
-				ScheduleTimetable scheduleTimetable = new ScheduleTimetable();
-				scheduleTimetable.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				scheduleTimetable.setSize(600, 400);
-				scheduleTimetable.setVisible(true);
+				MakeDiagnosis makeDiagnosis = new MakeDiagnosis();
+				makeDiagnosis.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				makeDiagnosis.setSize(600, 400);
+				makeDiagnosis.setVisible(true);
 			}
 		}
 	}
