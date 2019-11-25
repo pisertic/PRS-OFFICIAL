@@ -1,6 +1,7 @@
 package GUI;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.event.*;
@@ -27,9 +28,9 @@ public class Signup extends JFrame
 	
 	public Signup()
 	{
-		super("Patient Registation System Login");
+		super("Patient Registation System Signup");
 		setLayout(new FlowLayout(FlowLayout.LEFT));
-		setBackground(Color.white);
+		getContentPane().setBackground(Color.white);
 		
 		signupTopLabel = new JLabel();
 		signupTopLabel.setText("Thank you for signing up! Please enter required information");
@@ -40,35 +41,56 @@ public class Signup extends JFrame
 		pFirstLabel.setText("Enter first name:");
 		add(pFirstLabel);
 		
-		pFirstTextField = new JTextField("First name");
+		pFirstTextField = new JTextField();
+		pFirstTextField.setPreferredSize(new Dimension(100,20));
 		add(pFirstTextField);
 		
 		pLastLabel = new JLabel();
 		pLastLabel.setText("Enter last name:");
 		add(pLastLabel);
 		
-		pLastTextField = new JTextField("Last name");
+		pLastTextField = new JTextField();
+		pLastTextField.setPreferredSize(new Dimension(100,20));
 		add(pLastTextField);
 		
 		pAddressLabel = new JLabel();
 		pAddressLabel.setText("Enter address:");
 		add(pAddressLabel);
 		
-		pAddressTextField = new JTextField("Address");
+		pAddressTextField = new JTextField();
+		pAddressTextField.setPreferredSize(new Dimension(100,20));
 		add(pAddressTextField);
 		
 		pSINLabel = new JLabel();
 		pSINLabel.setText("Enter SIN:");
 		add(pSINLabel);
 		
-		pSINTextField = new JTextField("SIN");
+		pSINTextField = new JTextField();
+		pSINTextField.setPreferredSize(new Dimension(100,20));
 		add(pSINTextField);
 		
 		pHealthCardLabel = new JLabel();
 		pHealthCardLabel.setText("Enter health card number:");
 		add(pHealthCardLabel);
 		
-		pHealthCardTextField = new JTextField("Health card number");
+		pHealthCardTextField = new JTextField();
+		pHealthCardTextField.setPreferredSize(new Dimension(100,20));
 		add(pHealthCardTextField);
+		
+		signupEnterButton = new JButton("REGISTER");
+		add(signupEnterButton);
+	
+		SignupHandler shandler = new SignupHandler();
+		signupEnterButton.addActionListener(shandler);
 	}
-}
+	
+	private class SignupHandler implements ActionListener
+	{
+		public void actionPerformed(ActionEvent event)
+		{
+			if (event.getSource() == signupEnterButton)
+			{
+				
+			}
+		}
+	}

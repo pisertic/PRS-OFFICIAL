@@ -1,6 +1,7 @@
 package GUI;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.event.*;
@@ -26,14 +27,15 @@ public class Login extends JFrame
 	{
 		super("Patient Registation System Login");
 		setLayout(new FlowLayout());
-		setBackground(Color.white);
+		getContentPane().setBackground(Color.white);
 		
 		topPanel = new JPanel();
 		topPanel.setBackground(Color.blue);
+		topPanel.setPreferredSize(new Dimension(600,30));
 		add(topPanel);
 		
 		panelLabel = new JLabel();
-		panelLabel.setText("Welcome to ESOF3050 Hospital PRS System");
+		panelLabel.setText("Welcome to ESOF3050 Hospital PRS System!");
 		panelLabel.setForeground(Color.white);
 		topPanel.add(panelLabel);
 		
@@ -41,14 +43,16 @@ public class Login extends JFrame
 		userLabel.setText("Username:");
 		add(userLabel);
 		
-		userTextField = new JTextField("Enter username");
+		userTextField = new JTextField();
+		userTextField.setPreferredSize(new Dimension(100,20));
 		add(userTextField);
 		
 		passLabel = new JLabel();
 		passLabel.setText("Password:");
 		add(passLabel);
 		
-		passTextField = new JTextField("Enter password");
+		passTextField = new JTextField();
+		passTextField.setPreferredSize(new Dimension(100,20));
 		add(passTextField);
 		
 		loginButton = new JButton("LOGIN");
@@ -61,39 +65,57 @@ public class Login extends JFrame
 		signupButton = new JButton("SIGN UP");
 		add(signupButton);
 		
-		LoginHandler lhandler = new LoginHandler();
-		loginButton.addActionListener(lhandler);
-		signupButton.addActionListener(lhandler);
+		LoginHandler1 lhandler1 = new LoginHandler1();
+		loginButton.addActionListener(lhandler1);
+		
+		LoginHandler2 lhandler2 = new LoginHandler2();
+		signupButton.addActionListener(lhandler2);
 	}
 		
-	private class LoginHandler implements ActionListener
+	private class LoginHandler1 implements ActionListener
 	{
 		public void actionPerformed(ActionEvent event)
 		{
 			if (event.getSource() == loginButton)
 			{
-				if (userTextField.getText() == "patient" && passTextField.getText() == "patientpass")
+				if (userTextField.getText().contentEquals("patient") && passTextField.getText().equals("password"))
 				{
-					
+					PatientHome patientHome = new PatientHome();
+					patientHome.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					patientHome.setSize(500, 400);
+					patientHome.setVisible(true);
 				}
 				
-				if (userTextField.getText() == "doctor" && passTextField.getText() == "doctorpass")
+				if (userTextField.getText().contentEquals("doctor") && passTextField.getText().equals("password"))
 				{
-					
+					DoctorHome doctorHome = new DoctorHome();
+					doctorHome.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					doctorHome.setSize(500, 400);
+					doctorHome.setVisible(true);
 				}
 				
-				if (userTextField.getText() == "hospitalstaff" && passTextField.getText() == "staffpass")
+				if (userTextField.getText().contentEquals("staff") && passTextField.getText().equals("password"))
 				{
-					
+					StaffHome staffHome = new StaffHome();
+					staffHome.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					staffHome.setSize(500, 400);
+					staffHome.setVisible(true);
 				}
-			
-				if (event.getSource() == signupButton);
-				{
-					
-				}
-			
-			}
+			}	
+		}
+	}
+	
+	private class LoginHandler2 implements ActionListener
+	{
+		public void actionPerformed(ActionEvent event)
+		{
+			if (event.getSource() == signupButton);
+			{
+				Signup signupFrame = new Signup();
+				signupFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				signupFrame.setSize(600, 400);
+				signupFrame.setVisible(true);
+			}	
 		}
 	}
 }
-
