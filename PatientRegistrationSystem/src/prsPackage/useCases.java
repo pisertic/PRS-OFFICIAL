@@ -32,7 +32,7 @@ public class useCases {
 
 
 
-	// CHACKO //send instance
+
 	
 
 	// CHACKO //send instance
@@ -63,11 +63,12 @@ public class useCases {
 
 	}
 
-
+	//chacko
 	public void editDocApp() {
 		
 	}
 	
+	//chacko
 	public void cancleDocApp() {
 		
 	}
@@ -169,13 +170,16 @@ public class useCases {
 		// DONE
 	}
 
+	//peter
 	public void removeRef() {
 		
 	}
+	//peter
 	public void signUp() {
 		
 	}
 	
+	//peter
 	public int login(String userName, String passWord, MyClient client) {
 		// create temp login instance to scan match userBase
 		Login log = new Login(userName, passWord);
