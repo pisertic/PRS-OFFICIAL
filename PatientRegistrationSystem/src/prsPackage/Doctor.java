@@ -54,17 +54,14 @@ public class Doctor extends Staff{
 		this.doctorSchedule.add(doctorSchedule);
 	}
 
-	public Referral getRefferal() {
+	public ArrayList<Referral> getRefferal() {
 		return referral;
 	}
 
-	public void setRefferal(Referral referral) {
+	public void setRefferal(ArrayList<Referral> referral) {
 		this.referral = referral;
 	}
 	
-	public int getClassID() {
-		return classID;
-	}
 
 	
 }

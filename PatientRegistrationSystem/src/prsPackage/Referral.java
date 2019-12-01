@@ -61,11 +61,6 @@ public class Referral implements Serializable {
 		this.patientNameF = patientNameF;
 	}
 
-	// get class id
-	public int getClassID() {
-		return classID;
-	}
-
 	// toString
 	public String toString() {
 		String msg = "Refered Doctor: " + refDoc + "\nReferring Staff: " + staffNameF + " " + staffNameL + "\nPatient: "

@@ -160,7 +160,6 @@ public class useCases {
 	// must check that patient exists in iHandler before sending to method
 	public void createRef(Staff s, String refDoc, Patient p, MyClient client) {  //DONE
 		Referral r = new Referral(refDoc, s.getFName(), s.getLName(), p.getFName(), p.getLName());
-		Objectinator obj = new Objectinator(true, r, r.getClassID());
 		try {
 			client.sendToServer(Objectinator.createDataMsg(true, refMem));
 		} catch (IOException e) {

@@ -1,11 +1,14 @@
 package prsPackage;
 
+import java.util.ArrayList;
+
 public class Staff extends HospitalMember {
 //create attributes
 	private String department;
 	private int empNum;
 	private String address;
 	private int SIN;
+	private ArrayList<Appointment> appointments;
 
 	// create constructor
 	public Staff(String fName, String lName, String department, int empNum, String address, int SIN) {
