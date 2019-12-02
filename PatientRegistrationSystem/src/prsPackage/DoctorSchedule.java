@@ -28,14 +28,6 @@ public class DoctorSchedule implements Serializable {
 		this.date = date;
 	}
 
-//	public Date getTime() {
-//		return time;
-//	}
-//
-//	public void setTime(Date time) {
-//		this.time = time;
-//	}
-
 	public float getDuration() {
 		return duration;
 	}

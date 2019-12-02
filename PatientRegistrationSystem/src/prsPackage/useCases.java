@@ -39,32 +39,62 @@ public class useCases {
 	
 
 	// CHACKO //send instance
-	public void reqDocApp(HospitalMember hm) { // hospital member
-	
-		// doctors arraylist is sent from converter class
-
+	public void reqDocApp(Patient patient, MyClient client, Appointment appointment) { // hospital member
+		
 		ArrayList<Doctor> doctor = new ArrayList<Doctor>();
 		doctor = (ArrayList<Doctor>)Converter.readData(Converter.docData);
-		int chosen;
-		for (int counter = 0; counter < doctor.size(); counter++) {
-			System.out.println(
-					"Last name: " + doctor.get(counter).getLName() + "First name: " + doctor.get(counter).getFName());
-		}
-
-		// From a scroll down list, user select's one doctor
-		chosen = 1; // from gui
-		// gui calender is open
-
-		for (int counter = 0; counter < doctor.get(chosen).getDoctorSchedule().size(); counter++) {
-
-			// gui.highlight calender */
-			doctor.get(chosen).getDoctorSchedule().get(counter).getDate(); // contains time too.
-			
-			// duration is 2 hours per appointment, so highlight that on the calendar
+		
+		ArrayList<Integer> editableAppointments = new ArrayList<Integer>(); //Stores location of DoctorSchedules the patient can edit
+		
+		String LName = "GUI", FName = "GUI";
+		//Get String values from GUI
+		
+		Doctor selectedDoctor = null;
+		int counter;
+		
+		for(counter = 0; counter < doctor.size(); counter++) {
+			if(doctor.get(counter).getLName() == LName && doctor.get(counter).getFName() == FName) {
+				selectedDoctor = doctor.get(counter);
+			}			
 		}
 		
-		// patient sees doc's schedule
-		// patient selects date and time of appointment
+		for(counter = 0; counter < selectedDoctor.getDoctorSchedule().size(); counter++) {
+			if (appointment.getDate() == selectedDoctor.getDoctorSchedule().get(counter).getDate()) {
+				counter = -1;
+				break;
+			}
+		}
+		
+		if (counter == -1)
+			System.out.println("\nDoctor already has an appoinment at the selected time");
+		
+
+		
+	
+//		// doctors arraylist is sent from converter class
+//
+//		ArrayList<Doctor> doctor = new ArrayList<Doctor>();
+//		doctor = (ArrayList<Doctor>)Converter.readData(Converter.docData);
+//		int chosen;
+//		for (int counter = 0; counter < doctor.size(); counter++) {
+//			System.out.println(
+//					"Last name: " + doctor.get(counter).getLName() + "First name: " + doctor.get(counter).getFName());
+//		}
+//
+//		// From a scroll down list, user select's one doctor
+//		chosen = 1; // from gui
+//		// gui calender is open
+//
+//		for (int counter = 0; counter < doctor.get(chosen).getDoctorSchedule().size(); counter++) {
+//
+//			// gui.highlight calender */
+//			doctor.get(chosen).getDoctorSchedule().get(counter).getDate(); // contains time too.
+//			
+//			// duration is 2 hours per appointment, so highlight that on the calendar
+//		}
+//		
+//		// patient sees doc's schedule
+//		// patient selects date and time of appointment
 		
 
 	}
@@ -73,6 +103,37 @@ public class useCases {
 	public void editDocApp(Patient patient, MyClient client) {
 		
 		//get doc schedule Arraylist from server
+		ArrayList<Doctor> doctor = new ArrayList<Doctor>();
+		doctor = (ArrayList<Doctor>)Converter.readData(Converter.docData);
+		
+		ArrayList<Integer> editableAppointments = new ArrayList<Integer>(); //Stores location of DoctorSchedules the patient can edit
+		
+		String LName = "GUI", FName = "GUI";
+		//Get String values from GUI
+		
+		Doctor selectedDoctor = null;
+		
+		for(int counter = 0; counter < doctor.size(); counter++) {
+			if(doctor.get(counter).getLName() == LName && doctor.get(counter).getFName() == FName) {
+				selectedDoctor = doctor.get(counter);
+			}			
+		}
+		
+		for(int counter = 0; counter < selectedDoctor.getDoctorSchedule().size(); counter++) {
+			if(patient == selectedDoctor.getDoctorSchedule().get(counter).getPatient()) {
+				editableAppointments.add(counter);
+				
+			}
+		}
+		//find the one to edit(has to be the same user for patient, staff can edit any appointment)
+		//get new appointment details: date and time
+		//replace the one in the Arraylist
+		//done
+		
+	}
+	
+	//chacko
+	public void cancleDocApp(Patient patient, MyClient client) {
 		ArrayList<Doctor> doctor = new ArrayList<Doctor>();
 		doctor = (ArrayList<Doctor>)Converter.readData(Converter.docData);
 		
@@ -91,19 +152,10 @@ public class useCases {
 		
 		for(int counter = 0; counter < selectedDoctor.getDoctorSchedule().size(); counter++) {
 			if(patient == selectedDoctor.getDoctorSchedule().get(counter).getPatient()) {
-				editableAppointments.add(counter);
-				
+				editableAppointments.add(counter);	
 			}
 		}
-		//find the one to edit(has to be the same user for patient, staff can edit any appointment)
-		//get new appointment details: date and time
-		//replace the one in the Arraylist
-		//done
 		
-	}
-	
-	//chacko
-	public void cancleDocApp() {
 		
 	}
 
@@ -208,10 +260,7 @@ public class useCases {
 	public void removeRef() {
 		
 	}
-	//peter (DONE IN SIGNUP HANDLER)
-	public void signUp() {
-		
-	}
+
 	
 	//peter DONE
 	public static int login(String userName, String passWord, MyClient client) {

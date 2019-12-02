@@ -1,3 +1,5 @@
+package GUI;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -33,8 +35,14 @@ public class PatientSignup extends JFrame {
 
 	// client instance
 	private MyClient client;
+	private HospitalMember user;
 
+<<<<<<< HEAD
 	public PatientSignup(MyClient client) {
+=======
+	public PatientSignup(HospitalMember user , MyClient client) {
+		
+>>>>>>> branch 'master' of https://github.com/pisertic/PRS-OFFICIAL.git
 		super("Patient Registation System Signup");
 		setLayout(new FlowLayout(FlowLayout.LEFT));
 		getContentPane().setBackground(Color.white);
@@ -92,35 +100,37 @@ public class PatientSignup extends JFrame {
 
 		// set client
 		this.client = client;
+		this.user = user;
 	}
 
 	private class SignupHandler implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			if (event.getSource() == patientSignupButton) {
-				//NO INPUT CHECKING IMPLIMENTED YET(except checking to ensure all fields are full)
-				if(pAddressField.getText() != null && pSINField.getText() != null) {
-					//create hospital member(and its login card)
-					LoginCard card = null;
-					try {
-						card = new LoginCard(userNameTextField.getText(), GFG.toHexString(GFG.getSHA(passWordTextField.getText())), 2);
-					} catch (NoSuchAlgorithmException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					HospitalMember user = new HospitalMember(pFirstTextField.getText(),pLastTextField.getText(), card);
-					//SEND USER TO SERVER UPDATE LIST OF HOSPITAL MEMBERS
-					try {
-						client.sendToServer(Objectinator.createDataMsg(true, user, 2));
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					// open appropriate window
-					/*
-					 * NEED HM GUI WINDOW
-					 */
-				
-				}
+//				//NO INPUT CHECKING IMPLIMENTED YET(except checking to ensure all fields are full)
+//				if(pAddressField.getText() != null && pSINField.getText() != null) {
+//					//create hospital member(and its login card)
+//					LoginCard card = null;
+//					try {
+//						card = new LoginCard(userNameTextField.getText(), GFG.toHexString(GFG.getSHA(passWordTextField.getText())), 2);
+//					} catch (NoSuchAlgorithmException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//					HospitalMember user = new HospitalMember(pFirstTextField.getText(),pLastTextField.getText(), card);
+//					//SEND USER TO SERVER UPDATE LIST OF HOSPITAL MEMBERS
+//					try {
+//						client.sendToServer(Objectinator.createDataMsg(true, user, 2));
+//					} catch (IOException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//					// open appropriate window
+//					HospitalMemberHome hmHome = new HospitalMemberHome(user, client);
+//					hmHome.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//					hmHome.setSize(500, 400);
+//					hmHome.setVisible(true);
+//				
+//				}
 			}
 		}
 	}

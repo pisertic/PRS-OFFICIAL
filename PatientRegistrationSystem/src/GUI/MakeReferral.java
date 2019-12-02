@@ -12,7 +12,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import GUI.AddDoctor.AddDoctorHandler;
+import OCSF.MyClient;
+import prsPackage.Doctor;
+import prsPackage.Staff;
 
 public class MakeReferral extends JFrame
 {
@@ -30,7 +32,7 @@ public class MakeReferral extends JFrame
 	private JTextField mrefPatientLTextField;
 	private JButton mrefReferButton;
 	
-	public MakeReferral()
+	public MakeReferral(Staff user, Doctor doc, MyClient client)
 	{
 		super("Make Referral");
 		setLayout(new BorderLayout());
@@ -92,21 +94,6 @@ public class MakeReferral extends JFrame
 		
 		mrefReferButton = new JButton("REFER PATIENT");
 		mrefLeftPanel.add(mrefReferButton);
-		
-		MakeReferralHandler mfhandler = new MakeReferralHandler();
-		mrefReferButton.addActionListener(mfhandler);
-	}
-	
-	private class MakeReferralHandler implements ActionListener
-	{
-		public void actionPerformed(ActionEvent event)
-		{
-			if (event.getSource() == mrefReferButton)
-			{
-				
-			}
-		}
 	}
 }
-	
 
