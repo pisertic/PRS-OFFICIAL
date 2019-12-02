@@ -120,7 +120,7 @@ public class AddStaff extends JFrame
 		asUserLabel.setText("Enter doctor's username: ");
 		asUserPanel.add(asUserLabel);
 		
-		asPasswordLabel = new JLabel();
+		asPasswordLabel = new JLabel(); 
 		asPasswordLabel.setText("Enter doctor's password: ");
 		asPasswordPanel.add(asPasswordLabel);
 		
