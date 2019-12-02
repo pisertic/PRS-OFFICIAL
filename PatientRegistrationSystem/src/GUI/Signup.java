@@ -20,6 +20,7 @@ import OCSF.MyClient;
 import OCSF.Objectinator;
 import prsPackage.HospitalMember;
 import prsPackage.LoginCard;
+import prsPackage.Staff;
 
 public class Signup extends JFrame {
 	private JTextField pFirstTextField;
@@ -97,7 +98,7 @@ public class Signup extends JFrame {
 					//create hospital member(and its login card)
 					LoginCard card = null;
 					try {
-						card = new LoginCard(userNameTextField.getText(), GFG.toHexString(GFG.getSHA(passWordTextField.getText())), 10);
+						card = new LoginCard(userNameTextField.getText(), GFG.toHexString(GFG.getSHA(passWordTextField.getText())), 2); 
 					} catch (NoSuchAlgorithmException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -109,20 +110,20 @@ public class Signup extends JFrame {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-//					//create user
-//					HospitalMember user = new HospitalMember(pFirstTextField.getText(),pLastTextField.getText(), card);
-//					//SEND USER TO SERVER UPDATE LIST OF HOSPITAL MEMBERS
-//					try {
-//						client.sendToServer(Objectinator.createDataMsg(true, user, 2));
-//					} catch (IOException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-//					// open appropriate window
-//					HospitalMemberHome hmHome = new HospitalMemberHome(user, client);
-//					hmHome.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-//					hmHome.setSize(500, 400);
-//					hmHome.setVisible(true);
+					//create user
+					HospitalMember user = new HospitalMember(pFirstTextField.getText(),pLastTextField.getText(), card);
+					//SEND USER TO SERVER UPDATE LIST OF HOSPITAL MEMBERS
+					try {
+						client.sendToServer(Objectinator.createDataMsg(true, user, 2));
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					// open appropriate window
+					HospitalMemberHome hmHome = new HospitalMemberHome(user, client);
+					hmHome.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					hmHome.setSize(500, 400);
+					hmHome.setVisible(true);
 				
 				}
 			}

@@ -19,10 +19,7 @@ public class HospitalMember implements Serializable {
 		this.loginCard = loginCard;
 	}
 	
-	public HospitalMember() {
-		
-	}
-
+	
 //create gets
 	public String getFName() {
 		return fName;

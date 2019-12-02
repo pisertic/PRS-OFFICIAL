@@ -11,6 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import OCSF.MyClient;
+import prsPackage.Staff;
+
 public class AdminHome extends JFrame
 {
 	private JPanel aHomeTopPanel;
@@ -24,9 +27,12 @@ public class AdminHome extends JFrame
 	private JButton aRemoveUser;
 	private JButton aAddDoctor;
 	private JButton aAddStaff;
+	
+	Staff user = null;
+	MyClient client = null;
 
 	
-	public AdminHome()
+	public AdminHome(Staff user, MyClient client)
 	{
 		super("Admin Home");
 		setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -103,6 +109,9 @@ public class AdminHome extends JFrame
 		
 		AdminHandler8 ahandler8 = new AdminHandler8();
 		aAddStaff.addActionListener(ahandler8);
+		
+		this.user = user;
+		this.client = client;
 	}
 	
 	private class AdminHandler1 implements ActionListener

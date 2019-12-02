@@ -225,11 +225,10 @@ public class Login extends JFrame {
 								user4 = s;
 							}
 						}
-						// open appropriate window
-
-						/*
-						 * NEED ADMIN GUI WINDOW
-						 */
+						AdminHome adHome = new AdminHome(user4, client);
+						adHome.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+						adHome.setSize(500, 400);
+						adHome.setVisible(true);
 						break;
 					}
 
