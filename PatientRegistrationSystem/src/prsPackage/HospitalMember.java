@@ -18,6 +18,10 @@ public class HospitalMember implements Serializable {
 		this.lName = lName;
 		this.loginCard = loginCard;
 	}
+	
+	public HospitalMember() {
+		
+	}
 
 //create gets
 	public String getFName() {
