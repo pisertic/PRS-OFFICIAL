@@ -21,6 +21,7 @@ public class StaffHome extends JFrame
 	private JButton sViewPatientReferral;
 	private JButton sViewPatientHistory;
 	private JButton sScheduleDoctors;
+	private JButton sMakeReferral;
 	
 	
 	public StaffHome()
@@ -64,6 +65,10 @@ public class StaffHome extends JFrame
 		sScheduleDoctors.setPreferredSize(new Dimension(200,60));
 		add(sScheduleDoctors);
 		
+		sMakeReferral = new JButton("Make Referral");
+		sMakeReferral.setPreferredSize(new Dimension(200,60));
+		add(sMakeReferral);
+		
 		//Adding Listeners onto buttons
 		StaffHandler1 shandler1 = new StaffHandler1();
 		sMakeAppointment.addActionListener(shandler1);
@@ -79,6 +84,9 @@ public class StaffHome extends JFrame
 		
 		StaffHandler5 shandler5 = new StaffHandler5();
 		sScheduleDoctors.addActionListener(shandler5);
+		
+		StaffHandler6 shandler6 = new StaffHandler6();
+		sScheduleDoctors.addActionListener(shandler6);
 	}
 	
 	private class StaffHandler1 implements ActionListener
@@ -148,6 +156,20 @@ public class StaffHome extends JFrame
 				scheduleTimetable.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				scheduleTimetable.setSize(600, 400);
 				scheduleTimetable.setVisible(true);
+			}
+		}
+	}
+	
+	private class StaffHandler6 implements ActionListener
+	{
+		public void actionPerformed(ActionEvent event)
+		{
+			if (event.getSource() == sMakeReferral)
+			{
+				MakeReferral makeReferral = new MakeReferral();
+				makeReferral.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				makeReferral.setSize(600, 400);
+				makeReferral.setVisible(true);
 			}
 		}
 	}
