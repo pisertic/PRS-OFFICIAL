@@ -73,6 +73,12 @@ public class useCases {
 		//get doc schedule Arraylist from server
 		ArrayList<Doctor> doctor = new ArrayList<Doctor>();
 		doctor = (ArrayList<Doctor>)Converter.readData(Converter.docData);
+		int location,empNu;
+		
+		for(int counter = 0; counter < doctor.size(); counter++) { //prints out doctors // choose doctor from GUI
+			empNum = doctor[counter].super.getEmpNum();
+			
+		}
 		//find the one to edit(has to be the same user for patient, staff can edit any appointment)
 		//get new appointment details: date and time
 		//replace the one in the Arraylist
