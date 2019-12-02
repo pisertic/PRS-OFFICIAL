@@ -35,3 +35,8 @@
 /WritePerscription.class
 /AddMember$SignupHandler.class
 /AddMember.class
+/HospitalMemberHome$MemberHandler1.class
+/HospitalMemberHome$MemberHandler2.class
+/HospitalMemberHome.class
+/PatientSignup$SignupHandler.class
+/PatientSignup.class

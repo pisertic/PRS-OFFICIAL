@@ -70,16 +70,35 @@ public class useCases {
 	}
 
 	//chacko
-	public void editDocApp() {
+	public void editDocApp(Patient patient, MyClient client) {
 		
 		//get doc schedule Arraylist from server
 		ArrayList<Doctor> doctor = new ArrayList<Doctor>();
 		doctor = (ArrayList<Doctor>)Converter.readData(Converter.docData);
+		
+		ArrayList<Integer> editableAppointments = new ArrayList<Integer>(); //Stores location of DoctorSchedules the patient can edit
+		
+		String LName = "GUI", FName = "GUI";
+		//Get String values from GUI
+		
+		Doctor selectedDoctor = new Doctor();
+		
+		for(int counter = 0; counter < doctor.size(); counter++) {
+			if(doctor.get(counter).getLName() == LName && doctor.get(counter).getFName() == FName) {
+				selectedDoctor = new Doctor(doctor.get(counter));
+			}			
+		}
+		
+		for(int counter = 0; counter < selectedDoctor.getDoctorSchedule().size(); counter++) {
+			if(patient == selectedDoctor.getDoctorSchedule().get(counter).getPatient()) {
+				editableAppointments.add(counter);
+				
+			}
+		}
 		//find the one to edit(has to be the same user for patient, staff can edit any appointment)
 		//get new appointment details: date and time
 		//replace the one in the Arraylist
 		//done
-		
 		
 	}
 	
