@@ -14,7 +14,7 @@ public class Appointment implements Serializable {
 	private int classID;
 	
 	//create constructor
-	public Appointment(Date date, String reason, Patient patient, Doctor doctor){
+	public Appointment(Date date, String reason, Patient patient, Doctor doctor) {
 		this.date = date;
 		//this.time = time;
 		this.reason = reason;

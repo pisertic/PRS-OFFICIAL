@@ -38,9 +38,11 @@ public class useCases {
 
 	// CHACKO //send instance
 	public void reqDocApp(HospitalMember hm) { // hospital member
+	
 		// doctors arraylist is sent from converter class
 
 		ArrayList<Doctor> doctor = new ArrayList<Doctor>();
+		doctor = (ArrayList<Doctor>)Converter.readData(Converter.docData);
 		int chosen;
 		for (int counter = 0; counter < doctor.size(); counter++) {
 			System.out.println(
@@ -51,21 +53,31 @@ public class useCases {
 		chosen = 1; // from gui
 		// gui calender is open
 
-		for (int counter = 0; counter < doctor.get(1).getDoctorSchedule().size(); counter++) {
+		for (int counter = 0; counter < doctor.get(chosen).getDoctorSchedule().size(); counter++) {
 
-			/* gui.highlight calender */
+			// gui.highlight calender */
 			doctor.get(chosen).getDoctorSchedule().get(counter).getDate(); // contains time too.
+			
 			// duration is 2 hours per appointment, so highlight that on the calendar
 		}
+		
 		// patient sees doc's schedule
 		// patient selects date and time of appointment
-		// patient sees doc's schedule
-		// patient selects date and time of appointment
+		
 
 	}
 
 	//chacko
 	public void editDocApp() {
+		
+		//get doc schedule Arraylist from server
+		ArrayList<Doctor> doctor = new ArrayList<Doctor>();
+		doctor = (ArrayList<Doctor>)Converter.readData(Converter.docData);
+		//find the one to edit(has to be the same user for patient, staff can edit any appointment)
+		//get new appointment details: date and time
+		//replace the one in the Arraylist
+		//done
+		
 		
 	}
 	
