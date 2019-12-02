@@ -63,10 +63,14 @@ public class HospitalMemberHome extends JFrame
 		{
 			if (event.getSource() == hmMakeAppointment)
 			{
-				
+				PatientSignup patientsignupFrame = new PatientSignup(client);
+				patientsignupFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				patientsignupFrame.setSize(600, 400);
+				patientsignupFrame.setVisible(true);
 			}
 		}
 	}
+
 	
 	private class MemberHandler2 implements ActionListener
 	{
@@ -81,3 +85,4 @@ public class HospitalMemberHome extends JFrame
 			}
 		}
 	}
+}
