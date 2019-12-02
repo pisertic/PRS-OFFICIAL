@@ -176,7 +176,7 @@ public class DoctorHome extends JFrame
 		{
 			if (event.getSource() == dMakeReferral)
 			{
-				MakeReferral makeReferral = new MakeReferral();
+				MakeReferral makeReferral = new MakeReferral(null, user, client);
 				makeReferral.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				makeReferral.setSize(600, 400);
 				makeReferral.setVisible(true);

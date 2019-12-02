@@ -11,6 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import OCSF.MyClient;
+import prsPackage.Staff;
+
 public class AdminHome extends JFrame
 {
 	private JPanel aHomeTopPanel;
@@ -26,8 +29,10 @@ public class AdminHome extends JFrame
 	private JButton aAddStaff;
 	private JButton aMakeReferral;
 
+	private MyClient client;
+	private Staff user;
 	
-	public AdminHome()
+	public AdminHome(Staff user, MyClient client)
 	{
 		super("Admin Home");
 		setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -111,6 +116,9 @@ public class AdminHome extends JFrame
 		
 		AdminHandler9 ahandler9 = new AdminHandler9();
 		aAddStaff.addActionListener(ahandler9);
+		
+		this.client= client;
+		this.user = user;
 	}
 	
 	private class AdminHandler1 implements ActionListener
@@ -231,10 +239,10 @@ public class AdminHome extends JFrame
 		{
 			if (event.getSource() == aMakeReferral)
 			{
-				MakeReferral makeReferral = new MakeReferral();
-				makeReferral.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				makeReferral.setSize(600, 400);
-				makeReferral.setVisible(true);
+//				MakeReferral makeReferral = new MakeReferral();
+//				makeReferral.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//				makeReferral.setSize(600, 400);
+//				makeReferral.setVisible(true);
 			}
 		}
 	}
