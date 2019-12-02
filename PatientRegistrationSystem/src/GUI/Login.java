@@ -150,7 +150,6 @@ public class Login extends JFrame {
 							}
 						}
 						
-
 						// open appropriate window
 						HospitalMemberHome hmHome = new HospitalMemberHome(user1, client);
 						hmHome.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

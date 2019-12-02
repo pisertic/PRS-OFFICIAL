@@ -72,7 +72,7 @@ public class HospitalMemberHome extends JFrame
 		{
 			if (event.getSource() == hmMakeAppointment)
 			{
-				PatientSignup patientsignupFrame = new PatientSignup(client);
+				PatientSignup patientsignupFrame = new PatientSignup(user, client);
 				patientsignupFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				patientsignupFrame.setSize(600, 400);
 				patientsignupFrame.setVisible(true);

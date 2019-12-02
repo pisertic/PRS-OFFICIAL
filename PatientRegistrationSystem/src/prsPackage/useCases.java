@@ -208,10 +208,7 @@ public class useCases {
 	public void removeRef() {
 		
 	}
-	//peter (DONE IN SIGNUP HANDLER)
-	public void signUp() {
-		
-	}
+
 	
 	//peter DONE
 	public static int login(String userName, String passWord, MyClient client) {

@@ -27,8 +27,10 @@ public class PatientSignup extends JFrame {
 
 	// client instance
 	private MyClient client;
+	private HospitalMember user;
 
-	public Signup(MyClient client) {
+	public PatientSignup(HospitalMember user ,MyClient client) {
+		
 		super("Patient Registation System Signup");
 		setLayout(new FlowLayout(FlowLayout.LEFT));
 		getContentPane().setBackground(Color.white);
@@ -62,6 +64,7 @@ public class PatientSignup extends JFrame {
 
 		// set client
 		this.client = client;
+		this.user = user;
 	}
 
 	private class SignupHandler implements ActionListener {

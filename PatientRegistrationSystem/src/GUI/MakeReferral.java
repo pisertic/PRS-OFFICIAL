@@ -12,6 +12,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import OCSF.MyClient;
+import prsPackage.Doctor;
+import prsPackage.Staff;
+
 public class MakeReferral extends JFrame
 {
 	private JPanel mrefLeftPanel;
@@ -28,7 +32,7 @@ public class MakeReferral extends JFrame
 	private JTextField mrefPatientLTextField;
 	private JButton mrefReferButton;
 	
-	public MakeReferral()
+	public MakeReferral(Staff user, Doctor doc, MyClient client)
 	{
 		super("Make Referral");
 		setLayout(new BorderLayout());
