@@ -1,3 +1,5 @@
+package GUI;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -29,7 +31,7 @@ public class PatientSignup extends JFrame {
 	private MyClient client;
 	private HospitalMember user;
 
-	public PatientSignup(HospitalMember user ,MyClient client) {
+	public PatientSignup(HospitalMember user , MyClient client) {
 		
 		super("Patient Registation System Signup");
 		setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -89,9 +91,10 @@ public class PatientSignup extends JFrame {
 						e.printStackTrace();
 					}
 					// open appropriate window
-					/*
-					 * NEED HM GUI WINDOW
-					 */
+					HospitalMemberHome hmHome = new HospitalMemberHome(user, client);
+					hmHome.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					hmHome.setSize(500, 400);
+					hmHome.setVisible(true);
 				
 				}
 			}
