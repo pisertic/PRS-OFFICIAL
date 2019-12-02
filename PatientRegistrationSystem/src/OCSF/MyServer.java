@@ -107,7 +107,7 @@ public class MyServer extends AbstractServer {
 				}
 				break;
 			case 6:// login
-				ArrayList<Login> data6 = new ArrayList<Login>();
+				ArrayList<LoginCard> data6 = new ArrayList<LoginCard>();
 				data6 = (ArrayList) obj.getDataList();
 				// write data
 				try {
@@ -199,9 +199,9 @@ public class MyServer extends AbstractServer {
 				}
 				break;
 			case 6:// login
-				ArrayList<Login> data6 = new ArrayList<Login>();
-				data6 = (ArrayList<Login>) Converter.readData(Converter.userBase);
-				data6.add((Login) obj.getDataInstance());
+				ArrayList<LoginCard> data6 = new ArrayList<LoginCard>();
+				data6 = (ArrayList<LoginCard>) Converter.readData(Converter.userBase);
+				data6.add((LoginCard) obj.getDataInstance());
 				// write data
 				try {
 					Converter.writeData(data6, Converter.userBase);
@@ -269,8 +269,8 @@ public class MyServer extends AbstractServer {
 			break;
 		case 6:// login
 				// Get arraylist of login data
-			ArrayList<Login> data6 = new ArrayList<Login>();
-			data6 = (ArrayList<Login>) Converter.readData(Converter.userBase);
+			ArrayList<LoginCard> data6 = new ArrayList<LoginCard>();
+			data6 = (ArrayList<LoginCard>) Converter.readData(Converter.userBase);
 			// WRAP DATA AS OBJECTINATOR TYPE
 			Objectinator obj6 = new Objectinator(data6, classType);
 			client.sendToClient(obj6);

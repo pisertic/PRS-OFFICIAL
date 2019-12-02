@@ -11,6 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import OCSF.MyClient;
+import prsPackage.*;
+
 public class DoctorHome extends JFrame
 {
 	private JPanel dHomeTopPanel;
@@ -24,8 +27,11 @@ public class DoctorHome extends JFrame
 	private JButton dWritePerscription;
 	private JButton dMakeReferral;
 	
+	private MyClient client;
+	private Doctor user;
 	
-	public DoctorHome()
+	
+	public DoctorHome(Doctor user, MyClient client)
 	{
 		super("Doctor Home");
 		setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -95,6 +101,10 @@ public class DoctorHome extends JFrame
 		
 		DoctorHandler7 dhandler7 = new DoctorHandler7();
 		dWritePerscription.addActionListener(dhandler7);
+		
+		//set user and client
+		this.client = client;
+		this.user = user;
 	}
 	
 	//Listeners for each button

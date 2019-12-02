@@ -10,13 +10,13 @@ public class HospitalMember implements Serializable {
 //create attributes
 	private String fName;
 	private String lName;
-	private Login login;
+	private LoginCard loginCard;
 
 //create constructor
-	public HospitalMember(String fName, String lName) {
+	public HospitalMember(String fName, String lName, LoginCard loginCard) {
 		this.fName = fName;
 		this.lName = lName;
-		login = null;
+		this.loginCard = loginCard;
 	}
 
 //create gets
@@ -26,6 +26,14 @@ public class HospitalMember implements Serializable {
 
 	public String getLName() {
 		return lName;
+	}
+	
+	public String getLoginUser() {
+		return loginCard.getUserName();
+	}
+	
+	public String getLoginPass() {
+		return loginCard.getPassword();
 	}
 
 //create sets
@@ -37,4 +45,5 @@ public class HospitalMember implements Serializable {
 		this.lName = lName;
 	}
 
+	
 }

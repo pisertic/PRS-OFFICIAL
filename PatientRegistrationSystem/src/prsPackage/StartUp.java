@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import javax.swing.JFrame;
 
+import GUI.Login;
 import GUI.Signup;
 import OCSF.MyClient;
 import OCSF.MyServer;
@@ -36,10 +37,10 @@ public class StartUp {
 			System.exit(1); // on error exit
 		}
 		// call login GUI
-		Signup signupFrame = new Signup();
-		signupFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		signupFrame.setSize(600, 400);
-		signupFrame.setVisible(true);
+		Login loginFrame = new Login(client1);
+		loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		loginFrame.setSize(600, 400);
+		loginFrame.setVisible(true);
 
 		// in inch if, make appropriate instance of class (make new instance of user)
 		// scan dataBase file of type class^ for matching login details

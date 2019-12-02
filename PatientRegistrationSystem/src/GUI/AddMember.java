@@ -5,35 +5,33 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.event.*;
-import java.security.NoSuchAlgorithmException;
-
 //import javax.swing.SwingConstants;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import OCSF.GFG;
 import OCSF.MyClient;
 import prsPackage.HospitalMember;
-import prsPackage.LoginCard;
 
-public class Signup extends JFrame {
+public class AddMember extends JFrame {
 	private JTextField pFirstTextField;
 	private JTextField pLastTextField;
-	private JTextField userNameTextField;
-	private JTextField passWordTextField;
+	private JTextField pAddressTextField;
+	private JTextField pSINTextField;
+	private JTextField pHealthCardTextField;
 	private JLabel signupTopLabel;
 	private JLabel pFirstLabel;
 	private JLabel pLastLabel;
-	private JLabel userNameLabel;
-	private JLabel passWordLabel;
+	private JLabel pAddressLabel;
+	private JLabel pSINLabel;
+	private JLabel pHealthCardLabel;
 	private JButton signupEnterButton;
 
 	// client instance
 	private MyClient client;
 
-	public Signup(MyClient client) {
+	public AddMember(MyClient client) {
 		super("Patient Registation System Signup");
 		setLayout(new FlowLayout(FlowLayout.LEFT));
 		getContentPane().setBackground(Color.white);
@@ -59,23 +57,30 @@ public class Signup extends JFrame {
 		pLastTextField.setPreferredSize(new Dimension(100, 20));
 		add(pLastTextField);
 
-		userNameLabel = new JLabel();
-		userNameLabel.setText("Enter Username:");
-		add(userNameLabel);
+		pAddressLabel = new JLabel();
+		pAddressLabel.setText("Enter address:");
+		add(pAddressLabel);
 
-		userNameTextField = new JTextField();
-		userNameTextField.setPreferredSize(new Dimension(100, 20));
-		add(userNameTextField);
+		pAddressTextField = new JTextField();
+		pAddressTextField.setPreferredSize(new Dimension(100, 20));
+		add(pAddressTextField);
 
-		passWordLabel = new JLabel();
-		passWordLabel.setText("Enter password:");
-		add(passWordLabel);
+		pSINLabel = new JLabel();
+		pSINLabel.setText("Enter SIN:");
+		add(pSINLabel);
 
-		passWordTextField = new JTextField();
-		passWordTextField.setPreferredSize(new Dimension(100, 20));
-		add(passWordTextField);
+		pSINTextField = new JTextField();
+		pSINTextField.setPreferredSize(new Dimension(100, 20));
+		add(pSINTextField);
 
-		
+		pHealthCardLabel = new JLabel();
+		pHealthCardLabel.setText("Enter health card number:");
+		add(pHealthCardLabel);
+
+		pHealthCardTextField = new JTextField();
+		pHealthCardTextField.setPreferredSize(new Dimension(100, 20));
+		add(pHealthCardTextField);
+
 		signupEnterButton = new JButton("REGISTER");
 		add(signupEnterButton);
 
@@ -89,23 +94,9 @@ public class Signup extends JFrame {
 	private class SignupHandler implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			if (event.getSource() == signupEnterButton) {
-				//NO INPUT CHECKING IMPLIMENTED YET(except checking to ensure all fields are full)
-				if(pFirstTextField.getText() != null && pLastTextField.getText() != null && userNameTextField.getText() != null && passWordTextField.getText() != null) {
-					//create hospital member(and its login card)
-					LoginCard card = null;
-					try {
-						card = new LoginCard(userNameTextField.getText(), GFG.toHexString(GFG.getSHA(passWordTextField.getText())), 2);
-					} catch (NoSuchAlgorithmException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					HospitalMember user = new HospitalMember(pFirstTextField.getText(),pLastTextField.getText(), card);
-					// open appropriate window
-
-					/*
-					 * NEED HM GUI WINDOW
-					 */
-				
+				//NO INPUT CHECKING IMPLIMENTED YET
+				if(pFirstTextField.getText() != null && pLastTextField.getText() != null && pAddressTextField.getText() != null && pSINTextField.getText() != null && pHealthCardTextField.getText() != null) {
+					
 				}
 			}
 		}

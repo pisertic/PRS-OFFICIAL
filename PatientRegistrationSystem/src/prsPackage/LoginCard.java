@@ -2,20 +2,20 @@ package prsPackage;
 
 import java.io.Serializable;
 
-public class Login implements Serializable{
+public class LoginCard implements Serializable{
 
 	private String userName;
 	private String password;
 	private int classID;
 
-	public Login(String userName, String password, int classID) {
+	public LoginCard(String userName, String password, int classID) {
 		this.userName = userName;
 		this.password = password;
 		this.classID = classID;
 	}
 
 	// when sending login token for check
-	public Login(String userName, String password) {
+	public LoginCard(String userName, String password) {
 		this.userName = userName;
 		this.password = password;
 		this.classID = 0;
@@ -41,7 +41,7 @@ public class Login implements Serializable{
 		return classID;
 	}
 
-	public void setClassID() {
-		;
+	public void setClassID(int classID) {
+		this.classID = classID;
 	}
 }

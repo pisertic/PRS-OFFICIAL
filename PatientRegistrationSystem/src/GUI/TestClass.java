@@ -6,9 +6,9 @@ public class TestClass
 {
 	public static void main(String[] args) 
 	{
-		Login loginFrame = new Login();
-		loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		loginFrame.setSize(600, 400);
-		loginFrame.setVisible(true);
+		Signup signupFrame = new Signup();
+		signupFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		signupFrame.setSize(600, 400);
+		signupFrame.setVisible(true);
 	}
 }

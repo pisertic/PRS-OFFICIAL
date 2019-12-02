@@ -68,30 +68,30 @@ public class Converter {
 		return data;
 	}
 
-	public static void main(String[] args) {
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
-		Date date = new Date(System.currentTimeMillis());
-		System.out.println(formatter.format(date));
-		DoctorSchedule docsched = new DoctorSchedule(date, date, date);
-		Referral referral = new Referral("Dr.Bond", "John", "Snow", "Chacko", "Panicker");
-		ArrayList<Doctor> d = new ArrayList<Doctor>();
-		Doctor doc = new Doctor("Heart Surgeon", "Rank#1", 24.5f, docsched, referral, "Heart Department", 1, 101,
-				"Bond", "James", "Lakehead University", 123456);
-		d.add(doc);
-		System.out.println("Attempting to save...");
-		try {
-			writeData(d, docData);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println("Success!");
-
-		useCases useless = new useCases();
-		useless.browseDoctorSchedule();
-		System.out.println("Success!Part2");
-
-	}
+//	public static void main(String[] args) {
+//		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+//		Date date = new Date(System.currentTimeMillis());
+//		System.out.println(formatter.format(date));
+//		DoctorSchedule docsched = new DoctorSchedule(date, date, date);
+//		Referral referral = new Referral("Dr.Bond", "John", "Snow", "Chacko", "Panicker");
+//		ArrayList<Doctor> d = new ArrayList<Doctor>();
+//		Doctor doc = new Doctor("Heart Surgeon", "Rank#1", 24.5f, docsched, referral, "Heart Department", 1, 101,
+//				"Bond", "James", "Lakehead University", 123456);
+//		d.add(doc);
+//		System.out.println("Attempting to save...");
+//		try {
+//			writeData(d, docData);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		System.out.println("Success!");
+//
+//		useCases useless = new useCases();
+//		useless.browseDoctorSchedule();
+//		System.out.println("Success!Part2");
+//
+//	}
 
 	/*
 	 * public static void main(String[] args) { ArrayList<Patient> hpData = new

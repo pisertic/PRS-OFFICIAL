@@ -27,8 +27,8 @@ public class Objectinator implements Serializable {
 	}
 
 	// specify read/write, contains class type identifier(REQUEST DATA LIST FROM SERVER)
-	public Objectinator(boolean write, int typeIdentifier) {
-		this.write = write;
+	public Objectinator(int typeIdentifier) {
+		this.write = false;
 		this.dataList = null;
 		this.typeIdentifier = typeIdentifier;
 		dataInstance = null;
@@ -69,8 +69,8 @@ public class Objectinator implements Serializable {
 		return msg;
 	}
 
-	public static Objectinator createDataMsg(boolean write, int typeIdentifier) {
-		Objectinator msg = new Objectinator(write, typeIdentifier);
+	public static Objectinator createDataMsg(int typeIdentifier) {
+		Objectinator msg = new Objectinator(typeIdentifier);
 		return msg;
 	}
 

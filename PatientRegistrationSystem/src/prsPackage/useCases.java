@@ -17,6 +17,7 @@ public class useCases {
 	private int refMem = 4;
 	private int appMem = 0;
 	private int userMem = 6;
+//	private int admin = 10;
 	
 	// PETER
 	@SuppressWarnings("unchecked")
@@ -104,7 +105,7 @@ public class useCases {
 	public void removeMember(String user, MyClient client) {
 		//pull list of hospital members from server
 		
-		client.sendToServer(Objectinator.createDataMsg(false, 2));
+	//	client.sendToServer(Objectinator.createDataMsg(false, 2));
 		
 	}
 
@@ -114,7 +115,7 @@ public class useCases {
 	public void viewRef(Patient p, MyClient client) {
 		// pull referral data from server
 		try {
-			client.sendToServer(Objectinator.createDataMsg(false, refMem));
+			client.sendToServer(Objectinator.createDataMsg(refMem));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -140,7 +141,7 @@ public class useCases {
 	public void viewRef(Staff s, String keyWord, MyClient client) {
 		// pull referral data from server
 		try {
-			client.sendToServer(Objectinator.createDataMsg(false, refMem));
+			client.sendToServer(Objectinator.createDataMsg(refMem));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -162,7 +163,7 @@ public class useCases {
 	public void createRef(Staff s, String refDoc, Patient p, MyClient client) {  //DONE
 		Referral r = new Referral(refDoc, s.getFName(), s.getLName(), p.getFName(), p.getLName());
 		try {
-			client.sendToServer(Objectinator.createDataMsg(true, refMem));
+			client.sendToServer(Objectinator.createDataMsg(true, r, refMem));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -180,9 +181,9 @@ public class useCases {
 	}
 	
 	//peter
-	public int login(String userName, String passWord, MyClient client) {
+	public static int login(String userName, String passWord, MyClient client) {
 		// create temp login instance to scan match userBase
-		Login log = new Login(userName, passWord);
+		LoginCard log = new LoginCard(userName, passWord);
 
 		// encrypt the password
 		try {
@@ -194,14 +195,14 @@ public class useCases {
 
 		// send userBase pull request to server
 		try {
-			client.sendToServer(Objectinator.createDataMsg(false, 6));
+			client.sendToServer(Objectinator.createDataMsg(6));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		// set list to data retrieved from server and search for match
-		ArrayList<Login> list = (ArrayList) client.loginData;
+		ArrayList<LoginCard> list = (ArrayList) client.loginData;
 		for (int i = 0; i < list.size(); i++) {
 			// check username
 			if (userName == list.get(i).getUserName()) {

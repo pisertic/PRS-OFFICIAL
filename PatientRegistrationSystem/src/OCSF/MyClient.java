@@ -7,7 +7,7 @@ import prsPackage.Appointment;
 import prsPackage.Converter;
 import prsPackage.Doctor;
 import prsPackage.HospitalMember;
-import prsPackage.Login;
+import prsPackage.LoginCard;
 import prsPackage.Patient;
 import prsPackage.Referral;
 import prsPackage.Staff;
@@ -20,7 +20,8 @@ public class MyClient extends AbstractClient {
 	public ArrayList<Patient> patData = new ArrayList<>();
 	public ArrayList<Referral> refData = new ArrayList<>();
 	public ArrayList<Staff> staffData = new ArrayList<>();
-	public ArrayList<Login> loginData = new ArrayList<>();
+	public ArrayList<LoginCard> loginData = new ArrayList<>();
+
 
 	public MyClient(String host, int port) {
 		super(host, port);
