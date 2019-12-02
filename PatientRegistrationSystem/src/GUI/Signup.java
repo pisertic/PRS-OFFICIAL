@@ -5,7 +5,9 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.event.*;
+import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 
 //import javax.swing.SwingConstants;
 import javax.swing.JFrame;
@@ -15,6 +17,7 @@ import javax.swing.JTextField;
 
 import OCSF.GFG;
 import OCSF.MyClient;
+import OCSF.Objectinator;
 import prsPackage.HospitalMember;
 import prsPackage.LoginCard;
 
@@ -100,8 +103,14 @@ public class Signup extends JFrame {
 						e.printStackTrace();
 					}
 					HospitalMember user = new HospitalMember(pFirstTextField.getText(),pLastTextField.getText(), card);
+					//SEND USER TO SERVER UPDATE LIST OF HOSPITAL MEMBERS
+					try {
+						client.sendToServer(Objectinator.createDataMsg(true, user, 2));
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					// open appropriate window
-
 					/*
 					 * NEED HM GUI WINDOW
 					 */

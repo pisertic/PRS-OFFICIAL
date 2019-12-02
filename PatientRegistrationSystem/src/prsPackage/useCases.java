@@ -175,12 +175,12 @@ public class useCases {
 	public void removeRef() {
 		
 	}
-	//peter
+	//peter (DONE IN SIGNUP HANDLER)
 	public void signUp() {
 		
 	}
 	
-	//peter
+	//peter DONE
 	public static int login(String userName, String passWord, MyClient client) {
 		// create temp login instance to scan match userBase
 		LoginCard log = new LoginCard(userName, passWord);
