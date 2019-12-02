@@ -21,6 +21,21 @@ public class Doctor extends Staff{
 		this.referral = null;
 	}
 	
+	public Doctor(Doctor doctor) {
+		// TODO Auto-generated constructor stub
+		super(doctor.getFName(), doctor.getLName(), doctor.getDepartment(), doctor.getEmpNum(), doctor.getAddress(), doctor.getSIN());
+		this.specialty = doctor.getSpecialty();
+		this.rank = doctor.getRank();
+		this.workingHours = doctor.getWorkingHours();
+		this.doctorSchedule = doctor.getDoctorSchedule();
+		this.referral = doctor.getRefferal();
+		
+	}
+
+	public Doctor() {
+		// TODO Auto-generated constructor stub
+	}
+
 	//gets/sets
 	public String getSpecialty() {
 		return specialty;

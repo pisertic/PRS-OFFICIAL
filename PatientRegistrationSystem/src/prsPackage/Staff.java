@@ -18,6 +18,10 @@ public class Staff extends HospitalMember {
 		this.department = department;
 		this.empNum = empNum;
 	}
+	
+	public Staff() {
+		
+	}
 
 	// create gets/sets
 	public String getDepartment() {
