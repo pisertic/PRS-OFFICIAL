@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import GUI.AddDoctor.AddDoctorHandler;
+
 public class MakeReferral extends JFrame
 {
 	private JPanel mrefLeftPanel;
@@ -90,6 +92,21 @@ public class MakeReferral extends JFrame
 		
 		mrefReferButton = new JButton("REFER PATIENT");
 		mrefLeftPanel.add(mrefReferButton);
+		
+		MakeReferralHandler mfhandler = new MakeReferralHandler();
+		mrefReferButton.addActionListener(mfhandler);
+	}
+	
+	private class MakeReferralHandler implements ActionListener
+	{
+		public void actionPerformed(ActionEvent event)
+		{
+			if (event.getSource() == mrefReferButton)
+			{
+				
+			}
+		}
 	}
 }
+	
 

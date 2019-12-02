@@ -11,17 +11,14 @@ public class Staff extends HospitalMember {
 	private ArrayList<Appointment> appointments;
 
 	// create constructor
-	public Staff(String fName, String lName, String department, int empNum, String address, int SIN) {
-		super(fName, lName);
+	public Staff(String fName, String lName, String department, int empNum, String address, int SIN, LoginCard card) {
+		super(fName, lName, card);
 		this.address = address;
 		this.SIN = SIN;
 		this.department = department;
 		this.empNum = empNum;
 	}
 	
-	public Staff() {
-		
-	}
 
 	// create gets/sets
 	public String getDepartment() {

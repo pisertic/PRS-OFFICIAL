@@ -21,7 +21,13 @@ import OCSF.Objectinator;
 import prsPackage.HospitalMember;
 import prsPackage.LoginCard;
 
-public class Signup extends JFrame {
+public class Signup extends JFrame 
+{
+	private JPanel pFirstPanel;
+	private JPanel pLastPanel;
+	private JPanel pUserPanel;
+	private JPanel pPasswordPanel;
+	
 	private JTextField pFirstTextField;
 	private JTextField pLastTextField;
 	private JTextField userNameTextField;
@@ -46,39 +52,62 @@ public class Signup extends JFrame {
 		signupTopLabel.setForeground(Color.blue);
 		add(signupTopLabel);
 
+		pFirstPanel = new JPanel();
+		pFirstPanel.setLayout(new FlowLayout());
+		pFirstPanel.setPreferredSize(new Dimension(500,30));
+		pFirstPanel.setBackground(Color.white);
+		add(pFirstPanel);
+		
+		pLastPanel = new JPanel();
+		pLastPanel.setLayout(new FlowLayout());
+		pLastPanel.setPreferredSize(new Dimension(500,30));
+		pLastPanel.setBackground(Color.white);
+		add(pLastPanel);
+		
+		pUserPanel = new JPanel();
+		pUserPanel.setLayout(new FlowLayout());
+		pUserPanel.setPreferredSize(new Dimension(500,30));
+		pUserPanel.setBackground(Color.white);
+		add(pUserPanel);
+		
+		pPasswordPanel = new JPanel();
+		pPasswordPanel.setLayout(new FlowLayout());
+		pPasswordPanel.setPreferredSize(new Dimension(500,30));
+		pPasswordPanel.setBackground(Color.white);
+		add(pPasswordPanel);
+		
 		pFirstLabel = new JLabel();
 		pFirstLabel.setText("Enter first name:");
-		add(pFirstLabel);
+		pFirstPanel.add(pFirstLabel);
 
 		pFirstTextField = new JTextField();
 		pFirstTextField.setPreferredSize(new Dimension(100, 20));
-		add(pFirstTextField);
+		pFirstPanel.add(pFirstTextField);
 
 		pLastLabel = new JLabel();
 		pLastLabel.setText("Enter last name:");
-		add(pLastLabel);
+		pLastPanel.add(pLastLabel);
 
 		pLastTextField = new JTextField();
 		pLastTextField.setPreferredSize(new Dimension(100, 20));
-		add(pLastTextField);
+		pLastPanel.add(pLastTextField);
 
 		userNameLabel = new JLabel();
 		userNameLabel.setText("Enter Username:");
-		add(userNameLabel);
+		pUserPanel.add(userNameLabel);
 
 		userNameTextField = new JTextField();
 		userNameTextField.setPreferredSize(new Dimension(100, 20));
-		add(userNameTextField);
+		pUserPanel.add(userNameTextField);
 
 		passWordLabel = new JLabel();
 		passWordLabel.setText("Enter password:");
-		add(passWordLabel);
+		pPasswordPanel.add(passWordLabel);
 
 		passWordTextField = new JTextField();
 		passWordTextField.setPreferredSize(new Dimension(100, 20));
-		add(passWordTextField);
+		pPasswordPanel.add(passWordTextField);
 
-		
 		signupEnterButton = new JButton("REGISTER");
 		add(signupEnterButton);
 
@@ -97,23 +126,32 @@ public class Signup extends JFrame {
 					//create hospital member(and its login card)
 					LoginCard card = null;
 					try {
-						card = new LoginCard(userNameTextField.getText(), GFG.toHexString(GFG.getSHA(passWordTextField.getText())), 2);
+						card = new LoginCard(userNameTextField.getText(), GFG.toHexString(GFG.getSHA(passWordTextField.getText())), 10);
 					} catch (NoSuchAlgorithmException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					HospitalMember user = new HospitalMember(pFirstTextField.getText(),pLastTextField.getText(), card);
-					//SEND USER TO SERVER UPDATE LIST OF HOSPITAL MEMBERS
+					//SEND LOGIN CARD TO SERVER LIST FOR UPDATE
 					try {
-						client.sendToServer(Objectinator.createDataMsg(true, user, 2));
-					} catch (IOException e) {
+						client.sendToServer(Objectinator.createDataMsg(true, card ,6));
+					} catch (IOException e1) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+						e1.printStackTrace();
 					}
-					// open appropriate window
-					/*
-					 * NEED HM GUI WINDOW
-					 */
+//					//create user
+//					HospitalMember user = new HospitalMember(pFirstTextField.getText(),pLastTextField.getText(), card);
+//					//SEND USER TO SERVER UPDATE LIST OF HOSPITAL MEMBERS
+//					try {
+//						client.sendToServer(Objectinator.createDataMsg(true, user, 2));
+//					} catch (IOException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//					// open appropriate window
+//					HospitalMemberHome hmHome = new HospitalMemberHome(user, client);
+//					hmHome.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//					hmHome.setSize(500, 400);
+//					hmHome.setVisible(true);
 				
 				}
 			}

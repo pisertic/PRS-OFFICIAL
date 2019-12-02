@@ -3,6 +3,8 @@ package prsPackage;
 import OCSF.Objectinator;
 import OCSF.GFG;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
@@ -36,6 +38,7 @@ public class StartUp {
 			System.out.println("ERROR while attempting to open connection, exiting...");
 			System.exit(1); // on error exit
 		}
+		
 		// call login GUI
 		Login loginFrame = new Login(client1);
 		loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

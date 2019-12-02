@@ -10,8 +10,8 @@ public class Patient extends HospitalMember {
 	private int SIN;
 
 	// create constructor
-	public Patient(HealthCard h, String fName, String lName, String address, int SIN) {
-		super(fName, lName);
+	public Patient(HealthCard h, String fName, String lName, String address, int SIN, LoginCard card) {
+		super(fName, lName, card);
 		healthCard = h;
 		records =  null;
 	}

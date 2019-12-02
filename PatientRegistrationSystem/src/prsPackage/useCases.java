@@ -3,6 +3,8 @@ package prsPackage;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
+
 import javax.swing.JTextArea;
 import OCSF.GFG;
 import OCSF.MyClient;
@@ -283,14 +285,20 @@ public class useCases {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		try {
+			TimeUnit.SECONDS.sleep(2);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		// set list to data retrieved from server and search for match
 		ArrayList<LoginCard> list = (ArrayList) client.loginData;
 		for (int i = 0; i < list.size(); i++) {
 			// check username
-			if (userName == list.get(i).getUserName()) {
+		
+			if (userName.contentEquals(list.get(i).getUserName())) {
 				// check password
-				if (log.getPassword() == list.get(i).getPassword()) {
+				if (log.getPassword().contentEquals(list.get(i).getPassword()) ) {
 					// return instance type
 					return list.get(i).getClassID();
 				} else {
@@ -299,6 +307,7 @@ public class useCases {
 			}
 		}
 		// if no match is found
-		return -2;
+					return -2;
+		
 	}
 }
