@@ -24,7 +24,6 @@ public class DoctorHome extends JFrame
 	private JButton dViewPatientReferral;
 	private JButton dViewPatientHistory;
 	private JButton dMakeDiagnosis;
-	private JButton dWritePerscription;
 	private JButton dMakeReferral;
 	
 	private MyClient client;
@@ -68,13 +67,9 @@ public class DoctorHome extends JFrame
 		dViewPatientHistory.setPreferredSize(new Dimension(200,60));
 		add(dViewPatientHistory);
 		
-		dMakeDiagnosis = new JButton("Make Diagnosis");
+		dMakeDiagnosis = new JButton("Create a Record");
 		dMakeDiagnosis.setPreferredSize(new Dimension(200,60));
 		add(dMakeDiagnosis);
-		
-		dWritePerscription = new JButton("Write Perscription");
-		dWritePerscription.setPreferredSize(new Dimension(200,60));
-		add(dWritePerscription);
 		
 		dMakeReferral = new JButton("Make Referral");
 		dMakeReferral.setPreferredSize(new Dimension(200,60));
@@ -98,9 +93,6 @@ public class DoctorHome extends JFrame
 		
 		DoctorHandler6 dhandler6 = new DoctorHandler6();
 		dMakeReferral.addActionListener(dhandler6);
-		
-		DoctorHandler7 dhandler7 = new DoctorHandler7();
-		dWritePerscription.addActionListener(dhandler7);
 		
 		//set user and client
 		this.client = client;
@@ -170,10 +162,10 @@ public class DoctorHome extends JFrame
 		{
 			if (event.getSource() == dMakeDiagnosis)
 			{
-				MakeDiagnosis makeDiagnosis = new MakeDiagnosis();
-				makeDiagnosis.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				makeDiagnosis.setSize(600, 400);
-				makeDiagnosis.setVisible(true);
+				CreateRecords createRecords = new CreateRecords();
+				createRecords.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				createRecords.setSize(600, 400);
+				createRecords.setVisible(true);
 			}
 		}
 	}
@@ -184,25 +176,11 @@ public class DoctorHome extends JFrame
 		{
 			if (event.getSource() == dMakeReferral)
 			{
-				MakeReferral makeReferral = new MakeReferral();
+				MakeReferral makeReferral = new MakeReferral(null, user, client);
 				makeReferral.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				makeReferral.setSize(600, 400);
 				makeReferral.setVisible(true);
 			}
 		}
-	}
-	
-	private class DoctorHandler7 implements ActionListener
-	{
-		public void actionPerformed(ActionEvent event)
-		{
-			if (event.getSource() == dWritePerscription)
-			{
-				WritePerscription writePerscription = new WritePerscription();
-				writePerscription.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				writePerscription.setSize(600, 400);
-				writePerscription.setVisible(true);
-			}
-		}
-	}		
+	}	
 }

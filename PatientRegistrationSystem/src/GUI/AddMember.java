@@ -106,12 +106,12 @@ public class AddMember extends JFrame {
 					
 						//create hospital member(and its login card)
 						LoginCard card = null;
-						try {
-							card = new LoginCard(userNameTextField.getText(), GFG.toHexString(GFG.getSHA(passWordTextField.getText())), 2); 
-						} catch (NoSuchAlgorithmException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
+//						try {
+//							card = new LoginCard(pFirstTextField.getText(), GFG.toHexString(GFG.getSHA(passWordTextField.getText())), 2); 
+//						} catch (NoSuchAlgorithmException e) {
+//							// TODO Auto-generated catch block
+//							e.printStackTrace();
+//						}
 						//SEND LOGIN CARD TO SERVER LIST FOR UPDATE
 						try {
 							client.sendToServer(Objectinator.createDataMsg(true, card ,6));

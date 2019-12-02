@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class MakeDiagnosis extends JFrame 
+public class CreateRecords extends JFrame 
 {
 	private JPanel diaLeftPanel;
 	private JPanel diaRightPanel;
@@ -31,9 +31,9 @@ public class MakeDiagnosis extends JFrame
 	private JButton diaPatientEnterButton;
 	private JButton diaDiagnoseButton;
 	
-	public MakeDiagnosis()
+	public CreateRecords()
 	{
-		super("Make a Diagnosis");
+		super("Create Records");
 		setLayout(new BorderLayout());
 		getContentPane().setBackground(Color.white);
 		
@@ -43,7 +43,7 @@ public class MakeDiagnosis extends JFrame
 		add(diaTopPanel, BorderLayout.NORTH);
 		
 		diaPanelLabel = new JLabel();
-		diaPanelLabel.setText("ESOF3050 Hospital PRS System: Make a Diagnosis");
+		diaPanelLabel.setText("ESOF3050 Hospital PRS System: Create a Record");
 		diaPanelLabel.setForeground(Color.white);
 		diaTopPanel.add(diaPanelLabel);		
 		
@@ -87,14 +87,14 @@ public class MakeDiagnosis extends JFrame
 		diaLeftPanel.add(diaAddDateTextField);
 		
 		diaDiagnosisNoteLabel = new JLabel();
-		diaDiagnosisNoteLabel.setText("Diagnosis notes:");
+		diaDiagnosisNoteLabel.setText("Record notes:");
 		diaLeftPanel.add(diaDiagnosisNoteLabel);
 		
 		diaDiagnosisNoteField = new JTextField();
 		diaDiagnosisNoteField.setPreferredSize(new Dimension(100,20));
 		diaLeftPanel.add(diaDiagnosisNoteField);
 		
-		diaDiagnoseButton = new JButton("DIAGNOSE");
+		diaDiagnoseButton = new JButton("CREATE RECORD");
 		diaLeftPanel.add(diaDiagnoseButton);
 		
 		diaPatientRecordsLabel = new JLabel();

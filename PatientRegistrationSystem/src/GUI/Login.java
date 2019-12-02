@@ -24,6 +24,10 @@ import OCSF.Objectinator;
 
 public class Login extends JFrame {
 	private JPanel topPanel;
+	private JPanel userPanel;
+	private JPanel passwordPanel;
+	private JPanel buttonPanel1;
+	private JPanel buttonPanel2;
 	private JLabel panelLabel;
 	private JLabel userLabel;
 	private JLabel passLabel;
@@ -49,33 +53,57 @@ public class Login extends JFrame {
 		panelLabel.setText("Welcome to ESOF3050 Hospital PRS System!");
 		panelLabel.setForeground(Color.white);
 		topPanel.add(panelLabel);
+		
+		userPanel = new JPanel();
+		userPanel.setLayout(new FlowLayout());
+		userPanel.setPreferredSize(new Dimension(500,30));
+		userPanel.setBackground(Color.white);
+		add(userPanel);
+		
+		passwordPanel = new JPanel();
+		passwordPanel.setLayout(new FlowLayout());
+		passwordPanel.setPreferredSize(new Dimension(500,30));
+		passwordPanel.setBackground(Color.white);
+		add(passwordPanel);
+		
+		buttonPanel1 = new JPanel();
+		buttonPanel1.setLayout(new FlowLayout());
+		buttonPanel1.setPreferredSize(new Dimension(500,30));
+		buttonPanel1.setBackground(Color.white);
+		add(buttonPanel1);
+		
+		buttonPanel2 = new JPanel();
+		buttonPanel2.setLayout(new FlowLayout());
+		buttonPanel2.setPreferredSize(new Dimension(500,30));
+		buttonPanel2.setBackground(Color.white);
+		add(buttonPanel2);
 
 		userLabel = new JLabel();
 		userLabel.setText("Username:");
-		add(userLabel);
+		userPanel.add(userLabel);
 
 		userTextField = new JTextField();
 		userTextField.setPreferredSize(new Dimension(100, 20));
-		add(userTextField);
+		userPanel.add(userTextField);
 
 		passLabel = new JLabel();
 		passLabel.setText("Password:");
-		add(passLabel);
+		passwordPanel.add(passLabel);
 
 		passTextField = new JTextField();
 		passTextField.setPreferredSize(new Dimension(100, 20));
-		add(passTextField);
+		passwordPanel.add(passTextField);
 
 		loginButton = new JButton("LOGIN");
-		add(loginButton);
+		buttonPanel1.add(loginButton);
 
 		signupPromptLabel = new JLabel();
-		signupPromptLabel.setText("Not registered? Sign up now");
-		add(signupPromptLabel);
+		signupPromptLabel.setText("Not registered? Sign up now ");
+		buttonPanel2.add(signupPromptLabel);
 
 		// add button WITH actionListener
 		signupButton = new JButton("SIGN UP");
-		add(signupButton);
+		buttonPanel2.add(signupButton);
 
 		LoginHandler1 lhandler1 = new LoginHandler1();
 		loginButton.addActionListener(lhandler1);

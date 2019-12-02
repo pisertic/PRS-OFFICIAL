@@ -27,10 +27,10 @@ public class AdminHome extends JFrame
 	private JButton aRemoveUser;
 	private JButton aAddDoctor;
 	private JButton aAddStaff;
-	
-	Staff user = null;
-	MyClient client = null;
+	private JButton aMakeReferral;
 
+	private MyClient client;
+	private Staff user;
 	
 	public AdminHome(Staff user, MyClient client)
 	{
@@ -85,6 +85,10 @@ public class AdminHome extends JFrame
 		aAddStaff.setPreferredSize(new Dimension(200,60));
 		add(aAddStaff);
 		
+		aMakeReferral = new JButton("Add a Staff Member");
+		aMakeReferral.setPreferredSize(new Dimension(200,60));
+		add(aMakeReferral);
+		
 		//Adding Listeners onto buttons
 		AdminHandler1 ahandler1 = new AdminHandler1();
 		aMakeAppointment.addActionListener(ahandler1);
@@ -110,8 +114,11 @@ public class AdminHome extends JFrame
 		AdminHandler8 ahandler8 = new AdminHandler8();
 		aAddStaff.addActionListener(ahandler8);
 		
+		AdminHandler9 ahandler9 = new AdminHandler9();
+		aAddStaff.addActionListener(ahandler9);
+		
+		this.client= client;
 		this.user = user;
-		this.client = client;
 	}
 	
 	private class AdminHandler1 implements ActionListener
@@ -222,6 +229,20 @@ public class AdminHome extends JFrame
 				addstaff.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				addstaff.setSize(600, 800);
 				addstaff.setVisible(true);
+			}
+		}
+	}
+	
+	private class AdminHandler9 implements ActionListener
+	{
+		public void actionPerformed(ActionEvent event)
+		{
+			if (event.getSource() == aMakeReferral)
+			{
+//				MakeReferral makeReferral = new MakeReferral();
+//				makeReferral.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//				makeReferral.setSize(600, 400);
+//				makeReferral.setVisible(true);
 			}
 		}
 	}
