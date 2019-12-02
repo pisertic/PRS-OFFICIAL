@@ -39,7 +39,7 @@ public class PatientSignup extends JFrame {
 		add(psignupTopLabel);
 
 		pAddressLabel = new JLabel();
-		pAddressLabel.setText("Enter first name:");
+		pAddressLabel.setText("Enter address:");
 		add(pAddressLabel);
 
 		pAddressField = new JTextField();
@@ -47,7 +47,7 @@ public class PatientSignup extends JFrame {
 		add(pAddressField);
 
 		pSINLabel = new JLabel();
-		pSINLabel.setText("Enter last name:");
+		pSINLabel.setText("Enter SIN:");
 		add(pSINLabel);
 
 		pSINField = new JTextField();
