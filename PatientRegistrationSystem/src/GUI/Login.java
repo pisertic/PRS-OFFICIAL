@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import java.awt.event.*;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 //import javax.swing.SwingConstants;
 import javax.swing.JFrame;
@@ -91,6 +92,12 @@ public class Login extends JFrame {
 		public void actionPerformed(ActionEvent event) {
 			if (event.getSource() == loginButton) {
 				int loginResult = useCases.login(userTextField.getText(), passTextField.getText(), client);
+				try {
+					TimeUnit.SECONDS.sleep(2);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				// check if login successful
 				if (loginResult == -2) { // no user found
 					System.err.println("USER DOES NOT EXIST IN THE SYSTEM");
@@ -136,6 +143,7 @@ public class Login extends JFrame {
 						}
 						// create HM instance
 						HospitalMember user1 = hmList.get(x);
+						
 						// open appropriate window
 						/*
 						 * NEED HM GUI WINDOW

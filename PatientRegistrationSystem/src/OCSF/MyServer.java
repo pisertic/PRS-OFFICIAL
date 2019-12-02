@@ -2,6 +2,7 @@ package OCSF;
 
 //import theOCSF.FileHandling;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 import prsPackage.*;
@@ -200,7 +201,7 @@ public class MyServer extends AbstractServer {
 				break;
 			case 6:// login
 				ArrayList<LoginCard> data6 = new ArrayList<LoginCard>();
-				data6 = (ArrayList<LoginCard>) Converter.readData(Converter.userBase);
+				//data6 = (ArrayList<LoginCard>) Converter.readData(Converter.userBase);
 				data6.add((LoginCard) obj.getDataInstance());
 				// write data
 				try {
@@ -277,5 +278,6 @@ public class MyServer extends AbstractServer {
 			break;
 		}
 	}
+	
 
 }

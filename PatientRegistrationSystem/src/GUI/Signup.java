@@ -102,6 +102,14 @@ public class Signup extends JFrame {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+					//SEND LOGIN CARD TO SERVER LIST FOR UPDATE
+					try {
+						client.sendToServer(Objectinator.createDataMsg(true, card ,6));
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					//create user
 					HospitalMember user = new HospitalMember(pFirstTextField.getText(),pLastTextField.getText(), card);
 					//SEND USER TO SERVER UPDATE LIST OF HOSPITAL MEMBERS
 					try {
