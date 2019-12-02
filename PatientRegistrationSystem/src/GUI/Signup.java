@@ -37,7 +37,7 @@ public class Signup extends JFrame {
 	private MyClient client;
 
 	public Signup(MyClient client) {
-		super("Patient Registation System Signup");
+		super("Member Registation System Signup");
 		setLayout(new FlowLayout(FlowLayout.LEFT));
 		getContentPane().setBackground(Color.white);
 
