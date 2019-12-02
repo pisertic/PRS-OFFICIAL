@@ -20,15 +20,21 @@ import prsPackage.LoginCard;
 public class PatientSignup extends JFrame {
 	private JTextField pAddressField;
 	private JTextField pSINField;
+	private JTextField pHealthCardField;
+	private JTextField pExpDateField;
+	private JTextField pProvinceField;
 	private JLabel psignupTopLabel;
 	private JLabel pAddressLabel;
 	private JLabel pSINLabel;
+	private JLabel pHealthCardNo;
+	private JLabel pExpDate;
+	private JLabel pProvince;
 	private JButton patientSignupButton;
 
 	// client instance
 	private MyClient client;
 
-	public Signup(MyClient client) {
+	public PatientSignup(MyClient client) {
 		super("Patient Registation System Signup");
 		setLayout(new FlowLayout(FlowLayout.LEFT));
 		getContentPane().setBackground(Color.white);
@@ -53,6 +59,30 @@ public class PatientSignup extends JFrame {
 		pSINField = new JTextField();
 		pSINField.setPreferredSize(new Dimension(100, 20));
 		add(pSINField);
+		
+		pHealthCardNo = new JLabel();
+		pHealthCardNo.setText("Enter Health Card Number:");
+		add(pHealthCardNo);
+
+		pHealthCardField = new JTextField();
+		pHealthCardField.setPreferredSize(new Dimension(100, 20));
+		add(pHealthCardField);
+		
+		pExpDate = new JLabel();
+		pExpDate.setText("Enter Health Card expiration date:");
+		add(pExpDate);
+
+		pExpDateField = new JTextField();
+		pExpDateField.setPreferredSize(new Dimension(100, 20));
+		add(pExpDateField);
+		
+		pProvince = new JLabel();
+		pProvince.setText("Enter Province:");
+		add(pProvince);
+
+		pProvinceField = new JTextField();
+		pProvinceField.setPreferredSize(new Dimension(100, 20));
+		add(pProvinceField																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																											);
 		
 		patientSignupButton = new JButton("REGISTER AS PATIENT");
 		add(patientSignupButton);
