@@ -116,17 +116,21 @@ public class Login extends JFrame {
 						}
 						// find doctor in list ASSUMING USERNAMES ARE UNIQUE
 						ArrayList<Doctor> dList = (ArrayList) client.docData;
-						int i = 0;
-						while (dList.get(i).getLoginUser() != userTextField.getText()) {
-							i++;
-						}
+						
 						// create doctor instance
-						Doctor user = dList.get(i);
+						Doctor user = null;
+						for (Doctor d : dList) {
+							if (d.getLoginUser().equals(userTextField.getText())) {
+								user = d;
+							}
+						}
+						
 						// open appropriate window
 						DoctorHome doctorHome = new DoctorHome(user, client);
 						doctorHome.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 						doctorHome.setSize(500, 400);
 						doctorHome.setVisible(true);
+						break;
 					case 2:// hospital member
 							// pull list of hospital members
 						try {
@@ -137,17 +141,22 @@ public class Login extends JFrame {
 						}
 						// find HM in list ASSUMING USERNAMES ARE UNIQUE
 						ArrayList<HospitalMember> hmList = (ArrayList) client.hpData;
-						int x = 0;
-						while (hmList.get(x).getLoginUser() != userTextField.getText()) {
-							x++;
-						}
+
 						// create HM instance
-						HospitalMember user1 = hmList.get(x);
+						HospitalMember user1 = null;
+						for (HospitalMember h : hmList) {
+							if (h.getLoginUser().equals(userTextField.getText())) {
+								user1 = h;
+							}
+						}
 						
+
 						// open appropriate window
-						/*
-						 * NEED HM GUI WINDOW
-						 */
+						HospitalMemberHome hmHome = new HospitalMemberHome(user1, client);
+						hmHome.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+						hmHome.setSize(500, 400);
+						hmHome.setVisible(true);
+						break;
 					case 3:// patient
 							// pull list of patients
 						try {
@@ -158,17 +167,21 @@ public class Login extends JFrame {
 						}
 						// find patient in list ASSUMING USERNAMES ARE UNIQUE
 						ArrayList<Patient> pList = (ArrayList) client.patData;
-						int y = 0;
-						while (pList.get(y).getLoginUser() != userTextField.getText()) {
-							y++;
-						}
+					
 						// create patient instance
-						Patient user2 = pList.get(y);
+						Patient user2 = null;
+						for (Patient p : pList) {
+							if (p.getLoginUser().equals(userTextField.getText())) {
+								user2 = p;
+							}
+						}
+						
 						// open appropriate window
 						PatientHome patientHome = new PatientHome();
 						patientHome.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 						patientHome.setSize(500, 400);
 						patientHome.setVisible(true);
+						break;
 					case 5:// staff
 							// pull list of staff
 						try {
@@ -179,18 +192,21 @@ public class Login extends JFrame {
 						}
 						// find staff in list ASSUMING USERNAMES ARE UNIQUE
 						ArrayList<Staff> sList = (ArrayList) client.staffData;
-						int z = 0;
-						while (sList.get(z).getLoginUser() != userTextField.getText()) {
-							z++;
-						}
+					
 						// create patient instance
-						Staff user3 = sList.get(z);
+						Staff user3 = null;
+						for (Staff s : sList) {
+							if (s.getLoginUser().equals(userTextField.getText())) {
+								user3 = s;
+							}
+						}
+						
 						// open appropriate window
 						StaffHome staffHome = new StaffHome();
 						staffHome.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 						staffHome.setSize(500, 400);
 						staffHome.setVisible(true);
-
+						break;
 					case 10:// ADMIN
 						// pull list of staff
 						try {
@@ -201,17 +217,20 @@ public class Login extends JFrame {
 						}
 						// find staff in list ASSUMING USERNAMES ARE UNIQUE
 						ArrayList<Staff> admin = (ArrayList) client.staffData;
-						int q = 0;
-						while (admin.get(q).getLoginUser() != userTextField.getText()) {
-							q++;
-						}
+					
 						// create patient instance
-						Staff user4 = admin.get(q);
+						Staff user4 = null;
+						for (Staff s : admin) {
+							if (s.getLoginUser().equals(userTextField.getText())) {
+								user4 = s;
+							}
+						}
 						// open appropriate window
 
 						/*
 						 * NEED ADMIN GUI WINDOW
 						 */
+						break;
 					}
 
 				}
