@@ -11,6 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import OCSF.MyClient;
+import prsPackage.HospitalMember;
+
 public class HospitalMemberHome extends JFrame 
 {
 	private JPanel hmHomeTopPanel;
@@ -18,8 +21,10 @@ public class HospitalMemberHome extends JFrame
 	private JLabel hmLoggedin;
 	private JButton hmMakeAppointment;
 	private JButton hmViewDoctorSchedule;
+	private HospitalMember user;
+	private MyClient client;
 	
-	public HospitalMemberHome()
+	public HospitalMemberHome(HospitalMember user, MyClient client)
 	{
 		super("Hospital Member Home");
 		setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -54,6 +59,10 @@ public class HospitalMemberHome extends JFrame
 		
 		MemberHandler2 hmhandler2 = new MemberHandler2();
 		hmViewDoctorSchedule.addActionListener(hmhandler2);
+		
+		//make user and client
+		this.user = user;
+		this.client = client;
 	}
 	
 	//Listeners for each button
