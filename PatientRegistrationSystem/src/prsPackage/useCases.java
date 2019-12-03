@@ -280,16 +280,15 @@ public class useCases {
 
 	// PETER
 	// must check that patient exists in iHandler before sending to method
-	public void createRef(Staff s, String refDoc, Patient p, MyClient client) {  //DONE
+	public static void createRef(Staff s, String refDoc, Patient p, MyClient client) {  //DONE
 		Referral r = new Referral(refDoc, s.getFName(), s.getLName(), p.getFName(), p.getLName());
 		try {
-			client.sendToServer(Objectinator.createDataMsg(true, r, refMem));
+			client.sendToServer(Objectinator.createDataMsg(true, r, 4));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		// DONE
-	}
+	}	// DONE
 
 	//peter
 	public void removeRef() {

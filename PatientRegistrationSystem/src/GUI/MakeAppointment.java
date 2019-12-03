@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import OCSF.MyClient;
 import OCSF.Objectinator;
 import prsPackage.Doctor;
+import prsPackage.Patient;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -11,6 +12,7 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.event.*;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 //import javax.swing.SwingConstants;
@@ -44,12 +46,16 @@ public class MakeAppointment extends JFrame
 	private JButton appDoctorEnterButton;
 	private JButton appCreateButton;
 	private MyClient client;
+	private SimpleDateFormat formatter;
+
 	
 	public MakeAppointment(MyClient client)
 	{
 		super("Make Appointment");
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().setBackground(Color.white);
+		
+		formatter = new SimpleDateFormat("dd/MM/yyy HH:mm:ss");
 		
 		appTopPanel = new JPanel();
 		appTopPanel.setBackground(Color.blue);
@@ -85,7 +91,7 @@ public class MakeAppointment extends JFrame
 		appLeftPanel.add(appDoctorEnterButton);
 		
 		appPatientUserLabel = new JLabel();
-		appPatientUserLabel.setText("Enter patient's first name:");
+		appPatientUserLabel.setText("Enter patient's username:");
 		appLeftPanel.add(appPatientUserLabel);
 		
 		appPatientUserField = new JTextField();
@@ -121,15 +127,15 @@ public class MakeAppointment extends JFrame
 //		------------------------------------------------------------
 		datesAreaPanel = new JPanel();
 		datesAreaPanel.setPreferredSize(new Dimension(200,300));
-		datesAreaPanel.setBorder(new TitledBorder(new EtchedBorder(), "Comments:"));
+		datesAreaPanel.setBorder(new TitledBorder(new EtchedBorder()));
 		datesAreaPanel.setBackground(Color.white);
-		appDatesWorkingArea = new JTextArea();
-		appDatesWorkingArea.setPreferredSize(new Dimension(400,250));
+		appDatesWorkingArea = new JTextArea("Check Availability\n");
+		appDatesWorkingArea.setPreferredSize(new Dimension(180,280));
 		appDatesWorkingArea.setEditable(true);
 		dateAreaScroll = new JScrollPane(appDatesWorkingArea);
 		dateAreaScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		datesAreaPanel.add(dateAreaScroll);
-		add(datesAreaPanel);
+		appRightPanel.add(datesAreaPanel);
 		
 		AppHandler1 ahandler1 = new AppHandler1();
 		appDoctorEnterButton.addActionListener(ahandler1);
@@ -155,15 +161,18 @@ public class MakeAppointment extends JFrame
 				}
 				
 				ArrayList<Doctor> doctorList = (ArrayList<Doctor>)client.docData;
+				Doctor doctor = null;
 				//going through the received ArrayList to find a match
 				for(int counter = 0; counter < doctorList.size(); counter++) 
 				{
 					if(appDoctorUserField.getText() == doctorList.get(counter).getLoginUser()) 
 					{
-						Doctor doctor = doctorList.get(counter);
+						doctor = doctorList.get(counter);
 					}
 				}
-				
+				for(int counter = 0; counter < doctor.getDoctorSchedule().size(); counter++) {
+					appDatesWorkingArea.append("Appointment" + counter + 1 + doctor.getDoctorSchedule().get(counter).getDetails());
+				}			
 				
 			}
 		}
@@ -173,9 +182,20 @@ public class MakeAppointment extends JFrame
 	{
 		public void actionPerformed(ActionEvent event)
 		{
+			Patient patient;
 			if (event.getSource() == appCreateButton)
 			{
-				
+				try {
+					client.sendToServer(Objectinator.createDataMsg(3));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			for(int counter = 0; counter < client.patData.size(); counter++) {
+				if(appPatientUserField.getText().equalsIgnoreCase(client.patData.get(counter).getLoginUser())) {
+					patient 
+				}
 			}
 		}
 	}

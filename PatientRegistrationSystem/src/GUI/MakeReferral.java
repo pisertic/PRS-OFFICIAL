@@ -6,14 +6,22 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.event.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 //import javax.swing.SwingConstants;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import OCSF.MyClient;
+import OCSF.Objectinator;
 import prsPackage.Doctor;
+import prsPackage.HospitalMember;
+import prsPackage.Patient;
 import prsPackage.Staff;
+import prsPackage.useCases;
+
 
 
 public class MakeReferral extends JFrame {
@@ -26,6 +34,10 @@ public class MakeReferral extends JFrame {
 	private JTextField mrefDoctorFTextField;
 	private JTextField mrefPatientFTextField;
 	private JButton mrefReferButton;
+	private Staff user;
+	private Doctor doc;
+	private MyClient client;
+
 
 	public MakeReferral(Staff user, Doctor doc, MyClient client)
 	{
@@ -78,6 +90,9 @@ public class MakeReferral extends JFrame {
 		RefHandler refhandler = new RefHandler();
 		mrefReferButton.addActionListener(refhandler);
 		
+		this.user = user;
+		this.doc = doc;
+		this.client = client;
 	}	
 	
 	private class RefHandler implements ActionListener
@@ -86,7 +101,26 @@ public class MakeReferral extends JFrame {
 		{
 			if (event.getSource() == mrefReferButton)
 			{
-				
+				if(mrefDoctorFTextField.getText() != null && mrefPatientFTextField.getText() != null) {
+					//grab patient being referred
+					try {
+						client.sendToServer(Objectinator.createDataMsg(3));
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					ArrayList<Patient> pList = (ArrayList) client.patData;
+					Patient pat = null;
+					for (Patient p : pList) {
+						if (p.getLoginUser().equals(mrefPatientFTextField.getText())) {
+							pat = p;
+						}
+					}
+					//send to createRef method	
+					useCases.createRef(user, mrefDoctorFTextField.getText(), pat, client);
+					
+					
+				}
 			}
 		}
 		

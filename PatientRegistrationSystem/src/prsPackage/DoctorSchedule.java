@@ -3,12 +3,13 @@ package prsPackage;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class DoctorSchedule implements Serializable {
 //create attributes
 	private Date date;
 	private Patient patient;
-	//private Date time; 
+	private SimpleDateFormat formatter;
 	private float duration;
 	
 	//create constructor
@@ -17,6 +18,7 @@ public class DoctorSchedule implements Serializable {
 		//this.time = time;
 		this.patient = patient;
 		this.duration = duration;
+		formatter = new SimpleDateFormat("dd/MM/yyy HH:mm:ss");
 	}
 
 	//gets/sets
@@ -42,6 +44,11 @@ public class DoctorSchedule implements Serializable {
 	
 	public void setPatient(Patient patient) {
 		this.patient = patient;
+	}
+	
+	public String getDetails() {
+		String details = "Date:" + (String)formatter.format(getDate()) + " Duration:" + getDuration() + System.lineSeparator();
+		return details;
 	}
 
 }
