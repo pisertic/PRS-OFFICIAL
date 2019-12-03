@@ -19,7 +19,7 @@ public class useCases {
 	private int refMem = 4;
 	private int appMem = 0;
 	private int userMem = 6;
-//	private int admin = 10;
+	private int admin = 10;
 	
 	// PETER
 	@SuppressWarnings("unchecked")
@@ -137,7 +137,7 @@ public class useCases {
 		ArrayList<Doctor> doctor = new ArrayList<Doctor>();
 		doctor = (ArrayList<Doctor>)Converter.readData(Converter.docData);
 		
-		ArrayList<Integer> editableAppointments = new ArrayList<Integer>(); //Stores location of DoctorSchedules the patient can edit
+		//ArrayList<Integer> editableAppointments = new ArrayList<Integer>(); //Stores location of DoctorSchedules the patient can edit
 		
 		String LName = "GUI", FName = "GUI";
 		//Get String values from GUI
@@ -153,7 +153,7 @@ public class useCases {
 		
 		for(counter = 0; counter < selectedDoctor.getDoctorSchedule().size(); counter++) {
 			if(patient == selectedDoctor.getDoctorSchedule().get(counter).getPatient()) {
-				editableAppointments.add(counter);	
+				//editableAppointments.add(counter);	
 				System.out.println("Appointment " + counter + 1 + ":" + selectedDoctor.getDoctorSchedule().get(counter).getDate()); //GUI
 			}
 		}
@@ -163,15 +163,35 @@ public class useCases {
 		//calling this input "delete-counter", it needs to be user input -1
 		int deleteCounter = counter-1;
 		
+		selectedDoctor.getDoctorSchedule().remove(deleteCounter);
 		DoctorSchedule selectedDoctorSchedule = null;
 		selectedDoctorSchedule = selectedDoctor.getDoctorSchedule().get(deleteCounter);
 		
-		for(counter = 0; counter < doctor.size(); counter++) {
-			if(selectedDoctor == doctor.get(counter)) {
-				
+		
+		ArrayList<Doctor> newDoctor = new ArrayList<Doctor>(); //Creating a new arraylist without the selected appointment/doctor schedule
+		newDoctor = null;
+		int newCounter = 0;
+		
+		for(counter = 0; counter < doctor.size(); counter++) { //Go through all doctors
+			if(selectedDoctor.getLoginUser() == doctor.get(counter).getLoginUser()) {
+				newDoctor.add(selectedDoctor);
+			}
+			else if(newDoctor.get(newCounter) != doctor.get(counter)) {
+				newDoctor.add(doctor.get(counter));
+				if(newCounter == 0)
+					continue;
+				newCounter++;
 			}
 		}
 		
+		// Print and test
+		
+		try {
+			client.sendToServer(Objectinator.createDataMsg(true, newDoctor, 1));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 	}
@@ -197,10 +217,6 @@ public class useCases {
 		
 	}
 
-	// PETER ONLY ADMIN HAS ACCESS
-	public void addMember() {
-		//call signup function
-	}
 
 	// PETER  ONLY ADMIN HAS ACCESS
 	//assume gui 

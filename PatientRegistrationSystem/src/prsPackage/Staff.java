@@ -8,7 +8,7 @@ public class Staff extends HospitalMember {
 	private int empNum;
 	private String address;
 	private int SIN;
-	private ArrayList<Appointment> appointments;
+	//private ArrayList<Appointment> appointments;
 
 	// create constructor
 	public Staff(String fName, String lName, String department, int empNum, String address, int SIN, LoginCard card) {
@@ -17,6 +17,7 @@ public class Staff extends HospitalMember {
 		this.SIN = SIN;
 		this.department = department;
 		this.empNum = empNum;
+		this.appointments = null;
 	}
 	
 
@@ -51,6 +52,14 @@ public class Staff extends HospitalMember {
 
 	public void setSIN(int SIN) {
 		this.SIN = SIN;
+	}
+
+	public ArrayList<Appointment> getAppointments() {
+		return appointments;
+	}
+
+	public void setAppointments(ArrayList<Appointment> appointments) {
+		this.appointments = appointments;
 	}
 
 }
