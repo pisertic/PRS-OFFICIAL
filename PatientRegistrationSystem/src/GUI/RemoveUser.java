@@ -19,6 +19,7 @@ import OCSF.MyClient;
 import OCSF.Objectinator;
 import prsPackage.Doctor;
 import prsPackage.HospitalMember;
+import prsPackage.LoginCard;
 import prsPackage.Staff;
 
 public class RemoveUser extends JFrame
@@ -99,11 +100,12 @@ public class RemoveUser extends JFrame
 			if (event.getSource() == removeUserButton)
 			{
 				if(removeUserField.getText() != null) {
-					//grab a list of all hm, doctors, and staff
+					//grab a list of all hm, doctors, staff, and login cards
 					try {
 						client.sendToServer(Objectinator.createDataMsg(2));//hm
 						client.sendToServer(Objectinator.createDataMsg(5));//staff
 						client.sendToServer(Objectinator.createDataMsg(1));//doctors
+						client.sendToServer(Objectinator.createDataMsg(6));//loginCards
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -112,6 +114,8 @@ public class RemoveUser extends JFrame
 					ArrayList<HospitalMember> hmList = (ArrayList) client.hpData;
 					ArrayList<Staff> sList = (ArrayList) client.staffData;
 					ArrayList<Doctor> docList = (ArrayList) client.docData;
+					ArrayList<LoginCard> cardList = (ArrayList) client.loginData;
+					LoginCard card = null;
 					
 					//search each list and remove index if found, return list to server
 					for (int i = 0; i < hmList.size(); i++) {
@@ -152,7 +156,21 @@ public class RemoveUser extends JFrame
 								e.printStackTrace();
 							}
 						}
-					}		
+					}
+					
+					//remove Login card from list and send to server the new list
+					for(int i =0; i < cardList.size(); i++) {
+						if (cardList.get(i).getUserName().equals(removeUserField.getText())) {
+							cardList.remove(i);
+							try {
+								client.sendToServer(Objectinator.createDataMsg(true, cardList, 6));
+								System.out.println("Removed: " + removeUserField.getText());
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						}
+					}
 					
 				}
 			}

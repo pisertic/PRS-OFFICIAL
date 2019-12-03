@@ -7,9 +7,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+import OCSF.GFG;
 
 public class Converter {
 
@@ -69,30 +72,26 @@ public class Converter {
 		return data;
 	}
 
-//	public static void main(String[] args) {
-//		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
-//		Date date = new Date(System.currentTimeMillis());
-//		System.out.println(formatter.format(date));
-//		DoctorSchedule docsched = new DoctorSchedule(date, date, date);
-//		Referral referral = new Referral("Dr.Bond", "John", "Snow", "Chacko", "Panicker");
-//		ArrayList<Doctor> d = new ArrayList<Doctor>();
-//		Doctor doc = new Doctor("Heart Surgeon", "Rank#1", 24.5f, docsched, referral, "Heart Department", 1, 101,
-//				"Bond", "James", "Lakehead University", 123456);
-//		d.add(doc);
-//		System.out.println("Attempting to save...");
-//		try {
-//			writeData(d, docData);
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		System.out.println("Success!");
-//
-//		useCases useless = new useCases();
-//		useless.browseDoctorSchedule();
-//		System.out.println("Success!Part2");
-//
-//	}
+	public static void main(String[] args) {
+		
+		LoginCard card = new LoginCard("Admin", "Admin", 10);
+		try {
+			card.setPassword(GFG.toHexString(GFG.getSHA("Admin")));
+		} catch (NoSuchAlgorithmException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		ArrayList<LoginCard> list = new ArrayList<LoginCard>();
+		list.add(card);
+		try {
+			writeData(list, userBase);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("Success!");
+
+	}
 
 	/*
 	 * public static void main(String[] args) { ArrayList<Patient> hpData = new

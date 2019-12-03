@@ -36,6 +36,11 @@ public class HospitalMember implements Serializable {
 	public String getLoginPass() {
 		return loginCard.getPassword();
 	}
+	
+	public LoginCard getLoginCard() {
+		return loginCard;
+	}
+
 
 //create sets
 	public void setFName(String fName) {

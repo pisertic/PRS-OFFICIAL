@@ -25,11 +25,9 @@ public class AdminHome extends JFrame
 	private JButton aViewPatientRecords;
 	private JButton aScheduleDoctors;
 	private JButton aRemoveUser;
-<<<<<<< HEAD
-	private JButton aAddMember;
-=======
+
 	private JButton addMember;
->>>>>>> branch 'master' of https://github.com/pisertic/PRS-OFFICIAL.git
+
 	private JButton aMakeReferral;
 
 	private MyClient client;
@@ -80,11 +78,6 @@ public class AdminHome extends JFrame
 		aRemoveUser.setPreferredSize(new Dimension(200,60));
 		add(aRemoveUser);
 		
-<<<<<<< HEAD
-		aAddMember = new JButton("Add a Doctor/Staff Member");
-		aAddMember.setPreferredSize(new Dimension(200,60));
-		add(aAddMember);
-=======
 		addMember = new JButton("Add a member");
 		addMember.setPreferredSize(new Dimension(200,60));
 		add(addMember);
@@ -94,7 +87,7 @@ public class AdminHome extends JFrame
 		aMakeReferral = new JButton("Make a referral");
 		aMakeReferral.setPreferredSize(new Dimension(200,60));
 		add(aMakeReferral);
->>>>>>> branch 'master' of https://github.com/pisertic/PRS-OFFICIAL.git
+
 		
 		//Adding Listeners onto buttons
 		AdminHandler1 ahandler1 = new AdminHandler1();
@@ -116,14 +109,11 @@ public class AdminHome extends JFrame
 		aRemoveUser.addActionListener(ahandler6);
 		
 		AdminHandler7 ahandler7 = new AdminHandler7();
-<<<<<<< HEAD
-		aAddMember.addActionListener(ahandler7);
-=======
 		addMember.addActionListener(ahandler7);
 		
 		AdminHandler9 ahandler9 = new AdminHandler9();
 		aMakeReferral.addActionListener(ahandler9);
->>>>>>> branch 'master' of https://github.com/pisertic/PRS-OFFICIAL.git
+
 		
 		this.client= client;
 		this.user = user;
@@ -217,18 +207,9 @@ public class AdminHome extends JFrame
 	{
 		public void actionPerformed(ActionEvent event)
 		{
-<<<<<<< HEAD
-			if (event.getSource() == aAddMember)
-=======
+
 			if (event.getSource() == addMember)
->>>>>>> branch 'master' of https://github.com/pisertic/PRS-OFFICIAL.git
 			{
-<<<<<<< HEAD
-				AddMember addmember = new AddMember();
-				addmember.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				addmember.setSize(600, 800);
-				addmember.setVisible(true);
-=======
 				AddMember adMem = new AddMember(client);
 				adMem.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				adMem.setSize(600, 800);
@@ -249,7 +230,7 @@ public class AdminHome extends JFrame
 //				makeReferral.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 //				makeReferral.setSize(600, 400);
 //				makeReferral.setVisible(true);
->>>>>>> branch 'master' of https://github.com/pisertic/PRS-OFFICIAL.git
+
 			}
 		}
 	}

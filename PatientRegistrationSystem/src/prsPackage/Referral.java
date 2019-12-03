@@ -7,7 +7,7 @@ public class Referral implements Serializable {
 /**
 	 * 
 	 */
-	private static final long serialVersionUID = 7544645508147128658L;
+	private static final long serialVersionUID = -2054837507676055632L;
 //create attributes
 	private String refDoc;
 	private String staffNameF;
