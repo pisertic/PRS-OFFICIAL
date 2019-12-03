@@ -8,7 +8,7 @@ public class Staff extends HospitalMember {
 	private int empNum;
 	private String address;
 	private int SIN;
-	private ArrayList<Appointment> appointments;
+	//private ArrayList<Appointment> appointments;
 
 	// create constructor
 	public Staff(String fName, String lName, String department, int empNum, String address, int SIN, LoginCard card) {
