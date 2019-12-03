@@ -6,11 +6,20 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.event.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 //import javax.swing.SwingConstants;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import OCSF.MyClient;
+import OCSF.Objectinator;
+import prsPackage.Doctor;
+import prsPackage.HospitalMember;
+import prsPackage.Staff;
 
 public class RemoveUser extends JFrame
 {
@@ -24,7 +33,9 @@ public class RemoveUser extends JFrame
 	private JTextField removeUserField;
 	private JButton removeUserButton;
 	
-	public RemoveUser()
+	private MyClient client;
+	
+	public RemoveUser(MyClient client)
 	{
 		super("Remove User");
 		setLayout(new BorderLayout());
@@ -77,6 +88,8 @@ public class RemoveUser extends JFrame
 		
 		RemoveUserHandler ruhandler = new RemoveUserHandler();
 		removeUserButton.addActionListener(ruhandler);
+		
+		this.client = client;
 	}
 	
 	private class RemoveUserHandler implements ActionListener
@@ -85,7 +98,63 @@ public class RemoveUser extends JFrame
 		{
 			if (event.getSource() == removeUserButton)
 			{
-				
+				if(removeUserField.getText() != null) {
+					//grab a list of all hm, doctors, and staff
+					try {
+						client.sendToServer(Objectinator.createDataMsg(2));//hm
+						client.sendToServer(Objectinator.createDataMsg(5));//staff
+						client.sendToServer(Objectinator.createDataMsg(1));//doctors
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} 
+					//assign lists
+					ArrayList<HospitalMember> hmList = (ArrayList) client.hpData;
+					ArrayList<Staff> sList = (ArrayList) client.staffData;
+					ArrayList<Doctor> docList = (ArrayList) client.docData;
+					
+					//search each list and remove index if found, return list to server
+					for (int i = 0; i < hmList.size(); i++) {
+						if (hmList.get(i).getLoginUser().equals(removeUserField.getText())) {
+							hmList.remove(i);
+							try {
+								client.sendToServer(Objectinator.createDataMsg(true, hmList, 2));
+								System.out.println("Removed " + removeUserField.getText());
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							
+						}
+					}		
+					
+					for (int i = 0; i < sList.size(); i++) {
+						if (sList.get(i).getLoginUser().equals(removeUserField.getText())) {
+							sList.remove(i);
+							try {
+								client.sendToServer(Objectinator.createDataMsg(true, sList, 5));
+								System.out.println("Removed " + removeUserField.getText());
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						}
+					}
+					
+					for (int i = 0; i < docList.size(); i++) {
+						if (docList.get(i).getLoginUser().equals(removeUserField.getText())) {
+							docList.remove(i);
+							try {
+								client.sendToServer(Objectinator.createDataMsg(true, docList, 1));
+								System.out.println("Removed " + removeUserField.getText());
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						}
+					}		
+					
+				}
 			}
 		}
 	}

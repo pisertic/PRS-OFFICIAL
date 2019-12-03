@@ -27,7 +27,7 @@ public class Signup extends JFrame
 	private JPanel pLastPanel;
 	private JPanel pUserPanel;
 	private JPanel pPasswordPanel;
-	
+	private JPanel pButtonPanel;
 	private JTextField pFirstTextField;
 	private JTextField pLastTextField;
 	private JTextField userNameTextField;
@@ -59,7 +59,7 @@ public class Signup extends JFrame
 		add(pFirstPanel);
 		
 		pLastPanel = new JPanel();
-		pLastPanel.setLayout(new FlowLayout());
+		pLastPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 		pLastPanel.setPreferredSize(new Dimension(500,30));
 		pLastPanel.setBackground(Color.white);
 		add(pLastPanel);
@@ -75,6 +75,12 @@ public class Signup extends JFrame
 		pPasswordPanel.setPreferredSize(new Dimension(500,30));
 		pPasswordPanel.setBackground(Color.white);
 		add(pPasswordPanel);
+		
+		pButtonPanel = new JPanel();
+		pButtonPanel.setLayout(new FlowLayout());
+		pButtonPanel.setPreferredSize(new Dimension(500,30));
+		pButtonPanel.setBackground(Color.white);
+		add(pButtonPanel);
 		
 		pFirstLabel = new JLabel();
 		pFirstLabel.setText("Enter first name:");
@@ -109,7 +115,7 @@ public class Signup extends JFrame
 		pPasswordPanel.add(passWordTextField);
 
 		signupEnterButton = new JButton("REGISTER");
-		add(signupEnterButton);
+		pButtonPanel.add(signupEnterButton);
 
 		SignupHandler shandler = new SignupHandler();
 		signupEnterButton.addActionListener(shandler);

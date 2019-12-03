@@ -2,7 +2,12 @@ package prsPackage;
 
 import java.io.Serializable;
 
+
 public class Referral implements Serializable {
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7544645508147128658L;
 //create attributes
 	private String refDoc;
 	private String staffNameF;

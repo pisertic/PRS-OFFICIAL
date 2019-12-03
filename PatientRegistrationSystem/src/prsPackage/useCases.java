@@ -219,10 +219,6 @@ public class useCases {
 		
 	}
 
-	// PETER ONLY ADMIN HAS ACCESS
-	public void addMember() {
-		//call signup function
-	}
 
 	// PETER  ONLY ADMIN HAS ACCESS
 	//assume gui 

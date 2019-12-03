@@ -120,6 +120,7 @@ public class Login extends JFrame {
 		public void actionPerformed(ActionEvent event) {
 			if (event.getSource() == loginButton) {
 				int loginResult = useCases.login(userTextField.getText(), passTextField.getText(), client);
+				//wait for result to return
 				try {
 					TimeUnit.SECONDS.sleep(2);
 				} catch (InterruptedException e) {

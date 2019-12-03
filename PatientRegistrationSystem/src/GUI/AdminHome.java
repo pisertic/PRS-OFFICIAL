@@ -22,11 +22,14 @@ public class AdminHome extends JFrame
 	private JButton aMakeAppointment;
 	private JButton aViewDoctorSchedule;
 	private JButton aViewPatientReferral;
-	private JButton aViewPatientHistory;
+	private JButton aViewPatientRecords;
 	private JButton aScheduleDoctors;
 	private JButton aRemoveUser;
-	private JButton aAddDoctor;
-	private JButton aAddStaff;
+<<<<<<< HEAD
+	private JButton aAddMember;
+=======
+	private JButton addMember;
+>>>>>>> branch 'master' of https://github.com/pisertic/PRS-OFFICIAL.git
 	private JButton aMakeReferral;
 
 	private MyClient client;
@@ -65,9 +68,9 @@ public class AdminHome extends JFrame
 		aViewPatientReferral.setPreferredSize(new Dimension(200,60));
 		add(aViewPatientReferral);
 		
-		aViewPatientHistory = new JButton("View Patient History");
-		aViewPatientHistory.setPreferredSize(new Dimension(200,60));
-		add(aViewPatientHistory);
+		aViewPatientRecords = new JButton("View Patient Records");
+		aViewPatientRecords.setPreferredSize(new Dimension(200,60));
+		add(aViewPatientRecords);
 		
 		aScheduleDoctors = new JButton("Schedule Doctor Timetables");
 		aScheduleDoctors.setPreferredSize(new Dimension(200,60));
@@ -77,17 +80,21 @@ public class AdminHome extends JFrame
 		aRemoveUser.setPreferredSize(new Dimension(200,60));
 		add(aRemoveUser);
 		
-		aAddDoctor = new JButton("Add a Doctor");
-		aAddDoctor.setPreferredSize(new Dimension(200,60));
-		add(aAddDoctor);
+<<<<<<< HEAD
+		aAddMember = new JButton("Add a Doctor/Staff Member");
+		aAddMember.setPreferredSize(new Dimension(200,60));
+		add(aAddMember);
+=======
+		addMember = new JButton("Add a member");
+		addMember.setPreferredSize(new Dimension(200,60));
+		add(addMember);
 		
-		aAddStaff = new JButton("Add a Staff Member");
-		aAddStaff.setPreferredSize(new Dimension(200,60));
-		add(aAddStaff);
 		
-		aMakeReferral = new JButton("Add a Staff Member");
+		
+		aMakeReferral = new JButton("Make a referral");
 		aMakeReferral.setPreferredSize(new Dimension(200,60));
 		add(aMakeReferral);
+>>>>>>> branch 'master' of https://github.com/pisertic/PRS-OFFICIAL.git
 		
 		//Adding Listeners onto buttons
 		AdminHandler1 ahandler1 = new AdminHandler1();
@@ -100,7 +107,7 @@ public class AdminHome extends JFrame
 		aViewPatientReferral.addActionListener(ahandler3);
 		
 		AdminHandler4 ahandler4 = new AdminHandler4();
-		aViewPatientHistory.addActionListener(ahandler4);
+		aViewPatientRecords.addActionListener(ahandler4);
 		
 		AdminHandler5 ahandler5 = new AdminHandler5();
 		aScheduleDoctors.addActionListener(ahandler5);
@@ -109,13 +116,14 @@ public class AdminHome extends JFrame
 		aRemoveUser.addActionListener(ahandler6);
 		
 		AdminHandler7 ahandler7 = new AdminHandler7();
-		aAddDoctor.addActionListener(ahandler7);
-		
-		AdminHandler8 ahandler8 = new AdminHandler8();
-		aAddStaff.addActionListener(ahandler8);
+<<<<<<< HEAD
+		aAddMember.addActionListener(ahandler7);
+=======
+		addMember.addActionListener(ahandler7);
 		
 		AdminHandler9 ahandler9 = new AdminHandler9();
-		aAddStaff.addActionListener(ahandler9);
+		aMakeReferral.addActionListener(ahandler9);
+>>>>>>> branch 'master' of https://github.com/pisertic/PRS-OFFICIAL.git
 		
 		this.client= client;
 		this.user = user;
@@ -141,7 +149,7 @@ public class AdminHome extends JFrame
 		{
 			if (event.getSource() == aViewDoctorSchedule)
 			{
-				DoctorSchedules doctorSchedules = new DoctorSchedules();
+				ViewDoctorSchedules doctorSchedules = new ViewDoctorSchedules();
 				doctorSchedules.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				doctorSchedules.setSize(600, 400);
 				doctorSchedules.setVisible(true);
@@ -167,9 +175,9 @@ public class AdminHome extends JFrame
 	{
 		public void actionPerformed(ActionEvent event)
 		{
-			if (event.getSource() == aViewPatientHistory)
+			if (event.getSource() == aViewPatientRecords)
 			{
-				PatientHistory patientHistory = new PatientHistory();
+				ViewRecords patientHistory = new ViewRecords();
 				patientHistory.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				patientHistory.setSize(600, 400);
 				patientHistory.setVisible(true);
@@ -197,7 +205,7 @@ public class AdminHome extends JFrame
 		{
 			if (event.getSource() == aRemoveUser)
 			{
-				RemoveUser removeuser = new RemoveUser();
+				RemoveUser removeuser = new RemoveUser(client);
 				removeuser.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				removeuser.setSize(600, 400);
 				removeuser.setVisible(true);
@@ -209,29 +217,27 @@ public class AdminHome extends JFrame
 	{
 		public void actionPerformed(ActionEvent event)
 		{
-			if (event.getSource() == aAddDoctor)
+<<<<<<< HEAD
+			if (event.getSource() == aAddMember)
+=======
+			if (event.getSource() == addMember)
+>>>>>>> branch 'master' of https://github.com/pisertic/PRS-OFFICIAL.git
 			{
-				AddDoctor adddoctor = new AddDoctor();
-				adddoctor.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				adddoctor.setSize(600, 800);
-				adddoctor.setVisible(true);
+<<<<<<< HEAD
+				AddMember addmember = new AddMember();
+				addmember.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				addmember.setSize(600, 800);
+				addmember.setVisible(true);
+=======
+				AddMember adMem = new AddMember(client);
+				adMem.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				adMem.setSize(600, 800);
+				adMem.setVisible(true);
 			}
 		}
 	}
 	
-	private class AdminHandler8 implements ActionListener
-	{
-		public void actionPerformed(ActionEvent event)
-		{
-			if (event.getSource() == aAddStaff)
-			{
-				AddStaff addstaff = new AddStaff();
-				addstaff.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				addstaff.setSize(600, 800);
-				addstaff.setVisible(true);
-			}
-		}
-	}
+
 	
 	private class AdminHandler9 implements ActionListener
 	{
@@ -243,6 +249,7 @@ public class AdminHome extends JFrame
 //				makeReferral.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 //				makeReferral.setSize(600, 400);
 //				makeReferral.setVisible(true);
+>>>>>>> branch 'master' of https://github.com/pisertic/PRS-OFFICIAL.git
 			}
 		}
 	}
