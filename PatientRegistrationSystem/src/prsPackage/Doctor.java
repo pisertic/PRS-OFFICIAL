@@ -12,8 +12,8 @@ public class Doctor extends Staff{
 	
 	//create constructor 
 	public Doctor(String specialty, String rank, float workingHours,    //Doctor attributes
-			String fName, String lName, String department, int empNum, String address, int SIN) {					//Staff attributes
-		super(fName, lName, department, empNum,  address, SIN);
+			String fName, String lName, String department, int empNum, String address, int SIN , LoginCard login) {					//Staff attributes
+		super(fName, lName, department, empNum,  address, SIN, login);
 		this.specialty = specialty;
 		this.rank = rank;
 		this.workingHours = workingHours;

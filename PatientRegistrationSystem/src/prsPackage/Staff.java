@@ -17,6 +17,7 @@ public class Staff extends HospitalMember {
 		this.SIN = SIN;
 		this.department = department;
 		this.empNum = empNum;
+		this.appointments = null;
 	}
 	
 
@@ -51,6 +52,14 @@ public class Staff extends HospitalMember {
 
 	public void setSIN(int SIN) {
 		this.SIN = SIN;
+	}
+
+	public ArrayList<Appointment> getAppointments() {
+		return appointments;
+	}
+
+	public void setAppointments(ArrayList<Appointment> appointments) {
+		this.appointments = appointments;
 	}
 
 }

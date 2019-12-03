@@ -25,8 +25,7 @@ public class AdminHome extends JFrame
 	private JButton aViewPatientHistory;
 	private JButton aScheduleDoctors;
 	private JButton aRemoveUser;
-	private JButton aAddDoctor;
-	private JButton aAddStaff;
+	private JButton addMember;
 	private JButton aMakeReferral;
 
 	private MyClient client;
@@ -77,15 +76,13 @@ public class AdminHome extends JFrame
 		aRemoveUser.setPreferredSize(new Dimension(200,60));
 		add(aRemoveUser);
 		
-		aAddDoctor = new JButton("Add a Doctor");
-		aAddDoctor.setPreferredSize(new Dimension(200,60));
-		add(aAddDoctor);
+		addMember = new JButton("Add a member");
+		addMember.setPreferredSize(new Dimension(200,60));
+		add(addMember);
 		
-		aAddStaff = new JButton("Add a Staff Member");
-		aAddStaff.setPreferredSize(new Dimension(200,60));
-		add(aAddStaff);
 		
-		aMakeReferral = new JButton("Add a Staff Member");
+		
+		aMakeReferral = new JButton("Make a referral");
 		aMakeReferral.setPreferredSize(new Dimension(200,60));
 		add(aMakeReferral);
 		
@@ -109,13 +106,10 @@ public class AdminHome extends JFrame
 		aRemoveUser.addActionListener(ahandler6);
 		
 		AdminHandler7 ahandler7 = new AdminHandler7();
-		aAddDoctor.addActionListener(ahandler7);
-		
-		AdminHandler8 ahandler8 = new AdminHandler8();
-		aAddStaff.addActionListener(ahandler8);
+		addMember.addActionListener(ahandler7);
 		
 		AdminHandler9 ahandler9 = new AdminHandler9();
-		aAddStaff.addActionListener(ahandler9);
+		aMakeReferral.addActionListener(ahandler9);
 		
 		this.client= client;
 		this.user = user;
@@ -209,29 +203,17 @@ public class AdminHome extends JFrame
 	{
 		public void actionPerformed(ActionEvent event)
 		{
-			if (event.getSource() == aAddDoctor)
+			if (event.getSource() == addMember)
 			{
-				AddDoctor adddoctor = new AddDoctor();
-				adddoctor.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				adddoctor.setSize(600, 800);
-				adddoctor.setVisible(true);
+				AddMember adMem = new AddMember(client);
+				adMem.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				adMem.setSize(600, 800);
+				adMem.setVisible(true);
 			}
 		}
 	}
 	
-	private class AdminHandler8 implements ActionListener
-	{
-		public void actionPerformed(ActionEvent event)
-		{
-			if (event.getSource() == aAddStaff)
-			{
-				AddStaff addstaff = new AddStaff();
-				addstaff.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				addstaff.setSize(600, 800);
-				addstaff.setVisible(true);
-			}
-		}
-	}
+
 	
 	private class AdminHandler9 implements ActionListener
 	{
