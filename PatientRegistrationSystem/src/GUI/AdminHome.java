@@ -191,7 +191,7 @@ public class AdminHome extends JFrame
 		{
 			if (event.getSource() == aRemoveUser)
 			{
-				RemoveUser removeuser = new RemoveUser();
+				RemoveUser removeuser = new RemoveUser(client);
 				removeuser.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				removeuser.setSize(600, 400);
 				removeuser.setVisible(true);

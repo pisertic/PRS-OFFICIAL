@@ -114,25 +114,26 @@ public class RemoveUser extends JFrame
 					ArrayList<Doctor> docList = (ArrayList) client.docData;
 					
 					//search each list and remove index if found, return list to server
-					for (HospitalMember hm : hmList) {
-						if (hm.getLoginUser().equals(removeUserField.getText())) {
-							hmList.remove(hm);
+					for (int i = 0; i < hmList.size(); i++) {
+						if (hmList.get(i).getLoginUser().equals(removeUserField.getText())) {
+							hmList.remove(i);
 							try {
 								client.sendToServer(Objectinator.createDataMsg(true, hmList, 2));
-								System.out.println("Removed " + hm.getLoginUser());
+								System.out.println("Removed " + removeUserField.getText());
 							} catch (IOException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
+							
 						}
-					}
+					}		
 					
-					for (Staff s : sList) {
-						if (s.getLoginUser().equals(removeUserField.getText())) {
-							sList.remove(s);
+					for (int i = 0; i < sList.size(); i++) {
+						if (sList.get(i).getLoginUser().equals(removeUserField.getText())) {
+							sList.remove(i);
 							try {
 								client.sendToServer(Objectinator.createDataMsg(true, sList, 5));
-								System.out.println("Removed " + s.getLoginUser());
+								System.out.println("Removed " + removeUserField.getText());
 							} catch (IOException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
@@ -140,12 +141,12 @@ public class RemoveUser extends JFrame
 						}
 					}
 					
-					for (Doctor d : docList) {
-						if (d.getLoginUser().equals(removeUserField.getText())) {
-							docList.remove(d);
+					for (int i = 0; i < docList.size(); i++) {
+						if (docList.get(i).getLoginUser().equals(removeUserField.getText())) {
+							docList.remove(i);
 							try {
 								client.sendToServer(Objectinator.createDataMsg(true, docList, 1));
-								System.out.println("Removed " + d.getLoginUser());
+								System.out.println("Removed " + removeUserField.getText());
 							} catch (IOException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
