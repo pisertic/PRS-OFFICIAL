@@ -16,7 +16,6 @@ import OCSF.MyServer;
 public class StartUp {
 
 	public static void main(String[] args) {
-
 		// startup server
 		MyServer MyServer1 = new MyServer(8989); // will use port 8989
 		System.out.println("MyServer: MyServer1 has been created.");
