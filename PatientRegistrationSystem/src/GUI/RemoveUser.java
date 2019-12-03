@@ -151,9 +151,7 @@ public class RemoveUser extends JFrame
 								e.printStackTrace();
 							}
 						}
-					}
-					
-					
+					}		
 					
 				}
 			}
