@@ -61,3 +61,15 @@
 /RemoveUser.class
 /StaffHome$StaffHandler6.class
 /AddMember$AddMemberHandler.class
+/CreateRecords$RecordHandler1.class
+/CreateRecords$RecordHandler2.class
+/MakeAppointment$AppHandler1.class
+/MakeAppointment$AppHandler2.class
+/MakeReferral$RefHandler.class
+/PatientReferrals$ReferralHandler1.class
+/ScheduleTimetable$TimetableHandler1.class
+/ScheduleTimetable$TimetableHandler2.class
+/ViewDoctorSchedules$ViewHandler.class
+/ViewDoctorSchedules.class
+/ViewRecords$PViewHandler.class
+/ViewRecords.class
