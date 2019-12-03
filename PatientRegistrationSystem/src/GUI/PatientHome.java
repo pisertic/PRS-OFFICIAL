@@ -11,6 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import OCSF.MyClient;
+import prsPackage.Patient;
+
 public class PatientHome extends JFrame 
 {
 	private JPanel pHomeTopPanel;
@@ -20,8 +23,10 @@ public class PatientHome extends JFrame
 	private JButton pViewDoctorSchedule;
 	private JButton pViewPatientReferral;
 	private JButton pViewPatientHistory;
+	private MyClient client;
+	private Patient user2;
 	
-	public PatientHome()
+	public PatientHome(Patient user2, MyClient client)
 	{
 		super("Patient Home");
 		setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -70,6 +75,9 @@ public class PatientHome extends JFrame
 		
 		PatientHandler4 phandler4 = new PatientHandler4();
 		pViewPatientHistory.addActionListener(phandler4);
+		
+		this.client = client;
+		this.user2 = user2;
 	}
 	
 	//Listeners for each button

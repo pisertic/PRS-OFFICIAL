@@ -178,7 +178,8 @@ public class Login extends JFrame {
 								user1 = h;
 							}
 						}
-						
+						if(user1 == null)
+							System.out.print("ASDFGHFDSAWDFGHJGFDSADFGHJKHGFDSADRFGHJGFDSADFGHJ");
 						// open appropriate window
 						HospitalMemberHome hmHome = new HospitalMemberHome(user1, client);
 						hmHome.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -205,7 +206,7 @@ public class Login extends JFrame {
 						}
 						
 						// open appropriate window
-						PatientHome patientHome = new PatientHome();
+						PatientHome patientHome = new PatientHome(user2, client);
 						patientHome.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 						patientHome.setSize(500, 400);
 						patientHome.setVisible(true);
@@ -230,7 +231,7 @@ public class Login extends JFrame {
 						}
 						
 						// open appropriate window
-						StaffHome staffHome = new StaffHome(client);
+						StaffHome staffHome = new StaffHome(user3, client);
 						staffHome.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 						staffHome.setSize(500, 400);
 						staffHome.setVisible(true);

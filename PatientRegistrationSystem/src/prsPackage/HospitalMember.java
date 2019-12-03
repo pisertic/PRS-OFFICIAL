@@ -51,5 +51,8 @@ public class HospitalMember implements Serializable {
 		this.lName = lName;
 	}
 
-	
+	public void setLoginCard(LoginCard loginCard) {
+		this.loginCard = loginCard;
+	}
+
 }
