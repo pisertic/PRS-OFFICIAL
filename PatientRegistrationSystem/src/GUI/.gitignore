@@ -73,3 +73,5 @@
 /ViewDoctorSchedules.class
 /ViewRecords$PViewHandler.class
 /ViewRecords.class
+/CancelAppointment$DeleteHandler1.class
+/CancelAppointment$DeleteHandler2.class
