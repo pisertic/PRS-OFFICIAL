@@ -142,19 +142,36 @@ public class useCases {
 		String LName = "GUI", FName = "GUI";
 		//Get String values from GUI
 		
-		Doctor selectedDoctor = new Doctor();
+		Doctor selectedDoctor = null;
+		int counter;
 		
-		for(int counter = 0; counter < doctor.size(); counter++) {
+		for(counter = 0; counter < doctor.size(); counter++) {
 			if(doctor.get(counter).getLName() == LName && doctor.get(counter).getFName() == FName) {
 				selectedDoctor = new Doctor(doctor.get(counter));
 			}			
 		}
 		
-		for(int counter = 0; counter < selectedDoctor.getDoctorSchedule().size(); counter++) {
+		for(counter = 0; counter < selectedDoctor.getDoctorSchedule().size(); counter++) {
 			if(patient == selectedDoctor.getDoctorSchedule().get(counter).getPatient()) {
 				editableAppointments.add(counter);	
+				System.out.println("Appointment " + counter + 1 + ":" + selectedDoctor.getDoctorSchedule().get(counter).getDate()); //GUI
 			}
 		}
+		
+		//Input from GUI User
+		//assuming we take in appointment number from user
+		//calling this input "delete-counter", it needs to be user input -1
+		int deleteCounter = counter-1;
+		
+		DoctorSchedule selectedDoctorSchedule = null;
+		selectedDoctorSchedule = selectedDoctor.getDoctorSchedule().get(deleteCounter);
+		
+		for(counter = 0; counter < doctor.size(); counter++) {
+			if(selectedDoctor == doctor.get(counter)) {
+				
+			}
+		}
+		
 		
 		
 	}
