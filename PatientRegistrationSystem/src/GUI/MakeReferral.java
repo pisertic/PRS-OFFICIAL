@@ -12,9 +12,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+<<<<<<< HEAD
 import OCSF.MyClient;
 import prsPackage.Doctor;
 import prsPackage.Staff;
+=======
+import GUI.AddDoctor.AddDoctorHandler;
+>>>>>>> branch 'master' of https://github.com/pisertic/PRS-OFFICIAL.git
 
 public class MakeReferral extends JFrame
 {
@@ -94,6 +98,21 @@ public class MakeReferral extends JFrame
 		
 		mrefReferButton = new JButton("REFER PATIENT");
 		mrefLeftPanel.add(mrefReferButton);
+		
+		MakeReferralHandler mfhandler = new MakeReferralHandler();
+		mrefReferButton.addActionListener(mfhandler);
+	}
+	
+	private class MakeReferralHandler implements ActionListener
+	{
+		public void actionPerformed(ActionEvent event)
+		{
+			if (event.getSource() == mrefReferButton)
+			{
+				
+			}
+		}
 	}
 }
+	
 

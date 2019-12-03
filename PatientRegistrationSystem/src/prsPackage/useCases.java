@@ -19,7 +19,7 @@ public class useCases {
 	private int refMem = 4;
 	private int appMem = 0;
 	private int userMem = 6;
-//	private int admin = 10;
+	private int admin = 10;
 	
 	// PETER
 	@SuppressWarnings("unchecked")
