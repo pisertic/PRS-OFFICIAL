@@ -31,11 +31,7 @@ public class Doctor extends Staff{
 		this.referral = doctor.getRefferal();
 		
 	}
-
-	public Doctor() {
-		// TODO Auto-generated constructor stub
-	}
-
+	
 	//gets/sets
 	public String getSpecialty() {
 		return specialty;
