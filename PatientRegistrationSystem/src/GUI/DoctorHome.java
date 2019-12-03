@@ -22,7 +22,7 @@ public class DoctorHome extends JFrame
 	private JButton dMakeAppointment;
 	private JButton dViewDoctorSchedule;
 	private JButton dViewPatientReferral;
-	private JButton dViewPatientHistory;
+	private JButton dViewPatientRecords;
 	private JButton dMakeDiagnosis;
 	private JButton dMakeReferral;
 	
@@ -63,9 +63,9 @@ public class DoctorHome extends JFrame
 		dViewPatientReferral.setPreferredSize(new Dimension(200,60));
 		add(dViewPatientReferral);
 		
-		dViewPatientHistory = new JButton("View Patient History");
-		dViewPatientHistory.setPreferredSize(new Dimension(200,60));
-		add(dViewPatientHistory);
+		dViewPatientRecords = new JButton("View Patient Records");
+		dViewPatientRecords.setPreferredSize(new Dimension(200,60));
+		add(dViewPatientRecords);
 		
 		dMakeDiagnosis = new JButton("Create a Record");
 		dMakeDiagnosis.setPreferredSize(new Dimension(200,60));
@@ -86,7 +86,7 @@ public class DoctorHome extends JFrame
 		dViewPatientReferral.addActionListener(dhandler3);
 		
 		DoctorHandler4 dhandler4 = new DoctorHandler4();
-		dViewPatientHistory.addActionListener(dhandler4);
+		dViewPatientRecords.addActionListener(dhandler4);
 		
 		DoctorHandler5 dhandler5 = new DoctorHandler5();
 		dMakeDiagnosis.addActionListener(dhandler5);
@@ -120,7 +120,7 @@ public class DoctorHome extends JFrame
 		{
 			if (event.getSource() == dViewDoctorSchedule)
 			{
-				DoctorSchedules doctorSchedules = new DoctorSchedules();
+				ViewDoctorSchedules doctorSchedules = new ViewDoctorSchedules();
 				doctorSchedules.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				doctorSchedules.setSize(600, 400);
 				doctorSchedules.setVisible(true);
@@ -146,9 +146,9 @@ public class DoctorHome extends JFrame
 	{
 		public void actionPerformed(ActionEvent event)
 		{
-			if (event.getSource() == dViewPatientHistory)
+			if (event.getSource() == dViewPatientRecords)
 			{
-				PatientHistory patientHistory = new PatientHistory();
+				ViewRecords patientHistory = new ViewRecords();
 				patientHistory.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				patientHistory.setSize(600, 400);
 				patientHistory.setVisible(true);

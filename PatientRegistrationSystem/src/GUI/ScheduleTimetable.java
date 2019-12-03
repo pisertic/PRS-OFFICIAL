@@ -18,17 +18,13 @@ public class ScheduleTimetable extends JFrame
 	private JPanel ttRightPanel;
 	private JPanel ttTopPanel;
 	private JLabel ttPanelLabel;
-	private JLabel ttDoctorFNameLabel;
-	private JLabel ttDoctorLNameLabel;
+	private JLabel ttDoctorUserLabel;
 	private JLabel ttDatesWorking;
 	private JLabel ttAddDateLabel;
-	private JLabel ttAddTimeLabel;
 	private JLabel ttAddDurationLabel;
-	private JTextField ttDoctorFTextField;
-	private JTextField ttDoctorLTextField;
+	private JTextField ttDoctorUserField;
 	private JTextField ttDatesWorkingField;
 	private JTextField ttAddDateTextField;
-	private JTextField ttAddTimeTextField;
 	private JTextField ttAddDurationTextField;
 	private JButton ttDoctorEnterButton;
 	private JButton ttDoctorScheduleButton;
@@ -61,21 +57,13 @@ public class ScheduleTimetable extends JFrame
 		ttRightPanel.setBackground(Color.white);
 		add(ttRightPanel, BorderLayout.EAST);
 		
-		ttDoctorFNameLabel = new JLabel();
-		ttDoctorFNameLabel.setText("Enter doctor's first name:");
-		ttLeftPanel.add(ttDoctorFNameLabel);
+		ttDoctorUserLabel = new JLabel();
+		ttDoctorUserLabel.setText("Enter doctor's user name:");
+		ttLeftPanel.add(ttDoctorUserLabel);
 		
-		ttDoctorFTextField = new JTextField();
-		ttDoctorFTextField.setPreferredSize(new Dimension(100,20));
-		ttLeftPanel.add(ttDoctorFTextField);
-		
-		ttDoctorLNameLabel = new JLabel();
-		ttDoctorLNameLabel.setText("Enter doctor's last name:");
-		ttLeftPanel.add(ttDoctorLNameLabel);
-		
-		ttDoctorLTextField = new JTextField();
-		ttDoctorLTextField.setPreferredSize(new Dimension(100,20));
-		ttLeftPanel.add(ttDoctorLTextField);
+		ttDoctorUserField = new JTextField();
+		ttDoctorUserField.setPreferredSize(new Dimension(100,20));
+		ttLeftPanel.add(ttDoctorUserField);
 		
 		ttDoctorEnterButton = new JButton("ENTER");
 		ttLeftPanel.add(ttDoctorEnterButton);
@@ -87,15 +75,7 @@ public class ScheduleTimetable extends JFrame
 		ttAddDateTextField = new JTextField();
 		ttAddDateTextField.setPreferredSize(new Dimension(100,20));
 		ttLeftPanel.add(ttAddDateTextField);
-		
-		ttAddTimeLabel = new JLabel();
-		ttAddTimeLabel.setText("Enter Time:");
-		ttLeftPanel.add(ttAddTimeLabel);
-		
-		ttAddTimeTextField = new JTextField();
-		ttAddTimeTextField.setPreferredSize(new Dimension(100,20));
-		ttLeftPanel.add(ttAddTimeTextField);
-		
+
 		ttAddDurationLabel = new JLabel();
 		ttAddDurationLabel.setText("Enter Duration:");
 		ttLeftPanel.add(ttAddDurationLabel);
@@ -114,6 +94,35 @@ public class ScheduleTimetable extends JFrame
 		ttDatesWorkingField = new JTextField();
 		ttDatesWorkingField.setPreferredSize(new Dimension(100,300));
 		ttRightPanel.add(ttDatesWorkingField);
+		
+		TimetableHandler1 thandler1 = new TimetableHandler1();
+		ttDoctorEnterButton.addActionListener(thandler1);
+		
+		TimetableHandler2 thandler2 = new TimetableHandler2();
+		ttDoctorScheduleButton.addActionListener(thandler2);
+	}
+	
+	private class TimetableHandler1 implements ActionListener
+	{
+		public void actionPerformed(ActionEvent event)
+		{
+			if (event.getSource() == ttDoctorEnterButton)
+			{
+				
+			}
+		}
+	}
+	
+	private class TimetableHandler2 implements ActionListener
+	{
+		public void actionPerformed(ActionEvent event)
+		{
+			if (event.getSource() == ttDoctorScheduleButton)
+			{
+				
+			}
+		}
 	}
 }
+
 

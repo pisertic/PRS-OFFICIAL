@@ -54,7 +54,7 @@ public class PatientHome extends JFrame
 		pViewPatientReferral.setPreferredSize(new Dimension(200,60));
 		add(pViewPatientReferral);
 		
-		pViewPatientHistory = new JButton("View Patient History");
+		pViewPatientHistory = new JButton("View Patient Records");
 		pViewPatientHistory.setPreferredSize(new Dimension(200,60));
 		add(pViewPatientHistory);
 		
@@ -93,7 +93,7 @@ public class PatientHome extends JFrame
 		{
 			if (event.getSource() == pViewDoctorSchedule)
 			{
-				DoctorSchedules doctorSchedules = new DoctorSchedules();
+				ViewDoctorSchedules doctorSchedules = new ViewDoctorSchedules();
 				doctorSchedules.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				doctorSchedules.setSize(600, 400);
 				doctorSchedules.setVisible(true);
@@ -121,7 +121,7 @@ public class PatientHome extends JFrame
 		{
 			if (event.getSource() == pViewPatientHistory)
 			{
-				PatientHistory patientHistory = new PatientHistory();
+				ViewRecords patientHistory = new ViewRecords();
 				patientHistory.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				patientHistory.setSize(600, 400);
 				patientHistory.setVisible(true);

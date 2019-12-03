@@ -18,19 +18,13 @@ public class MakeAppointment extends JFrame
 	private JPanel appRightPanel;
 	private JPanel appTopPanel;
 	private JLabel appPanelLabel;
-	private JLabel appDoctorFNameLabel;
-	private JLabel appDoctorLNameLabel;
-	private JLabel appPatientFNameLabel;
-	private JLabel appPatientLNameLabel;
-	private JLabel appHealthCardLabel;
+	private JLabel appDoctorUserLabel;
+	private JLabel appPatientUserLabel;
 	private JLabel appDateLabel;
 	private JLabel appReasonLabel;
 	private JLabel appDatesWorking;
-	private JTextField appDoctorFTextField;
-	private JTextField appDoctorLTextField;
-	private JTextField appPatientFTextField;
-	private JTextField appPatientLTextField;
-	private JTextField appHealthCardField;
+	private JTextField appDoctorUserField;
+	private JTextField appPatientUserField;
 	private JTextField appDateTextField;
 	private JTextField appReasonTextField;
 	private JTextField appDatesWorkingField;
@@ -65,48 +59,24 @@ public class MakeAppointment extends JFrame
 		appRightPanel.setBackground(Color.white);
 		add(appRightPanel, BorderLayout.EAST);
 		
-		appDoctorFNameLabel = new JLabel();
-		appDoctorFNameLabel.setText("Enter doctor's first name:");
-		appLeftPanel.add(appDoctorFNameLabel);
+		appDoctorUserLabel = new JLabel();
+		appDoctorUserLabel.setText("Enter doctor's user name to see schedule:");
+		appLeftPanel.add(appDoctorUserLabel);
 		
-		appDoctorFTextField = new JTextField();
-		appDoctorFTextField.setPreferredSize(new Dimension(100,20));
-		appLeftPanel.add(appDoctorFTextField);
-		
-		appDoctorLNameLabel = new JLabel();
-		appDoctorLNameLabel.setText("Enter doctor's last name:");
-		appLeftPanel.add(appDoctorLNameLabel);
-		
-		appDoctorLTextField = new JTextField();
-		appDoctorLTextField.setPreferredSize(new Dimension(100,20));
-		appLeftPanel.add(appDoctorLTextField);
+		appDoctorUserField = new JTextField();
+		appDoctorUserField.setPreferredSize(new Dimension(100,20));
+		appLeftPanel.add(appDoctorUserField);
 		
 		appDoctorEnterButton = new JButton("ENTER");
 		appLeftPanel.add(appDoctorEnterButton);
 		
-		appPatientFNameLabel = new JLabel();
-		appPatientFNameLabel.setText("Enter patient's first name:");
-		appLeftPanel.add(appPatientFNameLabel);
+		appPatientUserLabel = new JLabel();
+		appPatientUserLabel.setText("Enter patient's first name:");
+		appLeftPanel.add(appPatientUserLabel);
 		
-		appPatientFTextField = new JTextField();
-		appPatientFTextField.setPreferredSize(new Dimension(100,20));
-		appLeftPanel.add(appPatientFTextField);
-		
-		appPatientLNameLabel = new JLabel();
-		appPatientLNameLabel.setText("Enter patient's last name:");
-		appLeftPanel.add(appPatientLNameLabel);
-		
-		appPatientLTextField = new JTextField();
-		appPatientLTextField.setPreferredSize(new Dimension(100,20));
-		appLeftPanel.add(appPatientLTextField);
-		
-		appHealthCardLabel = new JLabel();
-		appHealthCardLabel.setText("Enter Health Card number:");
-		appLeftPanel.add(appHealthCardLabel);
-		
-		appHealthCardField = new JTextField();
-		appHealthCardField.setPreferredSize(new Dimension(100,20));
-		appLeftPanel.add(appHealthCardField);
+		appPatientUserField = new JTextField();
+		appPatientUserField.setPreferredSize(new Dimension(100,20));
+		appLeftPanel.add(appPatientUserField);
 		
 		appDateLabel = new JLabel();
 		appDateLabel.setText("Enter date of appointment:");
@@ -132,8 +102,36 @@ public class MakeAppointment extends JFrame
 		appRightPanel.add(appDatesWorking);
 		
 		appDatesWorkingField = new JTextField();
-		appDatesWorkingField.setPreferredSize(new Dimension(100,300));
+		appDatesWorkingField.setPreferredSize(new Dimension(200,300));
 		appRightPanel.add(appDatesWorkingField);
+		
+		AppHandler1 ahandler1 = new AppHandler1();
+		appDoctorEnterButton.addActionListener(ahandler1);
+		
+		AppHandler2 ahandler2 = new AppHandler2();
+		appCreateButton.addActionListener(ahandler2);
+	}
+	
+	private class AppHandler1 implements ActionListener
+	{
+		public void actionPerformed(ActionEvent event)
+		{
+			if (event.getSource() == appDoctorEnterButton)
+			{
+				
+			}
+		}
+	}
+	
+	private class AppHandler2 implements ActionListener
+	{
+		public void actionPerformed(ActionEvent event)
+		{
+			if (event.getSource() == appCreateButton)
+			{
+				
+			}
+		}
 	}
 }
 

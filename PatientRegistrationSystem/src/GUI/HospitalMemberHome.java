@@ -87,7 +87,7 @@ public class HospitalMemberHome extends JFrame
 		{
 			if (event.getSource() == hmViewDoctorSchedule)
 			{
-				DoctorSchedules doctorSchedules = new DoctorSchedules();
+				ViewDoctorSchedules doctorSchedules = new ViewDoctorSchedules();
 				doctorSchedules.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				doctorSchedules.setSize(600, 400);
 				doctorSchedules.setVisible(true);

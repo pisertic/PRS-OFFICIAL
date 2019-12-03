@@ -22,11 +22,10 @@ public class AdminHome extends JFrame
 	private JButton aMakeAppointment;
 	private JButton aViewDoctorSchedule;
 	private JButton aViewPatientReferral;
-	private JButton aViewPatientHistory;
+	private JButton aViewPatientRecords;
 	private JButton aScheduleDoctors;
 	private JButton aRemoveUser;
-	private JButton aAddDoctor;
-	private JButton aAddStaff;
+	private JButton aAddMember;
 	private JButton aMakeReferral;
 
 	private MyClient client;
@@ -65,9 +64,9 @@ public class AdminHome extends JFrame
 		aViewPatientReferral.setPreferredSize(new Dimension(200,60));
 		add(aViewPatientReferral);
 		
-		aViewPatientHistory = new JButton("View Patient History");
-		aViewPatientHistory.setPreferredSize(new Dimension(200,60));
-		add(aViewPatientHistory);
+		aViewPatientRecords = new JButton("View Patient Records");
+		aViewPatientRecords.setPreferredSize(new Dimension(200,60));
+		add(aViewPatientRecords);
 		
 		aScheduleDoctors = new JButton("Schedule Doctor Timetables");
 		aScheduleDoctors.setPreferredSize(new Dimension(200,60));
@@ -77,17 +76,9 @@ public class AdminHome extends JFrame
 		aRemoveUser.setPreferredSize(new Dimension(200,60));
 		add(aRemoveUser);
 		
-		aAddDoctor = new JButton("Add a Doctor");
-		aAddDoctor.setPreferredSize(new Dimension(200,60));
-		add(aAddDoctor);
-		
-		aAddStaff = new JButton("Add a Staff Member");
-		aAddStaff.setPreferredSize(new Dimension(200,60));
-		add(aAddStaff);
-		
-		aMakeReferral = new JButton("Add a Staff Member");
-		aMakeReferral.setPreferredSize(new Dimension(200,60));
-		add(aMakeReferral);
+		aAddMember = new JButton("Add a Doctor/Staff Member");
+		aAddMember.setPreferredSize(new Dimension(200,60));
+		add(aAddMember);
 		
 		//Adding Listeners onto buttons
 		AdminHandler1 ahandler1 = new AdminHandler1();
@@ -100,7 +91,7 @@ public class AdminHome extends JFrame
 		aViewPatientReferral.addActionListener(ahandler3);
 		
 		AdminHandler4 ahandler4 = new AdminHandler4();
-		aViewPatientHistory.addActionListener(ahandler4);
+		aViewPatientRecords.addActionListener(ahandler4);
 		
 		AdminHandler5 ahandler5 = new AdminHandler5();
 		aScheduleDoctors.addActionListener(ahandler5);
@@ -109,13 +100,7 @@ public class AdminHome extends JFrame
 		aRemoveUser.addActionListener(ahandler6);
 		
 		AdminHandler7 ahandler7 = new AdminHandler7();
-		aAddDoctor.addActionListener(ahandler7);
-		
-		AdminHandler8 ahandler8 = new AdminHandler8();
-		aAddStaff.addActionListener(ahandler8);
-		
-		AdminHandler9 ahandler9 = new AdminHandler9();
-		aAddStaff.addActionListener(ahandler9);
+		aAddMember.addActionListener(ahandler7);
 		
 		this.client= client;
 		this.user = user;
@@ -141,7 +126,7 @@ public class AdminHome extends JFrame
 		{
 			if (event.getSource() == aViewDoctorSchedule)
 			{
-				DoctorSchedules doctorSchedules = new DoctorSchedules();
+				ViewDoctorSchedules doctorSchedules = new ViewDoctorSchedules();
 				doctorSchedules.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				doctorSchedules.setSize(600, 400);
 				doctorSchedules.setVisible(true);
@@ -167,9 +152,9 @@ public class AdminHome extends JFrame
 	{
 		public void actionPerformed(ActionEvent event)
 		{
-			if (event.getSource() == aViewPatientHistory)
+			if (event.getSource() == aViewPatientRecords)
 			{
-				PatientHistory patientHistory = new PatientHistory();
+				ViewRecords patientHistory = new ViewRecords();
 				patientHistory.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				patientHistory.setSize(600, 400);
 				patientHistory.setVisible(true);
@@ -209,40 +194,12 @@ public class AdminHome extends JFrame
 	{
 		public void actionPerformed(ActionEvent event)
 		{
-			if (event.getSource() == aAddDoctor)
+			if (event.getSource() == aAddMember)
 			{
-				AddDoctor adddoctor = new AddDoctor();
-				adddoctor.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				adddoctor.setSize(600, 800);
-				adddoctor.setVisible(true);
-			}
-		}
-	}
-	
-	private class AdminHandler8 implements ActionListener
-	{
-		public void actionPerformed(ActionEvent event)
-		{
-			if (event.getSource() == aAddStaff)
-			{
-				AddStaff addstaff = new AddStaff();
-				addstaff.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				addstaff.setSize(600, 800);
-				addstaff.setVisible(true);
-			}
-		}
-	}
-	
-	private class AdminHandler9 implements ActionListener
-	{
-		public void actionPerformed(ActionEvent event)
-		{
-			if (event.getSource() == aMakeReferral)
-			{
-//				MakeReferral makeReferral = new MakeReferral();
-//				makeReferral.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-//				makeReferral.setSize(600, 400);
-//				makeReferral.setVisible(true);
+				AddMember addmember = new AddMember();
+				addmember.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				addmember.setSize(600, 800);
+				addmember.setVisible(true);
 			}
 		}
 	}

@@ -23,13 +23,9 @@ public class MakeReferral extends JFrame
 	private JPanel mrefTopPanel;
 	private JLabel mrefPanelLabel;
 	private JLabel mrefDoctorFNameLabel;
-	private JLabel mrefDoctorLNameLabel;
 	private JLabel mrefPatientFNameLabel;
-	private JLabel mrefPatientLNameLabel;
 	private JTextField mrefDoctorFTextField;
-	private JTextField mrefDoctorLTextField;
 	private JTextField mrefPatientFTextField;
-	private JTextField mrefPatientLTextField;
 	private JButton mrefReferButton;
 	
 	public MakeReferral(Staff user, Doctor doc, MyClient client)
@@ -61,39 +57,37 @@ public class MakeReferral extends JFrame
 		add(mrefRightPanel, BorderLayout.EAST);
 		
 		mrefDoctorFNameLabel = new JLabel();
-		mrefDoctorFNameLabel.setText("Enter doctor's first name:");
+		mrefDoctorFNameLabel.setText("Enter doctor's user name:");
 		mrefLeftPanel.add(mrefDoctorFNameLabel);
 		
 		mrefDoctorFTextField = new JTextField();
 		mrefDoctorFTextField.setPreferredSize(new Dimension(100,20));
 		mrefLeftPanel.add(mrefDoctorFTextField);
 		
-		mrefDoctorLNameLabel = new JLabel();
-		mrefDoctorLNameLabel.setText("Enter doctor's last name:");
-		mrefLeftPanel.add(mrefDoctorLNameLabel);
-		
-		mrefDoctorLTextField = new JTextField();
-		mrefDoctorLTextField.setPreferredSize(new Dimension(100,20));
-		mrefLeftPanel.add(mrefDoctorLTextField);
-		
 		mrefPatientFNameLabel = new JLabel();
-		mrefPatientFNameLabel.setText("Enter patient's first name:");
+		mrefPatientFNameLabel.setText("Enter patient's user name:");
 		mrefLeftPanel.add(mrefPatientFNameLabel);
 		
 		mrefPatientFTextField = new JTextField();
 		mrefPatientFTextField.setPreferredSize(new Dimension(100,20));
 		mrefLeftPanel.add(mrefPatientFTextField);
 		
-		mrefPatientLNameLabel = new JLabel();
-		mrefPatientLNameLabel.setText("Enter patient's last name:");
-		mrefLeftPanel.add(mrefPatientLNameLabel);
-		
-		mrefPatientLTextField = new JTextField();
-		mrefPatientLTextField.setPreferredSize(new Dimension(100,20));
-		mrefLeftPanel.add(mrefPatientLTextField);
-		
 		mrefReferButton = new JButton("REFER PATIENT");
 		mrefLeftPanel.add(mrefReferButton);
+		
+		RefHandler refhandler = new RefHandler();
+		mrefReferButton.addActionListener(refhandler);
+	}
+	
+	private class RefHandler implements ActionListener
+	{
+		public void actionPerformed(ActionEvent event)
+		{
+			if (event.getSource() == mrefReferButton)
+			{
+				
+			}
+		}
 	}
 }
 
