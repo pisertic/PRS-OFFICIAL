@@ -7,6 +7,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,8 +21,10 @@ import javax.swing.JTextField;
 import OCSF.GFG;
 import OCSF.MyClient;
 import OCSF.Objectinator;
+import prsPackage.HealthCard;
 import prsPackage.HospitalMember;
 import prsPackage.LoginCard;
+import prsPackage.Patient;
 
 public class PatientSignup extends JFrame {
 	private JTextField pAddressField;
@@ -37,12 +44,9 @@ public class PatientSignup extends JFrame {
 	private MyClient client;
 	private HospitalMember user;
 
-<<<<<<< HEAD
-	public PatientSignup(MyClient client) {
-=======
+
 	public PatientSignup(HospitalMember user , MyClient client) {
-		
->>>>>>> branch 'master' of https://github.com/pisertic/PRS-OFFICIAL.git
+
 		super("Patient Registation System Signup");
 		setLayout(new FlowLayout(FlowLayout.LEFT));
 		getContentPane().setBackground(Color.white);
@@ -106,31 +110,64 @@ public class PatientSignup extends JFrame {
 	private class SignupHandler implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			if (event.getSource() == patientSignupButton) {
-//				//NO INPUT CHECKING IMPLIMENTED YET(except checking to ensure all fields are full)
-//				if(pAddressField.getText() != null && pSINField.getText() != null) {
-//					//create hospital member(and its login card)
-//					LoginCard card = null;
-//					try {
-//						card = new LoginCard(userNameTextField.getText(), GFG.toHexString(GFG.getSHA(passWordTextField.getText())), 2);
-//					} catch (NoSuchAlgorithmException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-//					HospitalMember user = new HospitalMember(pFirstTextField.getText(),pLastTextField.getText(), card);
-//					//SEND USER TO SERVER UPDATE LIST OF HOSPITAL MEMBERS
-//					try {
-//						client.sendToServer(Objectinator.createDataMsg(true, user, 2));
-//					} catch (IOException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-//					// open appropriate window
-//					HospitalMemberHome hmHome = new HospitalMemberHome(user, client);
-//					hmHome.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-//					hmHome.setSize(500, 400);
-//					hmHome.setVisible(true);
-//				
-//				}
+				//NO INPUT CHECKING IMPLIMENTED YET(except checking to ensure all fields are full)
+				if(pAddressField.getText() != null && pSINField.getText() != null && pHealthCardField.getText() != null && pExpDateField.getText() != null && pProvinceField.getText() != null) {
+	
+					//create new login card and grab list from server
+					try {
+						client.sendToServer(Objectinator.createDataMsg(6));
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}//loginCards
+					
+					ArrayList<LoginCard> cardList= null;
+					cardList = (ArrayList<LoginCard>) client.loginData;
+					LoginCard card = null;
+				
+					//find old card, delete it, and add new card. send to server when done
+					for(int i =0; i < cardList.size(); i++) {
+						if (cardList.get(i).getUserName().equals(user.getLoginUser())) {
+							cardList.get(i).setClassID(3);
+							card = cardList.get(i);
+							try {
+								client.sendToServer(Objectinator.createDataMsg(true, cardList, 6));
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+						}
+					}
+					user.setLoginCard(card);
+					
+					//create the health card
+					DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+					HealthCard h = null;
+					try {
+						h = new HealthCard(Integer.parseInt(pHealthCardField.getText()) , dateFormat.parse(pExpDateField.getText()), pProvinceField.getText());
+					} catch (NumberFormatException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ParseException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					//create patient
+					Patient user1 = new Patient(h, user.getFName(), user.getLName(), pAddressField.getText(), Integer.parseInt(pSINField.getText()), card);
+					//SEND USER TO SERVER UPDATE LIST OF HOSPITAL MEMBERS
+					try {
+						client.sendToServer(Objectinator.createDataMsg(true, user1, 3));
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					// open appropriate window
+					PatientHome patientHome = new PatientHome(user1, client);
+					patientHome.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					patientHome.setSize(500, 400);
+					patientHome.setVisible(true);
+				
+				}
 			}
 		}
 	}

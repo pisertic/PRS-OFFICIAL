@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.security.NoSuchAlgorithmException;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -73,18 +75,21 @@ public class Converter {
 	}
 
 	public static void main(String[] args) {
-		
-		LoginCard card = new LoginCard("Admin", "Admin", 10);
+		LoginCard c = new LoginCard("sdfg", "asfdgg", 2);
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		HealthCard h = null;
 		try {
-			card.setPassword(GFG.toHexString(GFG.getSHA("Admin")));
-		} catch (NoSuchAlgorithmException e1) {
+			h = new HealthCard(6789 , dateFormat.parse("2020-12-12"),"ON");
+		} catch (ParseException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		ArrayList<LoginCard> list = new ArrayList<LoginCard>();
-		list.add(card);
+		Patient p = new Patient(h, "Admin", "Admin", "asdfg", 1234567, c );
+		
+		ArrayList<Patient> list = new ArrayList<Patient>();
+		list.add(p);
 		try {
-			writeData(list, userBase);
+			writeData(list, patientData);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

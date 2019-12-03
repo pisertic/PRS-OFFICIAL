@@ -76,6 +76,7 @@ public class HospitalMemberHome extends JFrame
 				patientsignupFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				patientsignupFrame.setSize(600, 400);
 				patientsignupFrame.setVisible(true);
+				dispose();
 			}
 		}
 	}

@@ -117,9 +117,7 @@ public class MakeReferral extends JFrame {
 						}
 					}
 					//send to createRef method	
-					useCases.createRef(user, mrefDoctorFTextField.getText(), pat, client);
-					
-					
+					useCases.createRef(user, mrefDoctorFTextField.getText(), pat, client);					
 				}
 			}
 		}
