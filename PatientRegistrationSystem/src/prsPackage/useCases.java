@@ -67,7 +67,7 @@ public class useCases {
 		
 		if (counter == -1)
 			System.out.println("\nDoctor already has an appoinment at the selected time");
-		else 
+		else ;
 		
 
 		

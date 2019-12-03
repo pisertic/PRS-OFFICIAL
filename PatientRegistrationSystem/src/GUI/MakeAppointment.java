@@ -1,46 +1,60 @@
 package GUI;
 
 import java.awt.BorderLayout;
+import OCSF.MyClient;
+import OCSF.Objectinator;
+import prsPackage.Doctor;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.event.*;
+import java.io.IOException;
+import java.util.ArrayList;
+
 //import javax.swing.SwingConstants;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 
 public class MakeAppointment extends JFrame 
 {
 	private JPanel appLeftPanel;
 	private JPanel appRightPanel;
 	private JPanel appTopPanel;
+	private JPanel datesAreaPanel;
+	private JScrollPane dateAreaScroll;
 	private JLabel appPanelLabel;
 	private JLabel appDoctorUserLabel;
 	private JLabel appPatientUserLabel;
 	private JLabel appDateLabel;
 	private JLabel appReasonLabel;
-	private JLabel appDatesWorking;
 	private JTextField appDoctorUserField;
 	private JTextField appPatientUserField;
 	private JTextField appDateTextField;
 	private JTextField appReasonTextField;
-	private JTextField appDatesWorkingField;
+	private JTextArea appDatesWorkingArea;
 	private JButton appDoctorEnterButton;
 	private JButton appCreateButton;
+	private MyClient client;
 	
-	public MakeAppointment()
+	public MakeAppointment(MyClient client)
 	{
 		super("Make Appointment");
-		setLayout(new BorderLayout());
+		getContentPane().setLayout(new BorderLayout());
 		getContentPane().setBackground(Color.white);
 		
 		appTopPanel = new JPanel();
 		appTopPanel.setBackground(Color.blue);
 		appTopPanel.setPreferredSize(new Dimension(500,30));
-		add(appTopPanel, BorderLayout.NORTH);
+		getContentPane().add(appTopPanel, BorderLayout.NORTH);
 		
 		appPanelLabel = new JLabel();
 		appPanelLabel.setText("ESOF3050 Hospital PRS System: Make an Appointment");
@@ -51,13 +65,13 @@ public class MakeAppointment extends JFrame
 		appLeftPanel.setLayout(new FlowLayout());
 		appLeftPanel.setPreferredSize(new Dimension(300,400));
 		appLeftPanel.setBackground(Color.white);
-		add(appLeftPanel, BorderLayout.WEST);
+		getContentPane().add(appLeftPanel, BorderLayout.CENTER);
 		
 		appRightPanel = new JPanel();
 		appRightPanel.setLayout(new FlowLayout());
 		appRightPanel.setPreferredSize(new Dimension(300,400));
 		appRightPanel.setBackground(Color.white);
-		add(appRightPanel, BorderLayout.EAST);
+		getContentPane().add(appRightPanel, BorderLayout.EAST);
 		
 		appDoctorUserLabel = new JLabel();
 		appDoctorUserLabel.setText("Enter doctor's user name to see schedule:");
@@ -97,19 +111,33 @@ public class MakeAppointment extends JFrame
 		appCreateButton = new JButton("CREATE APPOINTMENT");
 		appLeftPanel.add(appCreateButton);
 		
-		appDatesWorking = new JLabel();
-		appDatesWorking.setText("Dates Working:");
-		appRightPanel.add(appDatesWorking);
+//		appDatesWorkingArea = new JTextArea();
+//		appDatesWorkingArea.setPreferredSize(new Dimension(200,300));
+//		appRightPanel.add(appDatesWorkingArea);
 		
-		appDatesWorkingField = new JTextField();
-		appDatesWorkingField.setPreferredSize(new Dimension(200,300));
-		appRightPanel.add(appDatesWorkingField);
+//		datesAreaPanel = new JPanel();
+//		datesAreaPanel.setPreferredSize(new Dimension(200,300));
+		
+//		------------------------------------------------------------
+		datesAreaPanel = new JPanel();
+		datesAreaPanel.setPreferredSize(new Dimension(200,300));
+		datesAreaPanel.setBorder(new TitledBorder(new EtchedBorder(), "Comments:"));
+		datesAreaPanel.setBackground(Color.white);
+		appDatesWorkingArea = new JTextArea();
+		appDatesWorkingArea.setPreferredSize(new Dimension(400,250));
+		appDatesWorkingArea.setEditable(true);
+		dateAreaScroll = new JScrollPane(appDatesWorkingArea);
+		dateAreaScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		datesAreaPanel.add(dateAreaScroll);
+		add(datesAreaPanel);
 		
 		AppHandler1 ahandler1 = new AppHandler1();
 		appDoctorEnterButton.addActionListener(ahandler1);
 		
 		AppHandler2 ahandler2 = new AppHandler2();
 		appCreateButton.addActionListener(ahandler2);
+		
+		this.client = client;
 	}
 	
 	private class AppHandler1 implements ActionListener
@@ -118,6 +146,24 @@ public class MakeAppointment extends JFrame
 		{
 			if (event.getSource() == appDoctorEnterButton)
 			{
+				//grab list from server
+				try {
+					client.sendToServer(Objectinator.createDataMsg(1));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				ArrayList<Doctor> doctorList = (ArrayList<Doctor>)client.docData;
+				//going through the received ArrayList to find a match
+				for(int counter = 0; counter < doctorList.size(); counter++) 
+				{
+					if(appDoctorUserField.getText() == doctorList.get(counter).getLoginUser()) 
+					{
+						Doctor doctor = doctorList.get(counter);
+					}
+				}
+				
 				
 			}
 		}
