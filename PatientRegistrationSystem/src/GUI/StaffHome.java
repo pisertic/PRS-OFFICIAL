@@ -19,7 +19,7 @@ public class StaffHome extends JFrame
 	private JButton sMakeAppointment;
 	private JButton sViewDoctorSchedule;
 	private JButton sViewPatientReferral;
-	private JButton sViewPatientHistory;
+	private JButton sViewPatientRecords;
 	private JButton sScheduleDoctors;
 	private JButton sMakeReferral;
 	
@@ -57,9 +57,9 @@ public class StaffHome extends JFrame
 		sViewPatientReferral.setPreferredSize(new Dimension(200,60));
 		add(sViewPatientReferral);
 		
-		sViewPatientHistory = new JButton("View Patient History");
-		sViewPatientHistory.setPreferredSize(new Dimension(200,60));
-		add(sViewPatientHistory);
+		sViewPatientRecords = new JButton("View Patient Records");
+		sViewPatientRecords.setPreferredSize(new Dimension(200,60));
+		add(sViewPatientRecords);
 		
 		sScheduleDoctors = new JButton("Schedule Doctor Timetables");
 		sScheduleDoctors.setPreferredSize(new Dimension(200,60));
@@ -110,7 +110,7 @@ public class StaffHome extends JFrame
 		{
 			if (event.getSource() == sViewDoctorSchedule)
 			{
-				DoctorSchedules doctorSchedules = new DoctorSchedules();
+				ViewDoctorSchedules doctorSchedules = new ViewDoctorSchedules();
 				doctorSchedules.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				doctorSchedules.setSize(600, 400);
 				doctorSchedules.setVisible(true);
@@ -136,9 +136,9 @@ public class StaffHome extends JFrame
 	{
 		public void actionPerformed(ActionEvent event)
 		{
-			if (event.getSource() == sViewPatientHistory)
+			if (event.getSource() == sViewPatientRecords)
 			{
-				PatientHistory patientHistory = new PatientHistory();
+				ViewRecords patientHistory = new ViewRecords();
 				patientHistory.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				patientHistory.setSize(600, 400);
 				patientHistory.setVisible(true);

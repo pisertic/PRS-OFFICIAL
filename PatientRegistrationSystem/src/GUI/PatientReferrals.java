@@ -19,10 +19,8 @@ public class PatientReferrals extends JFrame
 	private JPanel prefTopPanel;
 	private JLabel prefPanelLabel;
 	private JLabel prefPatientFNameLabel;
-	private JLabel prefPatientLNameLabel;
 	private JLabel prefReferrals;
 	private JTextField prefPatientFTextField;
-	private JTextField prefPatientLTextField;
 	private JTextField prefReferralsField;
 	private JButton prefPatientEnterButton;
 	
@@ -55,20 +53,12 @@ public class PatientReferrals extends JFrame
 		add(prefRightPanel, BorderLayout.EAST);
 		
 		prefPatientFNameLabel = new JLabel();
-		prefPatientFNameLabel.setText("Enter patient's first name:");
+		prefPatientFNameLabel.setText("Enter patient's user name:");
 		prefLeftPanel.add(prefPatientFNameLabel);
 		
 		prefPatientFTextField = new JTextField();
 		prefPatientFTextField.setPreferredSize(new Dimension(100,20));
 		prefLeftPanel.add(prefPatientFTextField);
-		
-		prefPatientLNameLabel = new JLabel();
-		prefPatientLNameLabel.setText("Enter patient's last name:");
-		prefLeftPanel.add(prefPatientLNameLabel);
-		
-		prefPatientLTextField = new JTextField();
-		prefPatientLTextField.setPreferredSize(new Dimension(100,20));
-		prefLeftPanel.add(prefPatientLTextField);
 		
 		prefPatientEnterButton = new JButton("VIEW REFERRALS");
 		prefLeftPanel.add(prefPatientEnterButton);
@@ -80,6 +70,20 @@ public class PatientReferrals extends JFrame
 		prefReferralsField = new JTextField();
 		prefReferralsField.setPreferredSize(new Dimension(100,300));
 		prefRightPanel.add(prefReferralsField);
+		
+		ReferralHandler1 rhandler = new ReferralHandler1();
+		prefPatientEnterButton.addActionListener(rhandler);
+	}
+	
+	private class ReferralHandler1 implements ActionListener
+	{
+		public void actionPerformed(ActionEvent event)
+		{
+			if (event.getSource() == prefPatientEnterButton)
+			{
+				
+			}
+		}
 	}
 }
 

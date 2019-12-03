@@ -104,5 +104,33 @@ public class CreateRecords extends JFrame
 		diaPatientRecordsField = new JTextField();
 		diaPatientRecordsField.setPreferredSize(new Dimension(100,300));
 		diaRightPanel.add(diaPatientRecordsField);
+		
+		RecordHandler1 rhhandler1 = new RecordHandler1();
+		diaPatientEnterButton.addActionListener(rhhandler1);
+		
+		RecordHandler2 rhhandler2 = new RecordHandler2();
+		diaDiagnoseButton.addActionListener(rhhandler2);
+	}
+	
+	private class RecordHandler1 implements ActionListener
+	{
+		public void actionPerformed(ActionEvent event)
+		{
+			if (event.getSource() == diaPatientEnterButton)
+			{
+				
+			}
+		}
+	}
+	
+	private class RecordHandler2 implements ActionListener
+	{
+		public void actionPerformed(ActionEvent event)
+		{
+			if (event.getSource() == diaDiagnoseButton)
+			{
+				
+			}
+		}
 	}
 }

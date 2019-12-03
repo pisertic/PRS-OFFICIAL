@@ -12,21 +12,19 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class DoctorSchedules extends JFrame
+public class ViewDoctorSchedules extends JFrame
 {
 	private JPanel schLeftPanel;
 	private JPanel schRightPanel;
 	private JPanel schTopPanel;
 	private JLabel schPanelLabel;
-	private JLabel schDoctorFNameLabel;
-	private JLabel schDoctorLNameLabel;
+	private JLabel schDoctorUserLabel;
 	private JLabel schDatesWorking;
-	private JTextField schDoctorFTextField;
-	private JTextField schDoctorLTextField;
+	private JTextField schDoctorUserField;
 	private JTextField schDatesWorkingField;
 	private JButton schDoctorEnterButton;
 	
-	public DoctorSchedules()
+	public ViewDoctorSchedules()
 	{
 		super("View Doctor Schedules");
 		setLayout(new BorderLayout());
@@ -54,21 +52,13 @@ public class DoctorSchedules extends JFrame
 		schRightPanel.setBackground(Color.white);
 		add(schRightPanel, BorderLayout.EAST);
 		
-		schDoctorFNameLabel = new JLabel();
-		schDoctorFNameLabel.setText("Enter doctor's first name:");
-		schLeftPanel.add(schDoctorFNameLabel);
+		schDoctorUserLabel = new JLabel();
+		schDoctorUserLabel.setText("Enter doctor's user name:");
+		schLeftPanel.add(schDoctorUserLabel);
 		
-		schDoctorFTextField = new JTextField();
-		schDoctorFTextField.setPreferredSize(new Dimension(100,20));
-		schLeftPanel.add(schDoctorFTextField);
-		
-		schDoctorLNameLabel = new JLabel();
-		schDoctorLNameLabel.setText("Enter doctor's last name:");
-		schLeftPanel.add(schDoctorLNameLabel);
-		
-		schDoctorLTextField = new JTextField();
-		schDoctorLTextField.setPreferredSize(new Dimension(100,20));
-		schLeftPanel.add(schDoctorLTextField);
+		schDoctorUserField = new JTextField();
+		schDoctorUserField.setPreferredSize(new Dimension(100,20));
+		schLeftPanel.add(schDoctorUserField);
 		
 		schDoctorEnterButton = new JButton("VIEW SCHEDULE");
 		schLeftPanel.add(schDoctorEnterButton);
@@ -78,8 +68,22 @@ public class DoctorSchedules extends JFrame
 		schRightPanel.add(schDatesWorking);
 		
 		schDatesWorkingField = new JTextField();
-		schDatesWorkingField.setPreferredSize(new Dimension(100,300));
+		schDatesWorkingField.setPreferredSize(new Dimension(200,300));
 		schRightPanel.add(schDatesWorkingField);
+		
+		ViewHandler vhandler = new ViewHandler();
+		schDoctorEnterButton.addActionListener(vhandler);
+	}
+	
+	private class ViewHandler implements ActionListener
+	{
+		public void actionPerformed(ActionEvent event)
+		{
+			if (event.getSource() == schDoctorEnterButton)
+			{
+				
+			}
+		}
 	}
 }
 
