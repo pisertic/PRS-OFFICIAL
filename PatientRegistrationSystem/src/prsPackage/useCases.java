@@ -11,7 +11,7 @@ import OCSF.MyClient;
 import OCSF.Objectinator;
 
 public class useCases {
-
+ 
 	private int hospMem = 2;
 	private int staffMem = 5;
 	private int patMem = 3;

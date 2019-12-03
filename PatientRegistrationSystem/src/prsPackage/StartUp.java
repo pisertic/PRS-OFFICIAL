@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 
 import GUI.Login;
+import GUI.MakeAppointment;
 import GUI.Signup;
 import OCSF.MyClient;
 import OCSF.MyServer;
