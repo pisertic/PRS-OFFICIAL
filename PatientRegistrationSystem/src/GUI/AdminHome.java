@@ -196,10 +196,10 @@ public class AdminHome extends JFrame {
 		{
 			if (event.getSource() == aMakeReferral)
 			{
-//				MakeReferral makeReferral = new MakeReferral();
-//				makeReferral.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-//				makeReferral.setSize(600, 400);
-//				makeReferral.setVisible(true);
+				MakeReferral makeReferral = new MakeReferral(user, null, client);
+				makeReferral.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				makeReferral.setSize(600, 400);
+				makeReferral.setVisible(true);
 
 			}
 		}
