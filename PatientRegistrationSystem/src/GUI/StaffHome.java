@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import OCSF.MyClient;
+
 public class StaffHome extends JFrame
 {
 	private JPanel sHomeTopPanel;
@@ -22,9 +24,10 @@ public class StaffHome extends JFrame
 	private JButton sViewPatientRecords;
 	private JButton sScheduleDoctors;
 	private JButton sMakeReferral;
+	private MyClient client;
 	
 	
-	public StaffHome()
+	public StaffHome(MyClient client)
 	{
 		super("Staff Home");
 		setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -80,7 +83,7 @@ public class StaffHome extends JFrame
 		sViewPatientReferral.addActionListener(shandler3);
 		
 		StaffHandler4 shandler4 = new StaffHandler4();
-		sViewPatientHistory.addActionListener(shandler4);
+		sViewPatientRecords.addActionListener(shandler4);
 		
 		StaffHandler5 shandler5 = new StaffHandler5();
 		sScheduleDoctors.addActionListener(shandler5);
@@ -166,7 +169,7 @@ public class StaffHome extends JFrame
 		{
 			if (event.getSource() == sMakeReferral)
 			{
-				MakeReferral makeReferral = new MakeReferral();
+				MakeReferral makeReferral = new MakeReferral(client);
 				makeReferral.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				makeReferral.setSize(600, 400);
 				makeReferral.setVisible(true);

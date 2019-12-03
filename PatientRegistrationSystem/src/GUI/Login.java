@@ -230,7 +230,7 @@ public class Login extends JFrame {
 						}
 						
 						// open appropriate window
-						StaffHome staffHome = new StaffHome();
+						StaffHome staffHome = new StaffHome(client);
 						staffHome.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 						staffHome.setSize(500, 400);
 						staffHome.setVisible(true);

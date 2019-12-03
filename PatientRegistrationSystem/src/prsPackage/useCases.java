@@ -11,7 +11,7 @@ import OCSF.MyClient;
 import OCSF.Objectinator;
 
 public class useCases {
-
+ 
 	private int hospMem = 2;
 	private int staffMem = 5;
 	private int patMem = 3;
@@ -67,6 +67,7 @@ public class useCases {
 		
 		if (counter == -1)
 			System.out.println("\nDoctor already has an appoinment at the selected time");
+		else 
 		
 
 		
@@ -134,7 +135,8 @@ public class useCases {
 	
 	//chacko
 	public void cancleDocApp(Patient patient, MyClient client) {
-		ArrayList<Doctor> doctor = new ArrayList<Doctor>();
+		
+		ArrayList<Doctor> doctor = null;
 		doctor = (ArrayList<Doctor>)Converter.readData(Converter.docData);
 		
 		//ArrayList<Integer> editableAppointments = new ArrayList<Integer>(); //Stores location of DoctorSchedules the patient can edit
